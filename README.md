@@ -320,13 +320,22 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 * Tertiary operator: `x = 2 if len(s) > 5 else 10`
 
+* Tuple `(1,2,3)` is immutable.
+
 * `with` works like try/finally, requires context management protocol: `__enter__()`, `__exit()__`.
 
 * `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator.
 
 * `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
 
-### Function calling
+### List functions
+
+* `del l[1]` removes element at index 1
+* `l.pop(1)` removes element at index 1 and returns this element
+* `l.pop(l.index(max(l)))` removes the max element
+* `l.remove(x)` removes the first value matching `x`
+
+### Functions
 
 ##### Calling with args
 
