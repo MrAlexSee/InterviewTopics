@@ -305,7 +305,7 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 * not too many list functions
 * no concise way to combine functions
 
-### Main features
+### Selected features
 
 * Import from subdir requires a present `__init__.py` file (may be empty).
 
@@ -355,6 +355,29 @@ def addKwargs(**kwargs): # All keyword params as a dict
 * `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
 * `map(len, ["ala", "ma", "kota"])`
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
+
+### Classes
+
+```
+class Point(object):
+  n = 5 # Static var, access as Point.n
+
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+  def sum(self): # Not passing self would mean a static function
+    return self.x + self.y
+```
+
+* Always inherit from `object` for access to class names (new-style classes).
+* Convention for private: `self._x`, private with mangled name: `self.__x` (works for both functions and variables).
+* Dictionary containing all member variables: `print p1.__dict__`
+* Extend objects: `p1.z = 8`, now `print p1.z` works only if z was set for this object.
+
+##### Inheritance
+
+
 
 Git
 --------------------
