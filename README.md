@@ -253,8 +253,48 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 ### Main features
 
-* import from subdir requires a present `__init__.py` file (may be empty)
-* `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator
+* Import from subdir requires a present `__init__.py` file (may be empty).
+
+* `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator.
+
+* `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
+
+### Function calling
+
+* Calling with arguments
+
+```
+def add(x, y):
+  return x + y
+
+def add3(x, y = 3):
+  return x + y
+```
+
+..* Default arg values must follow from the left.
+..* Calling with explicit arg names: `print add(x = 5, y = 4)`.
+..* Unpacking operator: `print add(*[2, 3])`
+
+* Keyword packing
+
+```
+def addKwargs(**kwargs): # All keyword params as a dict
+  return sum(kwargs.values())
+```
+
+..* `print addKwargs(x = 2, y = 3)`
+..* `print addKwargs(**{"x": 2, "y" = 3)`
+
+* Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
+
+### Filter, map, reduce
+
+* List comprehension combines map with filter, `[2 * x for x in xrange(10) if x % 2 == 0]`.
+
+..* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
+..* `map(len, ["ala", "ma", "kota"])`
+
+* `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
 
 Git
 --------------------
