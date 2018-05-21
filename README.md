@@ -164,6 +164,10 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 ### Project planning
 
+### Programming languages
+
+Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
+
 ### Unit testing
 
 ### Useful Linux commands
@@ -238,7 +242,19 @@ C++
 Python
 --------------------
 
-### List comprehension
+Python: interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT.
+
+[Not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
+
+* no tail recursion (i.e. no using equivalent memory to a loop)
+* no pattern matching
+* not too many list functions
+* no concise way to combine functions
+
+### Main features
+
+* import from subdir requires a present `__init__.py` file (may be empty)
+* `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator
 
 Git
 --------------------
