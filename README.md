@@ -162,6 +162,32 @@ The summary is based on [Wiki](https://en.wikipedia.org/wiki/Software_design_pat
 
 ### Unit testing
 
+### Useful Linux commands
+
+* `cat [file]`: print file contents
+* `chmod [XXX] [file]`: change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute
+* `df -h`: disk usage in human-readable
+* `ls -lah`: list current dir with hidden files and details in human-readable
+* `man gcc | grep [-]std=c++11 -C2`: search for a switch and show 2 lines around the result
+* `mv [src] [dst]`: move file `[src]` to `[dst]`, can be used for renaming
+* `rm -rf [dir]`: remove `[dir]` recursively
+* `touch [file]`: create `[file]`
+* `whreis [cmd]`: check the location of `[cmd]`
+
+* `dpkg --listfiles [pkg]`: list all files from package `[pkg]`
+* `update-alternatives --config [pkg]`: select a different version for `[pkg]`
+
+* `dot -Tpdf [in].dot -o [out].pdf`: convert file `[in]` to `[out].pdf`
+* `rsvg-convert -f pdf -o [out].pdf [in]`: convert file `[in]` to `[out].pdf`
+
+* `host [url]`: get IP for `[url]`
+* `wget -m -e robots=off --no-parent [url]`: download recursively from `[url]`
+* `whois [IP]`: get information about `[IP]`
+
+* `tar -xzf [in]`: extract, gunzip (j = bzip), input file `[in]`
+* `unzip [file]`
+* `zip [out] [file1] [file2]`
+
 C++
 --------------------
 
@@ -206,11 +232,20 @@ Python
 
 * `git init`
 * `git clone [address]`
+
+* `git add -a`: add all already-tracked files
+* `git checkout [branch-name]`: switch to branch `[branch-name]`
+* `git commit -m "[msg]"`: commit with message `[msg]`
+* `git merge [branch-name]`: merge current branch with branch `[branch-name]`
+* `git push`: push local to to the corresponding remote branch
+* `git push origin [branch-name]`: push only branch `[branch-name]`
+* `git rebase [branch-name]`: moves the entire current branch to the tip of `[branch-name]`
+
 * `git log`
-* `git add -a` add all already-tracked files
-* `git push` push local to to the corresponding remote branch
-* `git push origin [branch-name]` push only branch `[branch-name]`
-* `git checkout [branch-name]` switch to branch `[branch-name]`
+* `git pull` (this is `git fetch` followed by `git merge` to the current local branch)
+* `git reset --hard origin/master`: remove all local changes
+* `git rm [file]`: remove `[file]`
+* `git rm --cached [file]`: stop `[file]` from being tracked
 
 
 [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
