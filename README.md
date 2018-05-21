@@ -203,6 +203,7 @@ MVVM
 ### Language-related concepts
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
+* Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
 * Introspection: ability to examin type or properties at runtime
 * Monkey patching: dynamic replacement of attributes at runtime
 * Reflection: modification of program structure at runtime
@@ -223,12 +224,14 @@ MVVM
 
 *TODO*
 
+* [Hamcrest](https://en.wikipedia.org/wiki/Hamcrest) (matchers)
+
 ### Useful Linux commands
 
 ##### General
 
 * `cat [file]` – print file contents
-* `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute
+* `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
 * `df -h` – disk usage in human-readable
 * `ls -lah` – list current dir with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch and show 2 lines around the result
@@ -266,36 +269,78 @@ C++
 
 ### Basic
 
-[Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
+* Abstract class has pure virtual functions: `virtual void fun() = 0;`
+
+* Class has private fields by default, struct public by default.
+
+* Constructors: default (created when no other constructor is specified), parametric, copy, move
+
+* Placement new: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
+
+* References cannot be null, reset or uninitialized.
+
+* [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)) – destructor, copy constructor, copy assignment operator.
 
 ##### Memory management
 
 `malloc` must be matched with `free`, it returns NULL on error.
 `new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
 
+##### Operator overloading
+
+```
+Type operator+ (const Type &type);
+friend Type operator+ (const Type &t1, const Type &t2);
+```
+
 ##### Variadic functions
 
 `int printf(const char* format, ...)`. Init with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
 
-##### Operator overloading
-
-*TODO*
-
 ### C++11
 
-[Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five)
+* `for (const int i : tab) { }`
+
+* Mark overriden (virtual) functions with `override` keyword.
+
+* [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator
+
+##### Move semantics
+
+* lvalue = has address can be assigned
+* rvalue = a temporary object `string getName() { return "ala"; } string &&name = getName();`
+
+```
+MyString(const MyString &other) { }
+MyString(MyString &&other) { } // steal the resources
+
+MyString &operator= (MyString other) // pass-by-value
+{
+  swap(other);
+  return *this;
+}
+```
 
 ##### Lambdas
 
-*TODO*
+```
+sort(tab, tab + n, [](int a, int b) { return a > b; });
+```
+Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
+
+`transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
 
 ##### Multithreading
 
-*TODO*
+* `std::promise` is the producer and `std::future` is the consumer.
+* `future<void> res(async(fun));` – async can take fun with args or a lambda, `res.get();` blocks until the result is available.
+
 
 ##### Smart pointers
 
-*TODO*
+* `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed.
+* `weak_ptr` – doesn't increase the count, useful for preventing circular dependencies.
+* `unique_ptr` – only one reference, cannot be copied.
 
 ### C++14/17
 
