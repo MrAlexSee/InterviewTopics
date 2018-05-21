@@ -21,6 +21,7 @@ BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * BST balanced flavors: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
+
 * [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): priority queue, max-heap or min-heap.
 
 ##### String matching
@@ -129,15 +130,10 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 ### Architectural patterns
 
 * Broker: coordination among components, for instance in between the client and servers
-
 * Client-server
-
 * Layered: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app
-
 * Master-slave
-
 * P2P
-
 * Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
 <br />
 
@@ -207,9 +203,10 @@ MVVM
 ### Programming languages
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
-
+* Introspection: ability to examin type or properties at runtime
+* Monkey patching: dynamic replacement of attributes at runtime
+* Reflection: modification of program structure at runtime
 * Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
-
 * Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters)
 
 ##### Object-oriented terminology
@@ -296,7 +293,7 @@ C++
 Python
 --------------------
 
-Python: interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT.
+Python: interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
 
 [Not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
 
@@ -307,7 +304,19 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 ### Selected features
 
+* `l = [[]] * 5`: same reference replicated, doesn't work as expected. Use `l = [[] for _ in xrange(5)]` instead.
+
+* Deep copy: `l = copy.deepcopy(x)`, works with nested lists
+
+* `dir(obj)`: returns a list of defined members (functions and variables)
+
+* Functions are first-class citizens in Python, nested functions are allowed, functions can be assigned, returned, etc.
+
 * Import from subdir requires a present `__init__.py` file (may be empty).
+
+* `reverse(l)` returns an iterator to `l` (if `l` changes, data pointed to by iterator changes too)
+
+* Serialization (translating data to storage/transmission format) can be realized using `pickle` or `cPickle` (faster).
 
 * Tertiary operator: `x = 2 if len(s) > 5 else 10`
 
@@ -366,7 +375,7 @@ class Point(object):
     self.x = x
     self.y = y
 
-  def sum(self): # Not passing self would mean a static function
+  def mysum(self): # Not passing self would mean a static function
     return self.x + self.y
 ```
 
@@ -377,7 +386,15 @@ class Point(object):
 
 ##### Inheritance
 
+```
+class Point3D(Point):
+  def __init__(sefl, x, y, z):
+    Point.__init__(self, x, y)
+    self.z = z
 
+  def mysum(self):
+    return Point.mysum(self) + self.z
+```
 
 Git
 --------------------
