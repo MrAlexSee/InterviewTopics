@@ -1,6 +1,17 @@
 General
 --------------------
 
+### Basic math
+
+* Arithmetic series sum: n(n + 1) / 2 = ϴ(n²)
+* Harmonic series sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
+
+##### Graphs
+
+* Bipartite:
+* Complete graph: every pair of verticies is adjacent, no loops
+* Strongly connected: every 2 vertices are reachable from each other
+
 ### Complexity
 
 * o, O, ϴ, Ω, ω
@@ -200,11 +211,27 @@ MVVM
 
 * [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working.
 
+##### Things to consider
+
+1. Specification, possibly start with abstract description and work towards the details.
+1. Select the technologies and the development processing.
+1. Define features, perhaps in connection with the technologies.
+1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree how progress/success will be measured/defined.
+1. Before the start: check if we have everything we need (resources, etc.)
+
+##### Scrum
+
+[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. Iterative, incremental, flexible.
+
+* Product owner = stakeholders
+* Development team
+* Scrum master = servant-leader, helps the team
+
 ### Language-related concepts
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
 * Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
-* Introspection: ability to examin type or properties at runtime
+* Introspection: ability to examine type or properties at runtime
 * Monkey patching: dynamic replacement of attributes at runtime
 * Reflection: modification of program structure at runtime
 * Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
@@ -218,7 +245,7 @@ MVVM
 * Inheritance
 * Interface = collection of methods (mostly abstract)
 * Polymorphism = using subclasses (more than one form)
-* Virtual function = can be overriden
+* Virtual function = can be overridden
 
 ### Unit testing
 
