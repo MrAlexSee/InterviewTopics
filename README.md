@@ -5,8 +5,8 @@ General
 
 ##### Basic
 
-BST is assumed to be balanced.
-Average case for the hash table (hashing a simple item is assumed to be constant-time), worst-case is *O(n)*.
+Average cases are presented. BST is assumed to be balanced, hashing a simple item is assumed to be constant-time.
+For the hash table worst-case for all operations is O(n).
 
 Structure  | Access   | Search   | Insert/delete  | Space
 ---------- | -------- | ---------| -------------- | -------
@@ -15,6 +15,7 @@ List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
+##### String matching
 
 * [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree):
 
@@ -24,22 +25,15 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): pathfinding,
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): pathfinding.
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
 
 ##### Trees
 
 * [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree.
 
-###### Pathfinding
-
-
 ##### String matching
-
-###### Online
-
-###### Indexed
 
 
 ### Design patterns
@@ -164,8 +158,8 @@ The summary is based on [Wiki](https://en.wikipedia.org/wiki/Software_design_pat
 
 ### Useful Linux commands
 
-* `cat [file]`: print file contents
-* `chmod [XXX] [file]`: change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute
+* `cat [file]` – print file contents
+* `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute
 * `df -h`: disk usage in human-readable
 * `ls -lah`: list current dir with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2`: search for a switch and show 2 lines around the result
