@@ -6,7 +6,7 @@ General
 ##### Basic
 
 BST is assumed to be balanced.
-Average case for the hash table (hashing a simple item is assumed to be constant-time), worst-case is `O(n)`.
+Average case for the hash table (hashing a simple item is assumed to be constant-time), worst-case is *O(n)*.
 
 Structure  | Access   | Search   | Insert/delete  | Space
 ---------- | -------- | ---------| -------------- | -------
@@ -259,8 +259,8 @@ Python
 * **master** branch: releases with version numbers
 * **develop** branch: integration branch for features
 
-* feature: branched out of and into develop, single feature = single branch
-* release: branched out of develop, no new features can be added, merged into master when ready to ship, next also merged back into develop
-* hotfix: quick patches, the only branch out of master, merged both with master and develop/release
+* **feature**: branched out of and into develop, single feature = single branch
+* **release**: branched out of develop, no new features can be added, merged into master when ready to ship, next also merged back into develop
+* **hotfix**: quick patches, the only branch out of master, merged both with master and develop/release
 
 This is in opposition to a [centralized](https://www.atlassian.com/git/tutorials/comparing-workflows) (SVN-like) workflow, where all features are are branched out of and merged into a single master branch.
