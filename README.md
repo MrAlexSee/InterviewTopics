@@ -141,7 +141,6 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 * Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
 <br />
 
-
 #####
 MVC
 
@@ -155,9 +154,15 @@ Problem is with the controller which is tightly coupled with a view and may get 
 MVP
 
 * model: the same as in MVC
+* view: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call
+* presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility
 
 #####
 MVVM
+
+* model: the same as in MVC
+* view: binds to the observeables that are exposed by the viewmodel
+* viewmodel: has observables for the view and allows the view to pass events to the model
 
 ### Principles
 
@@ -206,6 +211,16 @@ MVVM
 * Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
 
 * Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters)
+
+##### Object-oriented terminology
+
+* Abstraction
+* Encapsulation = hiding data
+* Friend = defined outside a class but can access internal stuff
+* Inheritance
+* Interface = collection of methods (mostly abstract)
+* Polymorphism = using subclasses (more than one form)
+* Virtual function = can be overriden
 
 ### Unit testing
 
@@ -294,6 +309,10 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 * Import from subdir requires a present `__init__.py` file (may be empty).
 
+* Tertiary operator: `x = 2 if len(s) > 5 else 10`
+
+* `with` works like try/finally, requires context management protocol: `__enter__()`, `__exit()__`.
+
 * `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator.
 
 * `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
@@ -308,12 +327,17 @@ def add(x, y):
 
 def add3(x, y = 3):
   return x + y
+
+def addStar(*args): # All params as a tuple
+  return sum(args)
 ```
 
 * Default arg values must follow from the left.
 * Calling with explicit arg names: `print add(x = 5, y = 4)`.
-* Unpacking operator: `print add(*[2, 3])`
+* `print addStar(1, 2, 3)`
+* Unpacking operator: `print add(*[1, 2, 3])`
 * Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
+
 
 ##### Keyword args
 
