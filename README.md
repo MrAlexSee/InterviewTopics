@@ -4,18 +4,32 @@ General
 ### Basic math
 
 * Arithmetic series sum: n(n + 1) / 2 = ϴ(n²)
+* Bayes theorem: P(A|B) = P(B|A) P(A) / P(B)
 * Harmonic series sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
+
+* There are n! permutations for n elements: n ways to choose the 1st element, n-1 to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k
+* Binomial cofficient (ways to select unordered items): n! / k! (n - k)!, for ordered items: n! / (n - k)!
 
 ##### Graphs
 
-* Bipartite:
-* Complete graph: every pair of verticies is adjacent, no loops
+* Bipartite: two disjoint, independent sets
+* Complete graph: every pair of vertices is adjacent, no loops
 * Strongly connected: every 2 vertices are reachable from each other
+* Tree: connected, acyclic, undirected graph
 
 ### Complexity
 
 * o, O, ϴ, Ω, ω
+* O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2<sup>n</sup>) < O(n!)
 * P, NP, NP-hard, NP-complete, P vs NP
+
+##### Amortized analysis
+
+[Amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) looks at the entire execution sequence, not just the worst-case scenario.
+
+* Aggregate analysis: T(n)/n for a total cost T of n operations
+* Accounting method: saving credit from costly operations to speed up other operations
+* Potential method: like the accounting method but with a custom function
 
 ### Data structures
 
@@ -45,6 +59,30 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ### Algorithms
 
+##### Machine learning
+
+Supervised, unsupervised, reinforced.
+Applications:
+
+* classification (discrete)
+* regression (continuous)
+* clustering
+* density estimation
+
+Techniques:
+
+* [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
+
+* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning) = created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`
+
+* Bayesian
+
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) = sets of rules
+
+* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning) = using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
+
+* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) = separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
+
 ##### Graphs
 
 * [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
@@ -54,6 +92,8 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 ##### Trees
 
 * [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
+
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (user a priority queue based on depth).
 
 ##### String matching
 
@@ -214,7 +254,7 @@ MVVM
 ##### Things to consider
 
 1. Specification, possibly start with abstract description and work towards the details.
-1. Select the technologies and the development processing.
+1. Select the technologies and the development process.
 1. Define features, perhaps in connection with the technologies.
 1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree how progress/success will be measured/defined.
 1. Before the start: check if we have everything we need (resources, etc.)
