@@ -21,7 +21,7 @@ BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * BST balanced flavors: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
-* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap.
+* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): priority queue, max-heap or min-heap.
 
 ##### String matching
 
@@ -37,11 +37,11 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) – specific case of A* without a heuristic.
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
 
 ##### Trees
 
-* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) – minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
+* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
 ##### String matching
 
@@ -50,95 +50,114 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### Creational
 
-The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page.
+The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. Obvious patterns are only listed and not described.
 
-* Abstract factory:
+* Abstract factory: encapsulate individual factories under a generic interface
 
-* Builder:
+* Builder: separate construction from interpretation
 
-* Dependency injection:
+* Dependency injection
 
-* Factory:
+* Factory
 
-* Lazy initialization:
+* Lazy initialization
 
-* Multiton:
+* Multiton: registry of singletons
 
-* Object pool:
+* Object pool
 
-* Prototype:
+* Prototype: create new objects from a skeleton
 
-* RAII: constructor/destructor:
+* RAII: constructor/destructor
 
-* Singleton:
+* Singleton
 
 ##### Structural
 
-* Adapter:
+* Adapter: wrapper
 
-* Bridge:
+* Bridge: decouple abstraction from implementation in order to facilitate changes
 
-* Composite:
+* Composite: groups of objects treated the same as a single object
 
-* Decorator:
+* Decorator: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime)
 
-* Extension:
+* Extension
 
-* Facade:
+* Facade: a higher-level interface which is easier to use
 
-* Flyweight:
+* Flyweight: use sharing to support large numbers of similar objects efficiently
 
-* Front controller:
+* Marker: use an empty interface to indicate specific behavior (e.g., Serializable)
 
-* Marker:
+* Proxy: used in order to control access to an object
 
-* Module:
-
-* Proxy:
-
-* Twin:
+* Twin: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass)
 
 ##### Behavioral
 
-* Blackboard:
+* Blackboard: knowledge sources publish potential solutions on the blackboard, control component is in between
 
-* Chain of responsibility:
+* Chain of responsibility: a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
 
-* Command:
+* Command: object encapsulates all information needed to perform an action at a later time, including the receiver
 
-* Interpreter:
+* Interpreter: use of DSLL, e.g., SQL, user interface descriptions
 
-* Iterator:
+* Iterator: decouples algorithms from containers
 
-* Mediator:
+* Mediator: encapsulates communication between objects, reduces coupling
 
-* Memento:
+* Memento: checkpointing, allows for undo via rollback
 
-* Null object:
+* Null object/nullable type: avoid problems with null dereference
 
-* Observer:
+* Observer: publish-subscribe, signals-slots, event-driven, observers are notified of any changes
 
-* Servant:
+* Servant: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters
 
-* Specification:
+* Specification: combining rules using boolean operators, mostly for data filtering
 
-* State:
+* State: implement state machine where each state is a derived class calling parent interface methods
 
-* Strategy:
+* Strategy: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data)
 
-* Template method:
+* Template method: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes
 
-* Visitor
+* Visitor: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
 
 ### Architectural patterns
 
-* Blackboard
+* Broker: coordination among components, for instance in between the client and servers
 
-* MVC:
+* Client-server
 
-* MVP:
+* Layered: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app
 
-* MVVM:
+* Master-slave
+
+* P2P
+
+* Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
+<br />
+
+
+#####
+MVC
+
+* model: data + state
+* view: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data)
+* controller: receives the input from the view and interacts with the model
+
+Problem is with the controller which is tightly coupled with a view and may get bloated, since most of the logic is there.
+
+#####
+MVP
+
+* model: the same as in MVC
+
+#####
+MVVM
 
 ### Principles
 
@@ -182,7 +201,11 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 ### Programming languages
 
-Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
+* Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
+
+* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
+
+* Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters)
 
 ### Unit testing
 
