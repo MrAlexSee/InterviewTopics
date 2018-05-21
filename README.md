@@ -20,8 +20,8 @@ List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
-* BST: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
-* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure))
+* BST balanced flavors: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
+* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap.
 
 ##### String matching
 
@@ -37,11 +37,11 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) – specific case of A* without a heuristic.
 
 ##### Trees
 
-* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree.
+* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) – minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
 ##### String matching
 
@@ -187,7 +187,7 @@ Declarative (functional, logic, reactive) vs imperative languages (procedural, o
 ##### Packages
 
 * `apt-get update` – update package index
-* `apt-get dist-upgrade` - install update and satisfy dependencies
+* `apt-get dist-upgrade` – install update and satisfy dependencies
 * `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
 * `update-alternatives --config [pkg]` – select a different version for `[pkg]`
 
@@ -218,7 +218,7 @@ C++
 ##### Memory management
 
 `malloc` must be matched with `free`, it returns NULL on error.
-`new` must be matched with `delete` or `delete[]`, it throws bad_alloc on error or use `(std::nothrow)` to return NULL instead.
+`new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
 
 ##### Variadic functions
 
@@ -271,9 +271,9 @@ def add3(x, y = 3):
   return x + y
 ```
 
-..* Default arg values must follow from the left.
-..* Calling with explicit arg names: `print add(x = 5, y = 4)`.
-..* Unpacking operator: `print add(*[2, 3])`
+  * Default arg values must follow from the left.
+  * Calling with explicit arg names: `print add(x = 5, y = 4)`.
+  * Unpacking operator: `print add(*[2, 3])`
 
 * Keyword packing
 
@@ -282,8 +282,8 @@ def addKwargs(**kwargs): # All keyword params as a dict
   return sum(kwargs.values())
 ```
 
-..* `print addKwargs(x = 2, y = 3)`
-..* `print addKwargs(**{"x": 2, "y" = 3)`
+  * `print addKwargs(x = 2, y = 3)`
+  * `print addKwargs(**{"x": 2, "y" = 3)`
 
 * Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
 
@@ -291,8 +291,8 @@ def addKwargs(**kwargs): # All keyword params as a dict
 
 * List comprehension combines map with filter, `[2 * x for x in xrange(10) if x % 2 == 0]`.
 
-..* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
-..* `map(len, ["ala", "ma", "kota"])`
+  * `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
+  * `map(len, ["ala", "ma", "kota"])`
 
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
 
