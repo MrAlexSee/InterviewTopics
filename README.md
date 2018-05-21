@@ -8,12 +8,12 @@ General
 BST is assumed to be balanced.
 Average case for the hash table (hashing a simple item is assumed to be constant-time), worst-case is `O(n)`.
 
-Structure  | Access     | Search     | Insert/delete  | Space
----------- | ---------- | ---------- | -------------- | -------
-Array      | `O(1)`     | `O(n)`     | `O(n)`         | `O(n)`
-List       | `O(n)`     | `O(n)`     | `O(1)`         | `O(n)`
-BST        | `O(log n)` | `O(log n)` | `O(log n)`     | `O(n)`
-Hash table | `O(1)`     | `O(1)`     | `O(1)`         | `O(n)`
+Structure  | Access   | Search   | Insert/delete  | Space
+---------- | -------- | ---------| -------------- | -------
+Array      | O(1)     | O(n)     | O(n)           | O(n)
+List       | O(n)     | O(n)     | O(1)           | O(n)
+BST        | O(log n) | O(log n) | O(log n)       | O(n)
+Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 
 * [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree):
