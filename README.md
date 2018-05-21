@@ -142,7 +142,13 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 ### Principles
 
+* [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so)
+
 * [Broken windows](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
+
+* [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultanously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped)
+
+* [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete): create, read, update, delete, 4 basic functions of persistent storage.
 
 * [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself): avoid redundancy.
 
@@ -156,13 +162,23 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common method.
 
-* [SOLID](https://en.wikipedia.org/wiki/SOLID):
+* [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as parent), interface segregation (expose only the required methods to clients), dependency inversion (program to interface, not an implementation).
+
+* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): each data element is stored exactly once
 
 * [Worse is better](https://en.wikipedia.org/wiki/Worse_is_better): less functionality is sometimes preferable (e.g., easier to use).
 
 * [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): don't add functionality until necessary.
 
 ### Project planning
+
+* [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
+
+* [Continuous delivery](https://en.wikipedia.org/wiki/Continuous_delivery): short cycles, software can be released at short notice.
+
+* [Neutral build](https://en.wikipedia.org/wiki/Neutral_build): done in a neutral environment (outside deployment), catches errors such as different environmental variables, unchecked files, etc.
+
+* [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working.
 
 ### Programming languages
 
@@ -261,7 +277,7 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 ### Function calling
 
-* Calling with arguments
+##### Calling with args
 
 ```
 def add(x, y):
@@ -271,29 +287,26 @@ def add3(x, y = 3):
   return x + y
 ```
 
-  * Default arg values must follow from the left.
-  * Calling with explicit arg names: `print add(x = 5, y = 4)`.
-  * Unpacking operator: `print add(*[2, 3])`
+* Default arg values must follow from the left.
+* Calling with explicit arg names: `print add(x = 5, y = 4)`.
+* Unpacking operator: `print add(*[2, 3])`
+* Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
 
-* Keyword packing
+##### Keyword args
 
 ```
 def addKwargs(**kwargs): # All keyword params as a dict
   return sum(kwargs.values())
 ```
 
-  * `print addKwargs(x = 2, y = 3)`
-  * `print addKwargs(**{"x": 2, "y" = 3)`
-
-* Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
+* `print addKwargs(x = 2, y = 3)`
+* `print addKwargs(**{"x": 2, "y" = 3)`
 
 ### Filter, map, reduce
 
 * List comprehension combines map with filter, `[2 * x for x in xrange(10) if x % 2 == 0]`.
-
-  * `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
-  * `map(len, ["ala", "ma", "kota"])`
-
+* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
+* `map(len, ["ala", "ma", "kota"])`
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
 
 Git
@@ -319,10 +332,6 @@ Git
 * `git reset --hard origin/master` – remove all local changes
 * `git rm [file]` – remove `[file]`
 * `git rm --cached [file]` – stop `[file]` from being tracked
-
-[Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
-
-[Continuous delivery](https://en.wikipedia.org/wiki/Continuous_delivery): short cycles, software can be released at short notice.
 
 ### GitFlow
 
