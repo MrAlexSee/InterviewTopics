@@ -4,11 +4,11 @@ General
 ### Basic math
 
 * Arithmetic series sum: n(n + 1) / 2 = ϴ(n²)
-* Bayes theorem: P(A|B) = P(B|A) P(A) / P(B)
+* [Bayes theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem): P(A|B) = P(B|A) P(A) / P(B)
 * Harmonic series sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
 
-* There are n! permutations for n elements: n ways to choose the 1st element, n-1 to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k
-* Binomial cofficient (ways to select unordered items): n! / k! (n - k)!, for ordered items: n! / (n - k)!
+* There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k
+* Binomial cofficient (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
 
 ##### Graphs
 
@@ -73,15 +73,15 @@ Techniques:
 
 * [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
 
-* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning) = created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`
+* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning): created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
 
 * Bayesian
 
-* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) = sets of rules
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning):  sets of rules
 
-* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning) = using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
+* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
 
-* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) = separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
+* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
 
 ##### Graphs
 
