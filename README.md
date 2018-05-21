@@ -46,6 +46,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### String matching
 
+*TODO*
 
 ### Design patterns
 
@@ -135,7 +136,6 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 * Master-slave
 * P2P
 * Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
-<br />
 
 #####
 MVC
@@ -200,7 +200,7 @@ MVVM
 
 * [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working.
 
-### Programming languages
+### Language-related concepts
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
 * Introspection: ability to examin type or properties at runtime
@@ -220,6 +220,8 @@ MVVM
 * Virtual function = can be overriden
 
 ### Unit testing
+
+*TODO*
 
 ### Useful Linux commands
 
@@ -277,18 +279,27 @@ C++
 
 ##### Operator overloading
 
+*TODO*
+
 ### C++11
 
 [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five)
 
 ##### Lambdas
 
+*TODO*
+
 ##### Multithreading
+
+*TODO*
 
 ##### Smart pointers
 
+*TODO*
+
 ### C++14/17
 
+*TODO*
 
 Python
 --------------------
@@ -330,10 +341,10 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 ### List functions
 
-* `del l[1]` removes element at index 1
-* `l.pop(1)` removes element at index 1 and returns this element
-* `l.pop(l.index(max(l)))` removes the max element
-* `l.remove(x)` removes the first value matching `x`
+* `del l[1]` removes element at index 1.
+* `l.pop(1)` removes element at index 1 and returns this element.
+* `l.pop(l.index(max(l)))` removes the max element.
+* `l.remove(x)` removes the first value matching `x`.
 
 ### Functions
 
