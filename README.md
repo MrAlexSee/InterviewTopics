@@ -208,7 +208,6 @@ Python
 * `git clone [address]`
 * `git log`
 * `git add -a` add all already-tracked files
-
 * `git push` push local to to the corresponding remote branch
 * `git push origin [branch-name]` push only branch `[branch-name]`
 * `git checkout [branch-name]` switch to branch `[branch-name]`
