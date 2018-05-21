@@ -1,6 +1,11 @@
 General
 --------------------
 
+### Complexity
+
+* o, O, ϴ, Ω, ω
+* P, NP, NP-hard, NP-complete, P vs NP
+
 ### Data structures
 
 ##### Basic
@@ -15,17 +20,22 @@ List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
+* BST: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
+* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure))
+
 ##### String matching
 
-* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree):
+* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array)
 
-* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array):
+* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree)
+
+* [Trie](https://en.wikipedia.org/wiki/Trie)
 
 ### Algorithms
 
 ##### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): pathfinding.
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 * [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
 
@@ -40,7 +50,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### Creational
 
-The summary is based on [Wiki](https://en.wikipedia.org/wiki/Software_design_pattern).
+The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page.
 
 * Abstract factory:
 
@@ -199,14 +209,14 @@ C++
 
 ### Basic
 
-[Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)):
+[Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
 
 ##### Memory management
 
-`malloc` must be matched with `free`.
-`new` must be matches with `delete` or `delete[]`.
+`malloc` must be matched with `free`, it returns NULL on error.
+`new` must be matched with `delete` or `delete[]`, it throws bad_alloc on error or use `(std::nothrow)` to return NULL instead.
 
-##### [Variadic functions](http://en.cppreference.com/w/cpp/utility/variadic)
+##### Variadic functions
 
 `int printf(const char* format, ...)`. Init with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
 
@@ -214,7 +224,7 @@ C++
 
 ### C++11
 
-[Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five):
+[Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five)
 
 ##### Lambdas
 
@@ -230,7 +240,7 @@ Python
 
 ### List comprehension
 
-[Git](https://en.wikipedia.org/wiki/Git)
+Git
 --------------------
 
 [Basic commands](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html):
@@ -239,20 +249,20 @@ Python
 * `git clone [address]`
 </br>
 
-* `git add -a`: add all already-tracked files
-* `git checkout [branch-name]`: switch to branch `[branch-name]`
-* `git commit -m "[msg]"`: commit with message `[msg]`
-* `git merge [branch-name]`: merge current branch with branch `[branch-name]`
-* `git push`: push local to to the corresponding remote branch
-* `git push origin [branch-name]`: push only branch `[branch-name]`
-* `git rebase [branch-name]`: moves the entire current branch to the tip of `[branch-name]`
+* `git add -a` – add all already-tracked files
+* `git checkout [branch-name]` – switch to branch `[branch-name]`
+* `git commit -m "[msg]"` – commit with message `[msg]`
+* `git merge [branch-name]` – merge current branch with branch `[branch-name]`
+* `git push` – push local to to the corresponding remote branch
+* `git push origin [branch-name]` – push only branch `[branch-name]`
+* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
 </br>
 
 * `git log`
 * `git pull` (this is `git fetch` followed by `git merge` to the current local branch)
-* `git reset --hard origin/master`: remove all local changes
-* `git rm [file]`: remove `[file]`
-* `git rm --cached [file]`: stop `[file]` from being tracked
+* `git reset --hard origin/master` – remove all local changes
+* `git rm [file]` – remove `[file]`
+* `git rm --cached [file]` – stop `[file]` from being tracked
 
 [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
 
