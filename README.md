@@ -10,7 +10,7 @@ General
 * There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k
 * Binomial cofficient (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
 
-##### Graphs
+### Graphs
 
 * Bipartite: two disjoint, independent sets
 * Complete graph: every pair of vertices is adjacent, no loops
@@ -23,7 +23,7 @@ General
 * O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2<sup>n</sup>) < O(n!)
 * P, NP, NP-hard, NP-complete, P vs NP
 
-##### Amortized analysis
+#### Amortized analysis
 
 [Amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) looks at the entire execution sequence, not just the worst-case scenario.
 
@@ -33,7 +33,7 @@ General
 
 ### Data structures
 
-##### Basic
+#### Basic
 
 Average cases are presented. BST is assumed to be balanced, hashing a simple item is assumed to be constant-time.
 For the hash table worst-case for all operations is O(n).
@@ -45,21 +45,46 @@ List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
-* BST balanced flavors: [AVL](https://en.wikipedia.org/wiki/AVL_tree), [red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree), [Treap](https://en.wikipedia.org/wiki/Treap)
 
-* [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): priority queue, max-heap or min-heap.
+##### BST
 
-##### String matching
+* [AVL](https://en.wikipedia.org/wiki/AVL_tree) – first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
 
-* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array)
+* [Red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) – each node is R or B, the root is B. If node is R, both children are B. Any path from node to any leaf (NIL, B) has the same number of black nodes.
 
-* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree)
+* [Treap](https://en.wikipedia.org/wiki/Treap) – BST with priorities maintained in a heap. Searching is just like BST, insertion: generate random priority, add leaf at a regular position, use rotations in order to restore the max-heap property.
 
-* [Trie](https://en.wikipedia.org/wiki/Trie)
+##### Heap
+
+[Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap.
+
+#### String matching
+
+* [Trie](https://en.wikipedia.org/wiki/Trie) – a tree in which the position of a node describes the associated value, search is proportional to the pattern length, that is O(m).
+
+* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array) – stores indexes of sorted suffixes from the input text, search is O(m log n), space is around 5n.
+
+* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree) – a trie which stores all suffixes of the input string, search is O(m), space is around 10n.
 
 ### Algorithms
 
-##### Machine learning
+* [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) – solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with memoization.
+
+* [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) – makes a locally optimal choice at each step.
+
+#### Sorting
+
+* [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) – best O(n), avg O(n²), worst O(n²)
+* [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort) – best O(n), avg O(n²), worst O(n²)
+* [Selection sort](https://en.wikipedia.org/wiki/Selection_sort) – best, avg, worst O(n²)
+<br />
+
+* [Heapsort](https://en.wikipedia.org/wiki/Heapsort) – best, avg, worst O(n log n)
+* [Mergesort](https://en.wikipedia.org/wiki/Merge_sort) – best, avg, worst O(n log n)
+* [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) – best, avg, worst O(w n)
+* [Quicksort](https://en.wikipedia.org/wiki/Quicksort) – best O(n log n), avg O(n log n), worst O(n²)
+
+#### Machine learning
 
 Supervised, unsupervised, reinforced.
 Applications:
@@ -73,35 +98,41 @@ Techniques:
 
 * [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
 
-* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning): created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
+* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning) – created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
 
 * Bayesian
 
-* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning):  sets of rules
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) – sets of rules
 
-* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
+* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning) – using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
 
-* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
+* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) – separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
 
-##### Graphs
+#### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm)
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) – maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) – specific case of A* without a heuristic.
 
-##### Trees
+#### Trees
 
-* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
+* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) – minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
-* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (user a priority queue based on depth).
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal) – DFS (pre-order, in-order, post-order), BFS (user a priority queue based on depth).
 
-##### String matching
+#### String matching
 
-*TODO*
+* [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) –
+
+* [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) –
+
+* [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) – rolling hash, worst case is O(nm).
+
+* [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm) –
 
 ### Design patterns
 
-##### Creational
+#### Creational
 
 The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. Obvious patterns are only listed and not described.
 
@@ -125,7 +156,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * Singleton
 
-##### Structural
+#### Structural
 
 * Adapter: wrapper
 
@@ -147,7 +178,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * Twin: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass)
 
-##### Behavioral
+#### Behavioral
 
 * Blackboard: knowledge sources publish potential solutions on the blackboard, control component is in between
 
@@ -188,7 +219,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 * P2P
 * Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
 
-#####
+####
 MVC
 
 * model: data + state
@@ -197,14 +228,14 @@ MVC
 
 Problem is with the controller which is tightly coupled with a view and may get bloated, since most of the logic is there.
 
-#####
+####
 MVP
 
 * model: the same as in MVC
 * view: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call
 * presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility
 
-#####
+####
 MVVM
 
 * model: the same as in MVC
@@ -251,7 +282,7 @@ MVVM
 
 * [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working.
 
-##### Things to consider
+#### Things to consider
 
 1. Specification, possibly start with abstract description and work towards the details.
 1. Select the technologies and the development process.
@@ -259,7 +290,7 @@ MVVM
 1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree how progress/success will be measured/defined.
 1. Before the start: check if we have everything we need (resources, etc.)
 
-##### Scrum
+#### Scrum
 
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. Iterative, incremental, flexible.
 
@@ -277,7 +308,7 @@ MVVM
 * Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
 * Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters)
 
-##### Object-oriented terminology
+#### Object-oriented terminology
 
 * Abstraction
 * Encapsulation = hiding data
@@ -295,7 +326,7 @@ MVVM
 
 ### Useful Linux commands
 
-##### General
+#### General
 
 * `cat [file]` – print file contents
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
@@ -307,25 +338,25 @@ MVVM
 * `touch [file]` – create `[file]`
 * `whreis [cmd]` – check the location of `[cmd]`
 
-##### Packages
+#### Packages
 
 * `apt-get update` – update package index
 * `apt-get dist-upgrade` – install update and satisfy dependencies
 * `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
 * `update-alternatives --config [pkg]` – select a different version for `[pkg]`
 
-##### Conversions
+#### Conversions
 
 * `dot -Tpdf [in].dot -o [out].pdf` – convert file `[in]` to `[out].pdf`
 * `rsvg-convert -f pdf -o [out].pdf [in]` – convert file `[in]` to `[out].pdf`
 
-##### Net
+#### Net
 
 * `host [url]` – get IP for `[url]`
 * `wget -m -e robots=off --no-parent [url]` – download recursively from `[url]`
 * `whois [IP]` – get information about `[IP]`
 
-##### Compression
+#### Compression
 
 * `tar -xzf [in]` – extract, gunzip (j = bzip), input file `[in]`
 * `unzip [file]`
@@ -348,19 +379,19 @@ C++
 
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)) – destructor, copy constructor, copy assignment operator.
 
-##### Memory management
+#### Memory management
 
 `malloc` must be matched with `free`, it returns NULL on error.
 `new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
 
-##### Operator overloading
+#### Operator overloading
 
 ```
 Type operator+ (const Type &type);
 friend Type operator+ (const Type &t1, const Type &t2);
 ```
 
-##### Variadic functions
+#### Variadic functions
 
 `int printf(const char* format, ...)`. Init with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
 
@@ -372,7 +403,7 @@ friend Type operator+ (const Type &t1, const Type &t2);
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator
 
-##### Move semantics
+#### Move semantics
 
 * lvalue = has address can be assigned
 * rvalue = a temporary object `string getName() { return "ala"; } string &&name = getName();`
@@ -388,7 +419,7 @@ MyString &operator= (MyString other) // pass-by-value
 }
 ```
 
-##### Lambdas
+#### Lambdas
 
 ```
 sort(tab, tab + n, [](int a, int b) { return a > b; });
@@ -397,13 +428,12 @@ Lambdas automatically capture constants, in addition: `[x]` captures `x` by valu
 
 `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
 
-##### Multithreading
+#### Multithreading
 
 * `std::promise` is the producer and `std::future` is the consumer.
 * `future<void> res(async(fun));` – async can take fun with args or a lambda, `res.get();` blocks until the result is available.
 
-
-##### Smart pointers
+#### Smart pointers
 
 * `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed.
 * `weak_ptr` – doesn't increase the count, useful for preventing circular dependencies.
@@ -426,6 +456,12 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 * no concise way to combine functions
 
 ### Selected features
+
+* `[1,2,3] == [1,2] + [3]`
+
+* `[1,2,3,4][1 : 3] == [2,3]`, `[1,2,3][ : 1] == [1]`
+
+* `[1,2,3,4][::2] == [1,3]`, `[1,2,3][::-1] == list(reversed([1,2,3]))`
 
 * `l = [[]] * 5`: same reference replicated, doesn't work as expected. Use `l = [[] for _ in xrange(5)]` instead.
 
@@ -460,7 +496,7 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 ### Functions
 
-##### Calling with args
+#### Calling with args
 
 ```
 def add(x, y):
@@ -479,8 +515,7 @@ def addStar(*args): # All params as a tuple
 * Unpacking operator: `print add(*[1, 2, 3])`
 * Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
 
-
-##### Keyword args
+#### Keyword args
 
 ```
 def addKwargs(**kwargs): # All keyword params as a dict
@@ -516,7 +551,7 @@ class Point(object):
 * Dictionary containing all member variables: `print p1.__dict__`
 * Extend objects: `p1.z = 8`, now `print p1.z` works only if z was set for this object.
 
-##### Inheritance
+#### Inheritance
 
 ```
 class Point3D(Point):
