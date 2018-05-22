@@ -69,7 +69,6 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 ### Algorithms
 
 * [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) – solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with memoization.
-
 * [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) – makes a locally optimal choice at each step.
 
 #### Sorting
@@ -97,15 +96,10 @@ Applications:
 Techniques:
 
 * [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
-
 * [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning) – created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
-
 * Bayesian
-
 * [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) – sets of rules
-
 * [Deep learning](https://en.wikipedia.org/wiki/Deep_learning) – using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
-
 * [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) – separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
 
 #### Graphs
@@ -118,7 +112,7 @@ Techniques:
 
 * [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) – minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
-* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal) – DFS (pre-order, in-order, post-order), BFS (user a priority queue based on depth).
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal) – DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
 
 #### String matching
 
@@ -132,13 +126,13 @@ Techniques:
 
 ### Design patterns
 
-#### Creational
-
 The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. Obvious patterns are only listed and not described.
 
-* Abstract factory: encapsulate individual factories under a generic interface
+#### Creational
 
-* Builder: separate construction from interpretation
+* Abstract factory: encapsulate individual factories under a generic interface.
+
+* Builder: separate construction from interpretation.
 
 * Dependency injection
 
@@ -150,7 +144,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * Object pool
 
-* Prototype: create new objects from a skeleton
+* Prototype: create new objects from a skeleton.
 
 * RAII: constructor/destructor
 
@@ -160,71 +154,71 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * Adapter: wrapper
 
-* Bridge: decouple abstraction from implementation in order to facilitate changes
+* Bridge: decouple abstraction from implementation in order to facilitate changes.
 
-* Composite: groups of objects treated the same as a single object
+* Composite: groups of objects treated the same as a single object.
 
-* Decorator: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime)
+* Decorator: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
 
-* Extension
+* Extension: allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
 
-* Facade: a higher-level interface which is easier to use
+* Facade: a higher-level interface which is easier to use.
 
-* Flyweight: use sharing to support large numbers of similar objects efficiently
+* Flyweight: use sharing to support large numbers of lightweight similar objects efficiently.
 
-* Marker: use an empty interface to indicate specific behavior (e.g., Serializable)
+* Marker: use an empty interface to indicate specific behavior (e.g., Serializable).
 
-* Proxy: used in order to control access to an object
+* Proxy: used in order to control access to an object.
 
-* Twin: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass)
+* Twin: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
 
 #### Behavioral
 
-* Blackboard: knowledge sources publish potential solutions on the blackboard, control component is in between
+* Blackboard: knowledge sources publish potential solutions on the blackboard, the control component is in between.
 
 * Chain of responsibility: a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
 
-* Command: object encapsulates all information needed to perform an action at a later time, including the receiver
+* Command: object encapsulates all information needed to perform an action at a later time, including the receiver.
 
-* Interpreter: use of DSLL, e.g., SQL, user interface descriptions
+* Interpreter: use of DSL, e.g., SQL, user interface descriptions.
 
-* Iterator: decouples algorithms from containers
+* Iterator: decouples algorithms from containers.
 
-* Mediator: encapsulates communication between objects, reduces coupling
+* Mediator: encapsulates communication between objects, reduces coupling.
 
-* Memento: checkpointing, allows for undo via rollback
+* Memento: checkpointing, allows for undo via rollback.
 
-* Null object/nullable type: avoid problems with null dereference
+* Null object/nullable type: avoid problems with null dereference.
 
-* Observer: publish-subscribe, signals-slots, event-driven, observers are notified of any changes
+* Observer: publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
 
-* Servant: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters
+* Servant: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters.
 
-* Specification: combining rules using boolean operators, mostly for data filtering
+* Specification: combining rules using boolean operators, mostly for data filtering.
 
-* State: implement state machine where each state is a derived class calling parent interface methods
+* State: implement state machine where each state is a derived class calling parent interface methods.
 
-* Strategy: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data)
+* Strategy: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data).
 
-* Template method: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes
+* Template method: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes.
 
 * Visitor: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
 
 ### Architectural patterns
 
-* Broker: coordination among components, for instance in between the client and servers
+* Broker: coordination among components, for instance in between the client and servers.
 * Client-server
-* Layered: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app
+* Layered: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
 * Master-slave
 * P2P
-* Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler
+* Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler.
 
 ####
 MVC
 
 * model: data + state
 * view: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data)
-* controller: receives the input from the view and interacts with the model
+* controller: receives the input from the view and interacts with the model (e.g., activity in Android)
 
 Problem is with the controller which is tightly coupled with a view and may get bloated, since most of the logic is there.
 
