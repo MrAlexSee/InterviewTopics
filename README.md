@@ -573,7 +573,9 @@ Git
 </br>
 
 * `git add -a` – add all already-tracked files
+* `git add .` – add all files from the current directory, also untracked
 * `git checkout [branch-name]` – switch to branch `[branch-name]`
+* `git commit -a` – commits changes to all tracked files (not only in the current directory)
 * `git commit -m "[msg]"` – commit with message `[msg]`
 * `git merge [branch-name]` – merge current branch with branch `[branch-name]`
 * `git push` – push local to to the corresponding remote branch
