@@ -572,15 +572,15 @@ Git
 * `git clone [address]`
 </br>
 
-* `git add -a` – add all already-tracked files.
-* `git add .` – add all files from the current directory, also untracked.
-* `git checkout [branch-name]` – switch to branch `[branch-name]`.
-* `git commit -a` – commits changes to all tracked files (not only in the current directory).
-* `git commit -m "[msg]"` – commit with message `[msg]`.
-* `git merge [branch-name]` – merge current branch with branch `[branch-name]`.
-* `git push` – push local to to the corresponding remote branch.
-* `git push origin [branch-name]` – push only branch `[branch-name]`.
-* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`.
+* `git add -u` – add all already-tracked files
+* `git add .` – add all files from the current directory, also untracked
+* `git checkout [branch-name]` – switch to branch `[branch-name]`
+* `git commit -a` – commits changes to all tracked files (not only in the current directory)
+* `git commit -m "[msg]"` – commit with message `[msg]`
+* `git merge [branch-name]` – merge current branch with branch `[branch-name]`
+* `git push` – push local to to the corresponding remote branch
+* `git push origin [branch-name]` – push only branch `[branch-name]`
+* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
 </br>
 
 * `git log`
@@ -593,11 +593,12 @@ Git
 
 [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow): workflow model based on branches.
 
-* **master** branch: releases with version numbers
-* **develop** branch: integration branch for features
+* **master** branch: releases with version numbers (main branch number 1)
+* **develop** branch: integration branch for features (main branch number 2)
+<br />
 
 * **feature**: branched out of and into develop, single feature = single branch
-* **release**: branched out of develop, no new features can be added, merged into master when ready to ship, next also merged back into develop
 * **hotfix**: quick patches, the only branch out of master, merged both with master and develop/release
+* **release**: branched out of develop, no new features can be added, merged into master when ready to ship, next also merged back into develop
 
-This is in opposition to a [centralized](https://www.atlassian.com/git/tutorials/comparing-workflows) (SVN-like) workflow, where all features are are branched out of and merged into a single master branch.
+This is in opposition to a [centralized](https://www.atlassian.com/git/tutorials/comparing-workflows) (SVN-like) workflow, where all features are branched out of and merged into a single master branch.
