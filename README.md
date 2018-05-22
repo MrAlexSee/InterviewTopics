@@ -3,12 +3,12 @@ General
 
 ### Basic math
 
-* Arithmetic series sum: n(n + 1) / 2 = ϴ(n²)
+* [Arithmetic series](https://en.wikipedia.org/wiki/Arithmetic_progression) sum: n(a1 + an) / 2 = ϴ(n²)
 * [Bayes theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem): P(A|B) = P(B|A) P(A) / P(B)
-* Harmonic series sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
+* [Harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)) sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
 
-* There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k
-* Binomial cofficient (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
+* There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k.
+* [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
 
 ### Graphs
 
@@ -21,7 +21,7 @@ General
 
 * o, O, ϴ, Ω, ω
 * O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2<sup>n</sup>) < O(n!)
-* P, NP, NP-hard, NP-complete, P vs NP
+* P, NP, NP-complete, NP-hard, [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem)
 
 #### Amortized analysis
 
@@ -48,7 +48,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### BST
 
-* [AVL](https://en.wikipedia.org/wiki/AVL_tree) – first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
+* [AVL](https://en.wikipedia.org/wiki/AVL_tree) – first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after a regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on node z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
 
 * [Red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) – each node is R or B, the root is B. If node is R, both children are B. Any path from node to any leaf (NIL, B) has the same number of black nodes.
 
@@ -56,7 +56,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### Heap
 
-[Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap.
+[Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap. Adding: add at the bottom, continue swapping with parent (sifting up). Deleting: swap root with the last leaf, sift down the new root. Various kinds of heaps exist: Brodal, Fibonacci, etc.
 
 #### String matching
 
