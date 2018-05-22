@@ -561,7 +561,20 @@ class Point3D(Point):
 
 ### Plotting
 
-*TODO*
+```
+import matplotlib.pyplot as plt
+
+plt.title("title")
+plt.xlabel("X")
+plt.ylabel("Y")
+
+plt.tight_layout()
+plt.xlim(0.9, 3.1)
+plt.ylim(3.9, 6.1)
+
+plt.plot([1,2,3], [4,5,6], "ko-")
+plt.show()
+```
 
 Git
 --------------------
