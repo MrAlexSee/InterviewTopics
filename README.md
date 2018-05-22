@@ -216,33 +216,33 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 ####
 MVC
 
-* model: data + state
-* view: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data)
-* controller: receives the input from the view and interacts with the model (e.g., activity in Android)
+* Model: data + state.
+* View: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data).
+* Controller: receives the input from the view and interacts with the model (e.g., activity in Android).
 
 Problem is with the controller which is tightly coupled with a view and may get bloated, since most of the logic is there.
 
 ####
 MVP
 
-* model: the same as in MVC
-* view: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call
-* presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility
+* Model: the same as in MVC.
+* View: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call.
+* Presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility.
 
 ####
 MVVM
 
-* model: the same as in MVC
-* view: binds to the observeables that are exposed by the viewmodel
-* viewmodel: has observables for the view and allows the view to pass events to the model
+* Model: the same as in MVC.
+* View: binds to the observables that are exposed by the viewmodel.
+* Viewmodel: has observables for the view and allows the view to pass events to the model.
 
 ### Principles
 
-* [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so)
+* [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so).
 
-* [Broken windows](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
+* [Broken windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
 
-* [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultanously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped)
+* [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultanously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped).
 
 * [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete): create, read, update, delete, 4 basic functions of persistent storage.
 
@@ -252,13 +252,13 @@ MVVM
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
-* [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines etc. created outside the company.
+* [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
 
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): constructor/destructor.
 
-* [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common method.
+* [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
 
-* [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as parent), interface segregation (expose only the required methods to clients), dependency inversion (program to interface, not an implementation).
+* [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
 * [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): each data element is stored exactly once
 
@@ -296,11 +296,11 @@ MVVM
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
 * Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
-* Introspection: ability to examine type or properties at runtime
-* Monkey patching: dynamic replacement of attributes at runtime
-* Reflection: modification of program structure at runtime
-* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual)
-* Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters)
+* Introspection: ability to examine type or properties at runtime.
+* Monkey patching: dynamic replacement of attributes at runtime.
+* Reflection: modification of program structure at runtime.
+* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual).
+* Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters).
 
 #### Object-oriented terminology
 
@@ -328,9 +328,9 @@ MVVM
 * `ls -lah` – list current dir with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
-* `rm -rf [dir]` – remove `[dir]` recursively
+* `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `touch [file]` – create `[file]`
-* `whreis [cmd]` – check the location of `[cmd]`
+* `whereis [cmd]` – check the location of `[cmd]`
 
 #### Packages
 
@@ -341,8 +341,8 @@ MVVM
 
 #### Conversions
 
-* `dot -Tpdf [in].dot -o [out].pdf` – convert file `[in]` to `[out].pdf`
-* `rsvg-convert -f pdf -o [out].pdf [in]` – convert file `[in]` to `[out].pdf`
+* `dot -Tpdf [in].dot -o [out].pdf` – convert dot (graph) file `[in]` to `[out].pdf`
+* `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
 
 #### Net
 
@@ -359,13 +359,15 @@ MVVM
 C++
 --------------------
 
+[C++](https://en.wikipedia.org/wiki/C%2B%2B) – compiled, static typing, object-oriented.
+
 ### Basic
 
 * Abstract class has pure virtual functions: `virtual void fun() = 0;`
 
-* Class has private fields by default, struct public by default.
+* Class has private fields/funs by default, struct has public fields/funs by default.
 
-* Constructors: default (created when no other constructor is specified), parametric, copy, move
+* Constructors: default (created when no other constructor is specified), parametric, copy, move.
 
 * Placement new: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
 
@@ -375,7 +377,7 @@ C++
 
 #### Memory management
 
-`malloc` must be matched with `free`, it returns NULL on error.
+`malloc`/`calloc` return NULL on error and they must be matched with `free`/`realloc`.
 `new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
 
 #### Operator overloading
@@ -395,16 +397,16 @@ friend Type operator+ (const Type &t1, const Type &t2);
 
 * Mark overriden (virtual) functions with `override` keyword.
 
-* [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator
+* [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
 #### Move semantics
 
-* lvalue = has address can be assigned
-* rvalue = a temporary object `string getName() { return "ala"; } string &&name = getName();`
+* lvalue: has address and can be assigned.
+* rvalue: a temporary object `string getName() { return "ala"; } string &&name = getName();`
 
 ```
 MyString(const MyString &other) { }
-MyString(MyString &&other) { } // steal the resources
+MyString(MyString &&other) { } // steal the resources from other
 
 MyString &operator= (MyString other) // pass-by-value
 {
@@ -420,7 +422,7 @@ sort(tab, tab + n, [](int a, int b) { return a > b; });
 ```
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
 
-`transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
+* `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
 
 #### Multithreading
 
@@ -440,7 +442,7 @@ Lambdas automatically capture constants, in addition: `[x]` captures `x` by valu
 Python
 --------------------
 
-Python: interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) – interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
 
 [Not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
 
@@ -459,17 +461,17 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 * `l = [[]] * 5`: same reference replicated, doesn't work as expected. Use `l = [[] for _ in xrange(5)]` instead.
 
-* Deep copy: `l = copy.deepcopy(x)`, works with nested lists
+* Deep copy: `l = copy.deepcopy(x)`, works with nested lists.
 
-* `dir(obj)`: returns a list of defined members (functions and variables)
+* `dir(obj)` returns a list of defined members (functions and variables).
 
 * Functions are first-class citizens in Python, nested functions are allowed, functions can be assigned, returned, etc.
 
 * Import from subdir requires a present `__init__.py` file (may be empty).
 
-* `reverse(l)` returns an iterator to `l` (if `l` changes, data pointed to by iterator changes too)
+* `reverse(l)` returns an iterator to `l` (if `l` changes, data pointed to by an iterator changes too).
 
-* Serialization (translating data to storage/transmission format) can be realized using `pickle` or `cPickle` (faster).
+* Serialization (translating data to storage/transmission format) can be realized using `pickle` or `cPickle` (the latter is faster).
 
 * Tertiary operator: `x = 2 if len(s) > 5 else 10`
 
@@ -477,14 +479,14 @@ Python: interpreted, object-oriented, garbage-collected, name binding, duck typi
 
 * `with` works like try/finally, requires context management protocol: `__enter__()`, `__exit()__`.
 
-* `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 only `range` which is a generator.
+* `xrange` and `range` start from 0, Python2: `xrange` is a generator and `range` creates a list, in Python3 there is only `range` which is a generator.
 
 * `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
 
 ### List functions
 
-* `del l[1]` removes element at index 1.
-* `l.pop(1)` removes element at index 1 and returns this element.
+* `del l[1]` removes an element at index 1.
+* `l.pop(1)` removes an element at index 1 and returns this element.
 * `l.pop(l.index(max(l)))` removes the max element.
 * `l.remove(x)` removes the first value matching `x`.
 
@@ -506,7 +508,7 @@ def addStar(*args): # All params as a tuple
 * Default arg values must follow from the left.
 * Calling with explicit arg names: `print add(x = 5, y = 4)`.
 * `print addStar(1, 2, 3)`
-* Unpacking operator: `print add(*[1, 2, 3])`
+* Unpacking operator: `print add(*[1, 2])`
 * Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
 
 #### Keyword args
@@ -517,13 +519,13 @@ def addKwargs(**kwargs): # All keyword params as a dict
 ```
 
 * `print addKwargs(x = 2, y = 3)`
-* `print addKwargs(**{"x": 2, "y" = 3)`
+* `print addKwargs(**{"x": 2, "y" = 3})`
 
 ### Filter, map, reduce
 
-* List comprehension combines map with filter, `[2 * x for x in xrange(10) if x % 2 == 0]`.
+* List comprehension combines map with filter: `[2 * x for x in xrange(10) if x % 2 == 0]`.
 * `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
-* `map(len, ["ala", "ma", "kota"])`
+* `map(len, ["ala","ma","kota"]) == [3,2,4]`
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
 
 ### Classes
@@ -541,9 +543,9 @@ class Point(object):
 ```
 
 * Always inherit from `object` for access to class names (new-style classes).
-* Convention for private: `self._x`, private with mangled name: `self.__x` (works for both functions and variables).
+* Convention for private: `self._x`, private with a mangled name: `self.__x` (works for both functions and variables).
 * Dictionary containing all member variables: `print p1.__dict__`
-* Extend objects: `p1.z = 8`, now `print p1.z` works only if z was set for this object.
+* Extend objects: `p1.z = 8`, now `print p1.z` works (only if z was set for this object).
 
 #### Inheritance
 
@@ -557,6 +559,10 @@ class Point3D(Point):
     return Point.mysum(self) + self.z
 ```
 
+### Plotting
+
+*TODO*
+
 Git
 --------------------
 
@@ -566,15 +572,15 @@ Git
 * `git clone [address]`
 </br>
 
-* `git add -a` – add all already-tracked files
-* `git add .` – add all files from the current directory, also untracked
-* `git checkout [branch-name]` – switch to branch `[branch-name]`
-* `git commit -a` – commits changes to all tracked files (not only in the current directory)
-* `git commit -m "[msg]"` – commit with message `[msg]`
-* `git merge [branch-name]` – merge current branch with branch `[branch-name]`
-* `git push` – push local to to the corresponding remote branch
-* `git push origin [branch-name]` – push only branch `[branch-name]`
-* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
+* `git add -a` – add all already-tracked files.
+* `git add .` – add all files from the current directory, also untracked.
+* `git checkout [branch-name]` – switch to branch `[branch-name]`.
+* `git commit -a` – commits changes to all tracked files (not only in the current directory).
+* `git commit -m "[msg]"` – commit with message `[msg]`.
+* `git merge [branch-name]` – merge current branch with branch `[branch-name]`.
+* `git push` – push local to to the corresponding remote branch.
+* `git push origin [branch-name]` – push only branch `[branch-name]`.
+* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`.
 </br>
 
 * `git log`
