@@ -116,13 +116,15 @@ Techniques:
 
 #### String matching
 
+* [Aho-Corasick](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) – a finite state machine which resembles a trie. Matches multiple queries at once while sliding over the text.
+
 * [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) – begin matching from the end of the pattern and jump forward based on mismatches. After proprocessing, the size of each shift can be determined in constant time: align the text with the rightmost occurrence of current char in P or shift the pattern by its length. Worst case is O(nm + δ).
 
-* [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) – for each mismatch at position i in the pattern, shift P by i - l, where l is the length of the longest proper prefix of P[0, i − 1] which is also a suffix of P[0, i − 1] and start matching from position l in the pattern.
+* [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) – for each mismatch at position i in the pattern, shift P by i - l, where l is the length of the longest proper prefix of P[0, i − 1] which is also a suffix of P[0, i − 1] and start matching from position l in the pattern. Worst case is O(n + m).
 
 * [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) – rolling hash, worst case is O(nm).
 
-* [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm) –
+* [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm) – based on bit-parallelism, pattern length must be smaller than the word size. Computes a mismatch mask for each character from the alphabet with unset bits corresponding to positions of this character in the pattern. At each step, the state mask is shifted and ored with the mask for the current character from the text.
 
 ### Design patterns
 
