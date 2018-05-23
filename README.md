@@ -68,8 +68,13 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ### Algorithms
 
+* [Brute-force](https://en.wikipedia.org/wiki/Brute-force_search) – exhaustive search, checking all solution candidates.
+
 * [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) – solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with memoization.
+
 * [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) – makes a locally optimal choice at each step.
+
+* [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm) – LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accurracy).
 
 #### Sorting
 
@@ -106,7 +111,15 @@ Techniques:
 
 * [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) – maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
 
+* [B*](https://en.wikipedia.org/wiki/B*) –
+
+* [D*](https://en.wikipedia.org/wiki/D*) –
+
 * [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) – specific case of A* without a heuristic.
+
+* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring) – labeling where no adjacent vertices share a label.
+
+* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem) – find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
 
 #### Trees
 
@@ -115,6 +128,8 @@ Techniques:
 * [Traversal](https://en.wikipedia.org/wiki/Tree_traversal) – DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
 
 #### String matching
+
+##### Exact
 
 * [Aho-Corasick](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) – a finite state machine which resembles a trie. Matches multiple queries at once while sliding over the text.
 
@@ -125,6 +140,15 @@ Techniques:
 * [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) – rolling hash, worst case is O(nm).
 
 * [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm) – based on bit-parallelism, pattern length must be smaller than the word size. Computes a mismatch mask for each character from the alphabet with unset bits corresponding to positions of this character in the pattern. At each step, the state mask is shifted and or-ed with the mask for the current character from the text.
+
+##### Approximate
+
+* [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) – counts the number of mismatching characters at corresponding positions.
+* [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) – counts the number of single-character edits (insert, delete, substitute) needed to transform one word into another.
+
+* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) –
+
+* [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm) –
 
 ### Design patterns
 
@@ -345,6 +369,7 @@ MVVM
 
 * `dot -Tpdf [in].dot -o [out].pdf` – convert dot (graph) file `[in]` to `[out].pdf`
 * `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
+* `pdfcrop --margins '0 0 0 0' [in].pdf [out].pdf` – crop pdf file `[in].pdf`, write to `[out].pdf`
 
 #### Net
 
