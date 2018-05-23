@@ -86,7 +86,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 * [Heapsort](https://en.wikipedia.org/wiki/Heapsort) – best, avg, worst O(n log n)
 * [Mergesort](https://en.wikipedia.org/wiki/Merge_sort) – best, avg, worst O(n log n)
 * [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) – best, avg, worst O(w n)
-* [Quicksort](https://en.wikipedia.org/wiki/Quicksort) – best O(n log n), avg O(n log n), worst O(n²)
+* [Quicksort](https://en.wikipedia.org/wiki/Quicksort) – best O(n log n), avg O(n log n), worst O(n²), related: [quickselect](https://en.wikipedia.org/wiki/Quickselect), finds k-th smallest element in O(n) avg time.
 
 #### Machine learning
 
@@ -120,6 +120,8 @@ Techniques:
 * [Coloring](https://en.wikipedia.org/wiki/Graph_coloring) – labeling where no adjacent vertices share a label.
 
 * [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem) – find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
+
+* [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) – partitioning into regions based on a distance to the closest point.
 
 #### Trees
 
