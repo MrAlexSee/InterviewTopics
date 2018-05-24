@@ -337,7 +337,7 @@ MVVM
 * Friend = defined outside a class but can access internal stuff
 * Inheritance
 * Interface = collection of methods (mostly abstract)
-* Polymorphism = using subclasses (more than one form)
+* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
 * Virtual function = can be overridden
 
 ### Unit testing
@@ -352,7 +352,9 @@ MVVM
 
 * `cat [file]` – print file contents
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
+* `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
 * `df -h` – disk usage in human-readable
+* `find / -name "*.txt" 2> /dev/null` – find all files with txt extension while ignoring error messages
 * `ls -lah` – list current dir with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
@@ -424,6 +426,10 @@ friend Type operator+ (const Type &t1, const Type &t2);
 
 * `for (const int i : tab) { }`
 
+* Use `-std=c++11` switch for compilation.
+
+* Static class: `struct Test { Test() = delete; };`
+
 * Mark overriden (virtual) functions with `override` keyword.
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
@@ -465,6 +471,10 @@ Lambdas automatically capture constants, in addition: `[x]` captures `x` by valu
 * `unique_ptr` – only one reference, cannot be copied.
 
 ### C++14/17
+
+*TODO*
+
+### Makefile
 
 *TODO*
 
