@@ -424,13 +424,21 @@ friend Type operator+ (const Type &t1, const Type &t2);
 
 ### C++11
 
-* `for (const int i : tab) { }`
-
 * Use `-std=c++11` switch for compilation.
+
+* `for (const int i : tab) { }` works for arrays and containers with `begin()` and `end()`.
+
+* Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`
+
+* `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
 
 * Static class: `struct Test { Test() = delete; };`
 
 * Mark overriden (virtual) functions with `override` keyword.
+
+* `nullptr` is a pointer type NULL (NULL is just 0).
+
+* `constexpr`: a constant value which must be initialized at compile time.
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
@@ -461,16 +469,26 @@ Lambdas automatically capture constants, in addition: `[x]` captures `x` by valu
 
 #### Multithreading
 
+Before C++11 it was required to use OS-specific functionality, e.g., pthreads on Linux.
+Launching a simple thread:
+
+```
+thread t1([]() { cout << "t1" << endl; });
+t1.join(); // Blocks until t1 finishes
+```
+
 * `std::promise` is the producer and `std::future` is the consumer.
 * `future<void> res(async(fun));` – async can take fun with args or a lambda, `res.get();` blocks until the result is available.
 
 #### Smart pointers
 
-* `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed.
+* `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
 * `weak_ptr` – doesn't increase the count, useful for preventing circular dependencies.
-* `unique_ptr` – only one reference, cannot be copied.
+* `unique_ptr` – only one reference, cannot be copied, move semantics allow for ownership transfer.
 
 ### C++14/17
+
+* Use `-std=c++14` or `-std=c++17` switch for compilation.
 
 *TODO*
 
