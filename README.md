@@ -483,6 +483,15 @@ t1.join(); // Blocks until t1 finishes
 #### Smart pointers
 
 * `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
+
+Shared pointer can be created using the `make_shared` function:
+
+```
+struct Test { int a; };
+auto ptr = make_shared<Test>();
+cout << ptr->a << endl;
+```
+
 * `weak_ptr` – doesn't increase the count, useful for preventing circular dependencies.
 * `unique_ptr` – only one reference, cannot be copied, move semantics allow for ownership transfer.
 
