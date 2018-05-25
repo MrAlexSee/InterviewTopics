@@ -466,6 +466,31 @@ sort(tab, tab + n, [](int a, int b) { return a > b; });
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
 
 * `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
+* `for_each(tab, tab + n, [&z](int &x) { x = x + z; });` also works like map (the same)
+* `int acc = 0; for_each(tab, tab + n, [&acc](int x) { acc = acc + x; });` works like reduce
+
+* Removing elements from a vector using iterators
+
+```
+for (auto it = vec.begin(); it != vec.end(); )
+{
+    if (*it % 2 != 0)
+    {
+        it = vec.erase(it);
+    }
+    else
+    {
+        ++it;
+    }
+}
+```
+
+* Removing elements from a vector like filter
+
+```
+vector<int> filtered;
+for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered.push_back(x); } });
+```
 
 #### Multithreading
 
@@ -488,7 +513,7 @@ Shared pointer can be created using the `make_shared` function:
 
 ```
 struct Test { int a; };
-auto ptr = make_shared<Test>();
+auto ptr = make_shared<Test>(); // ptr is a shared_ptr<Test>
 cout << ptr->a << endl;
 ```
 
