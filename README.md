@@ -424,6 +424,53 @@ friend Type operator+ (const Type &t1, const Type &t2);
 
 `int printf(const char* format, ...)`. Init with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
 
+#### Preprocessor directives
+
+* Useful for [debug print](https://stackoverflow.com/questions/14251038/debug-macros-in-c):
+
+```
+#define DEBUG
+
+#ifdef DEBUG
+    #define D(code) code
+    #define DEBUG_PRINT(msg) (cout << msg << endl)
+#else
+    #define D(code)
+    #define DEBUG_PRINT(msg)
+#endif
+
+D(cout << "Hello debug" << endl;)
+DEBUG_PRINT("Hello debug 2");
+```
+
+* Useful for code selection at compile-time:
+
+```
+#define ALG_TYPE 1
+
+#if ALG_TYPE == 1
+    cout << "Alg type 1" << endl;
+#elif ALG_TYPE == 2
+    cout << "Alg type 2" << endl;
+#else
+    #error Bad ALG_TYPE
+#endif
+```
+
+* Useful for OS-specific code:
+
+```
+#ifdef __linux__
+    cout << "Hello Linux" << endl;
+#elif _WIN32
+    cout << "Hello Windows" << endl;
+#else
+    #error OS not supported
+#endif
+```
+
+* [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
+
 ### C++11
 
 * Use `-std=c++11` switch for compilation.
