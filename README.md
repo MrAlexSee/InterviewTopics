@@ -353,6 +353,7 @@ MVVM
 * `cat [file]` – print file contents
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
 * `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
+* `grep bash$ /etc/passwd | head -n1 | sed 's/:/ /g'` – grep lines ending with "bash", print the first line, replace each ":" with " "
 * `df -h` – disk usage in human-readable
 * `find / -name "*.txt" 2> /dev/null` – find all files with txt extension while ignoring error messages
 * `ls -lah` – list current dir with hidden files and details in human-readable
@@ -470,6 +471,24 @@ DEBUG_PRINT("Hello debug 2");
 ```
 
 * [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
+
+#### Bitwise operators
+
+*TODO*
+
+#### Data parsing
+
+*TODO*
+
+### Standard Library
+
+[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) – a collection of classes and functions.
+
+*TODO*
+
+#### String
+
+#### Vector
 
 ### C++11
 
