@@ -563,14 +563,15 @@ for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered
 #### Multithreading
 
 Before C++11 it was required to use OS-specific functionality, e.g., pthreads on Linux.
-Launching a simple thread:
+
+* Launching a simple thread:
 
 ```
 thread t1([]() { cout << "t1" << endl; });
 t1.join(); // Blocks until t1 finishes
 ```
 
-Threads with synchronization:
+* Threads with synchronization:
 
 ```
 vector<thread> threads;
@@ -584,6 +585,35 @@ for (int i = 0; i < 5; ++i)
         mut.unlock();
     }));
 }
+```
+
+```
+vector<thread> threads;
+mutex mut;
+
+for (int i = 0; i < 5; ++i)
+{
+    threads.push_back(thread([&mut]() {
+        unique_lock<mutex>(mut);
+        cout << this_thread::get_id() << endl;
+    }));
+}
+```
+
+* Threads with blocking on the result:
+
+```
+vector<future<int>> res;
+
+for (int i = 0; i < 5; ++i)
+{
+    res.push_back(async(launch::async, [i]() { // or launch::deferred for lazy eval
+        this_thread::sleep_for(chrono::seconds(3));
+        return i;
+    }));
+}
+
+for (auto &f : res) { cout << f.get() << endl; }
 ```
 
 * `std::promise` is the producer and `std::future` is the consumer.
