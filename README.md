@@ -404,6 +404,8 @@ C++
 
 * References cannot be null, reset or uninitialized.
 
+* `assert(1 == 1 == 1)` doesn't fail, `assert(4 == 4 == 1)` doesn't fail, `assert(4 == 4 == 4)` fails, assert `assert(1 == 4 == 4)` fails.
+
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)) – destructor, copy constructor, copy assignment operator.
 
 #### Memory management
@@ -500,6 +502,22 @@ Launching a simple thread:
 ```
 thread t1([]() { cout << "t1" << endl; });
 t1.join(); // Blocks until t1 finishes
+```
+
+Threads with synchronization:
+
+```
+vector<thread> threads;
+mutex mut;
+
+for (int i = 0; i < 5; ++i)
+{
+    threads.push_back(thread([i, &mut]() {
+        mut.lock();
+        cout << "t: " << i << endl;
+        mut.unlock();
+    }));
+}
 ```
 
 * `std::promise` is the producer and `std::future` is the consumer.
