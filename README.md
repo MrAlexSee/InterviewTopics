@@ -366,7 +366,7 @@ MVVM
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `touch [file]` – create `[file]`
 * `whereis [cmd]` – check the location of `[cmd]`
-* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}`
+* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latters calls remove multiple times with a single argument)
 
 #### Packages
 
@@ -520,6 +520,8 @@ DEBUG_PRINT("Hello debug 2");
 * lvalue: has address and can be assigned.
 * rvalue: a temporary object `string getName() { return "ala"; } string &&name = getName();`
 
+* obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
+
 ```
 MyString(const MyString &other) { }
 MyString(MyString &&other) { } // steal the resources from other
@@ -565,9 +567,37 @@ vector<int> filtered;
 for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered.push_back(x); } });
 ```
 
+#### Functors
+
+[Functor](https://en.wikipedia.org/wiki/Function_object) = function object.
+
+Using `operator()` (doesn't require C++11):
+
+```
+class Add
+{
+public:
+    int operator() (int x, int y, int z = 3) { return x + y; }
+};
+
+int main()
+{
+    Add add;
+    cout << "x = " << add(1, 2) << endl;
+}
+```
+
+Using `std::function`:
+
+```
+function<int(int, int)> add = [](int x, int y) { return x + y; };
+cout << "x = " << add(1, 2) << endl;
+```
+
 #### Multithreading
 
 Before C++11 it was required to use OS-specific functionality, e.g., pthreads on Linux.
+Compile with `-pthread` on Linux.
 
 * Launching a simple thread:
 
@@ -599,9 +629,29 @@ mutex mut;
 for (int i = 0; i < 5; ++i)
 {
     threads.push_back(thread([&mut]() {
-        unique_lock<mutex>(mut);
+        lock_guard<mutex> guard(mut); // or use unique_lock which has more flexibility
         cout << this_thread::get_id() << endl;
     }));
+}
+```
+
+* Thread with a timed mutex (i.e. with a timeout):
+
+```
+int main()
+{
+    vector<thread> threads;
+    timed_mutex mut;
+
+    mut.lock();
+
+    threads.push_back(thread([&mut]() {
+        cout << "Locking..." << endl;
+        mut.try_lock_for(chrono::seconds(1));
+        cout << "After locking!" << endl;
+    }));
+
+    threads[0].join();
 }
 ```
 
@@ -621,8 +671,8 @@ for (int i = 0; i < 5; ++i)
 for (auto &f : res) { cout << f.get() << endl; }
 ```
 
-* `std::promise` is the producer and `std::future` is the consumer.
 * `future<void> res(async(fun));` – async can take fun with args or a lambda, `res.get();` blocks until the result is available.
+* `std::promise` is the producer and `std::future` is the consumer.
 
 #### Smart pointers
 
