@@ -366,7 +366,7 @@ MVVM
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `touch [file]` – create `[file]`
 * `whereis [cmd]` – check the location of `[cmd]`
-* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latters calls remove multiple times with a single argument)
+* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
 
 #### Packages
 
@@ -477,6 +477,14 @@ DEBUG_PRINT("Hello debug 2");
 
 * [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
 
+#### Templates
+
+*TODO*
+
+##### Template specialization
+
+*TODO*
+
 #### Bitwise operators
 
 *TODO*
@@ -487,7 +495,7 @@ DEBUG_PRINT("Hello debug 2");
 
 ### Standard Library
 
-[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) – a collection of classes and functions.
+[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) – a collection of classes and functions. Collections do not have thread-safety guarantees.
 
 *TODO*
 
@@ -631,6 +639,22 @@ for (int i = 0; i < 5; ++i)
     threads.push_back(thread([&mut]() {
         lock_guard<mutex> guard(mut); // or use unique_lock which has more flexibility
         cout << this_thread::get_id() << endl;
+    }));
+}
+```
+
+* Atomic access:
+
+```
+vector<thread> threads;
+
+atomic<int> n;
+n = 0;
+
+for (int i = 0; i < 1000; ++i)
+{
+    threads.push_back(thread([&n]() {
+        n += 1;
     }));
 }
 ```
