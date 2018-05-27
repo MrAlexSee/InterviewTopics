@@ -475,6 +475,17 @@ DEBUG_PRINT("Hello debug 2");
 #endif
 ```
 
+* Use do-while for correct multi-line expansion:
+
+```
+#define PRINT(x, y)               \
+do                                \
+{                                 \
+    cout << "x = " << x;          \
+    cout << " y = " << y << endl; \
+} while (0)
+```
+
 * [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
 
 #### Templates
@@ -541,6 +552,39 @@ MyString &operator= (MyString other) // pass-by-value
 }
 ```
 
+#### Tuples
+
+Creating a heterogenous tuple:
+
+```
+tuple<int, string> tup1 = make_tuple(1, "ala");
+cout << get<0>(tup1) << " " << get<1>(tup1) << endl;
+```
+
+Using `tie` in order to unpack a tuple:
+
+```
+int x, y;
+tie(x, y) = make_tuple(1, 2);
+
+cout << x << " " << y << endl; // prints 1 2
+```
+
+Using `tie` with a function returning multiple values:
+
+```
+random_device rd;
+mt19937 mt(rd());
+uniform_int_distribution<int> dist(1, 100);
+
+auto rand3 = [&mt, &dist]() { return make_tuple(dist(mt), dist(mt), dist(mt)); };
+
+int x, y, z;
+tie(x, y, z) = rand3();
+
+cout << x << " " << y << " " << z << endl; // prints x y z
+```
+
 #### Lambdas
 
 ```
@@ -600,6 +644,12 @@ Using `std::function`:
 ```
 function<int(int, int)> add = [](int x, int y) { return x + y; };
 cout << "x = " << add(1, 2) << endl;
+```
+
+Argument binding:
+
+```
+
 ```
 
 #### Multithreading
