@@ -346,9 +346,14 @@ MVVM
 
 ### Unit testing
 
-*TODO*
+A unit in a [unit test](https://en.wikipedia.org/wiki/Unit_testing) could be an entire module or interface or an individual method.
+Unit tests are often combined with [matchers](https://en.wikipedia.org/wiki/Hamcrest) (Hamcrest) which extend simple assertions and allow for the use of a declarative style.
 
-* [Hamcrest](https://en.wikipedia.org/wiki/Hamcrest) (matchers)
+Common terms include:
+
+* [Mock](https://en.wikipedia.org/wiki/Mock_object): used instead of a real object, also called [stub](https://en.wikipedia.org/wiki/Test_stub) (definitions might vary).
+
+* [Spy](https://stackoverflow.com/questions/12827580/mocking-vs-spying-in-mocking-frameworks) related to a mock, this is usually a real object whose behavior is modified in some way, while a mock is all fake.
 
 ### Useful Linux commands
 
@@ -649,7 +654,10 @@ cout << "x = " << add(1, 2) << endl;
 Argument binding:
 
 ```
+auto add = [](int x, int y) { return x + y; };
+auto add5 = bind(add, placeholders::_1, 5);
 
+cout << add5(3) << endl; // prints 8
 ```
 
 #### Multithreading
