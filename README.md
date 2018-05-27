@@ -318,7 +318,7 @@ MVVM
 
 #### Scrum
 
-[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. Iterative, incremental, flexible.
+[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. [Agile](https://en.wikipedia.org/wiki/Agile_software_development), iterative, incremental, flexible.
 
 * Product owner = stakeholders
 * Development team
@@ -344,16 +344,33 @@ MVVM
 * [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
 * Virtual function = can be overridden
 
-### Unit testing
+### Testing
 
 A unit in a [unit test](https://en.wikipedia.org/wiki/Unit_testing) could be an entire module or interface or an individual method.
 Unit tests are often combined with [matchers](https://en.wikipedia.org/wiki/Hamcrest) (Hamcrest) which extend simple assertions and allow for the use of a declarative style.
+Unit tests are realized with the use of libraries such as [Catch2](https://github.com/catchorg/Catch2) for C++.
 
 Common terms include:
 
+* [A/B testing](https://en.wikipedia.org/wiki/A/B_testing): a controlled experiment (i.e. ideally varying only in what is tested) of two variants, e.g., testing two website design for user engagement.
+
+* [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development):
+
+* [Black-box testing](https://en.wikipedia.org/wiki/Black-box_testing): testing without knowing the internals.
+
+* [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related: [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
+
 * [Mock](https://en.wikipedia.org/wiki/Mock_object): used instead of a real object, also called [stub](https://en.wikipedia.org/wiki/Test_stub) (definitions might vary).
 
-* [Spy](https://stackoverflow.com/questions/12827580/mocking-vs-spying-in-mocking-frameworks) related to a mock, this is usually a real object whose behavior is modified in some way, while a mock is all fake.
+* [Regression testing](https://en.wikipedia.org/wiki/Regression_testing): checking whether the system still works correctly after introducing changes (configuration, patch, etc.).
+
+* [Smoke test](https://en.wikipedia.org/wiki/Smoke_testing_(software)): sanity test such as checking whether the program runs at all.
+
+* [Spy](https://stackoverflow.com/questions/12827580/mocking-vs-spying-in-mocking-frameworks): related to a mock, this is usually a real object whose behavior is modified in some way, while a mock is all fake.
+
+* [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development): tests are written first and all features must pass specific tests.
+
+* [White-box testing](https://en.wikipedia.org/wiki/White-box_testing): testing internal structure rather than a functionality/interface.
 
 ### Useful Linux commands
 
