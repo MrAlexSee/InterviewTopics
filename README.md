@@ -282,6 +282,10 @@ MVVM
 
 * [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
 
+* [Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor): one should select the answer that makes the fewest assumptions (simpler theories are preferable).
+
+* [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): components of the system should behave in an expected way, might apply to both the UI and the source code.
+
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
@@ -362,6 +366,7 @@ MVVM
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `touch [file]` – create `[file]`
 * `whereis [cmd]` – check the location of `[cmd]`
+* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}`
 
 #### Packages
 
