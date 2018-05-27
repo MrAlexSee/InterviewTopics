@@ -352,13 +352,15 @@ Unit tests are realized with the use of libraries such as [Catch2](https://githu
 
 Common terms include:
 
-* [A/B testing](https://en.wikipedia.org/wiki/A/B_testing): a controlled experiment (i.e. ideally varying only in what is tested) of two variants, e.g., testing two website design for user engagement.
+* [A/B testing](https://en.wikipedia.org/wiki/A/B_testing): a controlled experiment (i.e. ideally varying only in what is tested) of two variants, e.g., testing two website designs for user engagement.
 
 * [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development):
 
 * [Black-box testing](https://en.wikipedia.org/wiki/Black-box_testing): testing without knowing the internals.
 
-* [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related: [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
+* [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describe how much of source code is executed by unit tests. Could be measures in terms of functions, statements, branches, etc.
+
+* [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related is [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
 
 * [Mock](https://en.wikipedia.org/wiki/Mock_object): used instead of a real object, also called [stub](https://en.wikipedia.org/wiki/Test_stub) (definitions might vary).
 
@@ -938,7 +940,7 @@ plt.show()
 Git
 --------------------
 
-[Basic commands](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html):
+#### [Basic commands](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html)
 
 * `git init`
 * `git clone [address]`
@@ -947,6 +949,7 @@ Git
 * `git add -u` – add all already-tracked files
 * `git add .` – add all files from the current directory, also untracked
 * `git checkout [branch-name]` – switch to branch `[branch-name]`
+* `git checkout -b [branch-name] [base-branch-name]` – create a branch `[branch-name]` out of `[base-branch-name]`
 * `git commit -a` – commits changes to all tracked files (not only in the current directory)
 * `git commit -m "[msg]"` – commit with message `[msg]`
 * `git merge [branch-name]` – merge current branch with branch `[branch-name]`
@@ -961,9 +964,13 @@ Git
 * `git rm [file]` – remove `[file]`
 * `git rm --cached [file]` – stop `[file]` from being tracked
 
-### GitFlow
+#### Related terminology
 
-[GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow): workflow model based on branches.
+* [Pull request](https://yangsu.github.io/pull-request-tutorial/): request that a maintainer (somebody in the authority) pull the changes and merge them after approval (i.e. add them into the codebase).
+
+#### GitFlow
+
+[GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) is a workflow model based on branches.
 
 * **master** branch: releases with version numbers (main branch number 1)
 * **develop** branch: integration branch for features (main branch number 2)
