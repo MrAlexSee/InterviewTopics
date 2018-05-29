@@ -56,37 +56,37 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### Heap
 
-[Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) – priority queue, max-heap or min-heap. Adding: add at the bottom, continue swapping with parent (sifting up). Deleting: swap root with the last leaf, sift down the new root. Various kinds of heaps exist: Brodal, Fibonacci, etc.
+[Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)): priority queue, max-heap or min-heap. Adding: add at the bottom, continue swapping with parent (sifting up). Deleting: swap root with the last leaf, sift down the new root. Various kinds of heaps exist: Brodal, Fibonacci, etc.
 
 #### String matching
 
-* [Trie](https://en.wikipedia.org/wiki/Trie) – a tree in which the position of a node describes the associated value, search is proportional to the pattern length, that is O(m).
+* [Trie](https://en.wikipedia.org/wiki/Trie): a tree in which the position of a node describes the associated value, search is proportional to the pattern length, that is O(m).
 
-* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array) – stores indexes of sorted suffixes from the input text, search is O(m log n), space is around 5n.
+* [Suffix array](https://en.wikipedia.org/wiki/Suffix_array): stores indexes of sorted suffixes from the input text, search is O(m log n), space is around 5n.
 
-* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree) – a trie which stores all suffixes of the input string, search is O(m), space is around 10n.
+* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree): a trie which stores all suffixes of the input string, search is O(m), space is around 10n.
 
 ### Algorithms
 
-* [Brute-force](https://en.wikipedia.org/wiki/Brute-force_search) – exhaustive search, checking all solution candidates.
+* [Brute-force](https://en.wikipedia.org/wiki/Brute-force_search): exhaustive search, checking all solution candidates.
 
-* [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) – solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with memoization.
+* [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming): solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with [memoization](https://en.wikipedia.org/wiki/Memoization) (result caching).
 
-* [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) – makes a locally optimal choice at each step.
+* [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm): makes a locally optimal choice at each step.
 
-* [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm) – LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accurracy).
+* [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm): LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accurracy).
 
 #### Sorting
 
-* [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) – best O(n), avg O(n²), worst O(n²)
-* [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort) – best O(n), avg O(n²), worst O(n²)
-* [Selection sort](https://en.wikipedia.org/wiki/Selection_sort) – best, avg, worst O(n²)
+* [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort): best O(n), avg O(n²), worst O(n²)
+* [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort): best O(n), avg O(n²), worst O(n²)
+* [Selection sort](https://en.wikipedia.org/wiki/Selection_sort): best, avg, worst O(n²)
 <br />
 
-* [Heapsort](https://en.wikipedia.org/wiki/Heapsort) – best, avg, worst O(n log n)
-* [Mergesort](https://en.wikipedia.org/wiki/Merge_sort) – best, avg, worst O(n log n)
-* [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) – best, avg, worst O(w n)
-* [Quicksort](https://en.wikipedia.org/wiki/Quicksort) – best O(n log n), avg O(n log n), worst O(n²), related: [quickselect](https://en.wikipedia.org/wiki/Quickselect), finds k-th smallest element in O(n) avg time.
+* [Heapsort](https://en.wikipedia.org/wiki/Heapsort): best, avg, worst O(n log n)
+* [Mergesort](https://en.wikipedia.org/wiki/Merge_sort): best, avg, worst O(n log n)
+* [Radix sort](https://en.wikipedia.org/wiki/Radix_sort): best, avg, worst O(w n)
+* [Quicksort](https://en.wikipedia.org/wiki/Quicksort): best O(n log n), avg O(n log n), worst O(n²), related: [quickselect](https://en.wikipedia.org/wiki/Quickselect), finds k-th smallest element in O(n) avg time.
 
 #### Machine learning
 
@@ -101,56 +101,57 @@ Applications:
 Techniques:
 
 * [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
-* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning) – created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
+* [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning): created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
 * Bayesian
-* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning) – sets of rules
-* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning) – using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
-* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) – separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning): sets of rules
+* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
+* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
 
 #### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) – maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
 
-* [B*](https://en.wikipedia.org/wiki/B*) –
+* [B*](https://en.wikipedia.org/wiki/B*)
 
-* [D*](https://en.wikipedia.org/wiki/D*) –
+* [D*](https://en.wikipedia.org/wiki/D*)
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) – specific case of A* without a heuristic.
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
 
-* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring) – labeling where no adjacent vertices share a label.
+* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertices share a label.
 
-* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem) – find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
+* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
 
-* [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) – partitioning into regions based on a distance to the closest point.
+* [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram): partitioning into regions based on a distance to the closest point.
 
 #### Trees
 
-* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) – minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
+* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
-* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal) – DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
 
 #### String matching
 
 ##### Exact
 
-* [Aho-Corasick](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm) – a finite state machine which resembles a trie. Matches multiple queries at once while sliding over the text.
+* [Aho-Corasick](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm): a finite state machine which resembles a trie. Matches multiple queries at once while sliding over the text.
 
-* [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) – begin matching from the end of the pattern and jump forward based on mismatches. After proprocessing, the size of each shift can be determined in constant time: align the text with the rightmost occurrence of current char in P or shift the pattern by its total length. Worst case is O(nm + δ).
+* [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm): begin matching from the end of the pattern and jump forward based on mismatches. After proprocessing, the size of each shift can be determined in constant time: align the text with the rightmost occurrence of current char in P or shift the pattern by its total length. Worst case is O(nm + δ).
 
-* [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) – for each mismatch at position i in the pattern, shift P by i - l, where l is the length of the longest proper prefix of P[0, i − 1] which is also a suffix of P[0, i − 1] and start matching from position l in the pattern. Worst case is O(n + m).
+* [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm): for each mismatch at position i in the pattern, shift P by i - l, where l is the length of the longest proper prefix of P[0, i − 1] which is also a suffix of P[0, i − 1] and start matching from position l in the pattern. Worst case is O(n + m).
 
-* [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) – rolling hash, worst case is O(nm).
+* [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm): rolling hash, worst case is O(nm).
 
-* [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm) – based on bit-parallelism, pattern length must be smaller than the word size. Computes a mismatch mask for each character from the alphabet with unset bits corresponding to positions of this character in the pattern. At each step, the state mask is shifted and or-ed with the mask for the current character from the text.
+* [Shift-or](https://en.wikipedia.org/wiki/Bitap_algorithm): based on bit-parallelism, pattern length must be smaller than the word size. Computes a mismatch mask for each character from the alphabet with unset bits corresponding to positions of this character in the pattern. At each step, the state mask is shifted and or-ed with the mask for the current character from the text.
 
 ##### Approximate
 
-* [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) – counts the number of mismatching characters at corresponding positions.
-* [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) – counts the number of single-character edits (insert, delete, substitute) needed to transform one word into another.
+* [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance): counts the number of mismatching characters at corresponding positions.
 
-* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) –
+* [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance): counts the number of single-character edits (insert, delete, substitute) needed to transform one word into another.
 
-* [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm) –
+* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm)
+
+* [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
 
 ### Design patterns
 
@@ -420,7 +421,7 @@ Common terms include:
 C++
 --------------------
 
-[C++](https://en.wikipedia.org/wiki/C%2B%2B) – compiled, static typing, object-oriented.
+[C++](https://en.wikipedia.org/wiki/C%2B%2B): compiled, static typing, object-oriented.
 
 ### Basic
 
@@ -436,7 +437,7 @@ C++
 
 * `assert(1 == 1 == 1)` doesn't fail, `assert(4 == 4 == 1)` doesn't fail, `assert(4 == 4 == 4)` fails, assert `assert(1 == 4 == 4)` fails.
 
-* [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)) – destructor, copy constructor, copy assignment operator.
+* [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)): destructor, copy constructor, copy assignment operator.
 
 #### Memory management
 
@@ -530,7 +531,7 @@ do                                \
 
 ### Standard Library
 
-[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) – a collection of classes and functions. Collections do not have thread-safety guarantees.
+[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees.
 
 *TODO*
 
@@ -788,12 +789,12 @@ for (int i = 0; i < 5; ++i)
 for (auto &f : res) { cout << f.get() << endl; }
 ```
 
-* `future<void> res(async(fun));` – async can take fun with args or a lambda, `res.get();` blocks until the result is available.
+* `future<void> res(async(fun));`: async can take fun with args or a lambda, `res.get();` blocks until the result is available.
 * `std::promise` is the producer and `std::future` is the consumer.
 
 #### Smart pointers
 
-* `shared_ptr<int>tab (new int[size]);` – resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
+* `shared_ptr<int>tab (new int[size]);`: resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
 
 Shared pointer can be created using the `make_shared` function:
 
@@ -803,8 +804,8 @@ auto ptr = make_shared<Test>(); // ptr is a shared_ptr<Test>
 cout << ptr->a << endl;
 ```
 
-* `weak_ptr` – doesn't increase the count, useful for preventing circular dependencies.
-* `unique_ptr` – only one reference, cannot be copied, move semantics allow for ownership transfer.
+* `weak_ptr`: doesn't increase the count, useful for preventing circular dependencies.
+* `unique_ptr`: only one reference, cannot be copied, move semantics allow for ownership transfer.
 
 ### C++14/17
 
@@ -819,7 +820,7 @@ cout << ptr->a << endl;
 Python
 --------------------
 
-[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) – interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)): interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
 
 [Not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
 
