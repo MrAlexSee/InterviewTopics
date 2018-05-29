@@ -48,11 +48,11 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 ##### BST
 
-* [AVL](https://en.wikipedia.org/wiki/AVL_tree) – first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after a regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on node z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
+* [AVL](https://en.wikipedia.org/wiki/AVL_tree): first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after a regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on node z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
 
-* [Red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) – each node is R or B, the root is B. If node is R, both children are B. Any path from node to any leaf (NIL, B) has the same number of black nodes.
+* [Red-black](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree): each node is R or B, the root is B. If node is R, both children are B. Any path from node to any leaf (NIL, B) has the same number of black nodes.
 
-* [Treap](https://en.wikipedia.org/wiki/Treap) – BST with priorities maintained in a heap. Searching is just like BST, insertion: generate random priority, add leaf at a regular position, use rotations in order to restore the max-heap property.
+* [Treap](https://en.wikipedia.org/wiki/Treap): BST with priorities maintained in a heap. Searching is just like BST, insertion: generate random priority, add leaf at a regular position, use rotations in order to restore the max-heap property.
 
 ##### Heap
 
@@ -270,7 +270,7 @@ MVVM
 
 * [Broken windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
 
-* [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultanously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped).
+* [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultaneously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped).
 
 * [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete): create, read, update, delete, 4 basic functions of persistent storage.
 
@@ -550,7 +550,7 @@ do                                \
 
 * Static class: `struct Test { Test() = delete; };`
 
-* Mark overriden (virtual) functions with `override` keyword.
+* Mark overridden (virtual) functions with `override` keyword.
 
 * `nullptr` is a pointer type NULL (NULL is just 0).
 
@@ -580,7 +580,7 @@ MyString &operator= (MyString other) // pass-by-value
 
 #### Tuple
 
-Creating a heterogenous tuple:
+Creating a heterogeneous tuple:
 
 ```
 tuple<int, string> tup1 = make_tuple(1, "ala");
