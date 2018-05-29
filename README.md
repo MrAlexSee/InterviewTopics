@@ -536,7 +536,7 @@ do                                \
 
 ### Standard Library
 
-[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees.
+[C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees for multiple writers.
 
 *TODO*
 
@@ -713,6 +713,36 @@ thread t1([]() { cout << "t1" << endl; });
 t1.join(); // Blocks until t1 finishes
 ```
 
+* Atomic access:
+
+```
+vector<thread> threads;
+
+atomic<int> n;
+n = 0;
+
+for (int i = 0; i < 1000; ++i)
+{
+    threads.push_back(thread([&n]() {
+        n += 1;
+    }));
+}
+```
+
+* Call once:
+
+```
+vector<thread> threads;
+
+once_flag flag1;
+auto once = [&flag1]() { call_once(flag1, []() { cout << "Called!" << endl; }); };
+
+for (int i = 0; i < 5; ++i)
+{
+    threads.push_back(thread(once));
+} // Will print "Called!" only once.
+```
+
 * Threads with synchronization:
 
 ```
@@ -738,36 +768,6 @@ for (int i = 0; i < 5; ++i)
     threads.push_back(thread([&mut]() {
         lock_guard<mutex> guard(mut); // or use unique_lock which has more flexibility
         cout << this_thread::get_id() << endl;
-    }));
-}
-```
-
-* Call once:
-
-```
-vector<thread> threads;
-
-once_flag flag1;
-auto once = [&flag1]() { call_once(flag1, []() { cout << "Called!" << endl; }); };
-
-for (int i = 0; i < 5; ++i)
-{
-    threads.push_back(thread(once));
-} // Will print "Called!" only once.
-```
-
-* Atomic access:
-
-```
-vector<thread> threads;
-
-atomic<int> n;
-n = 0;
-
-for (int i = 0; i < 1000; ++i)
-{
-    threads.push_back(thread([&n]() {
-        n += 1;
     }));
 }
 ```
@@ -808,6 +808,12 @@ for (int i = 0; i < 5; ++i)
 }
 
 for (auto &f : res) { cout << f.get() << endl; }
+```
+
+* Threads with a condition variable:
+
+```
+
 ```
 
 * `future<void> res(async(fun));`: async can take fun with args or a lambda, `res.get();` blocks until the result is available.
