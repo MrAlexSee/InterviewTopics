@@ -422,6 +422,11 @@ C++
 --------------------
 
 [C++](https://en.wikipedia.org/wiki/C%2B%2B): compiled, static typing, object-oriented.
+[Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) is as follows:
+
+1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc.
+1. Compilation: produces object files. These can be grouped into a static library.
+1. Linking: combines object files into a dynamic library or an executable.
 
 ### Basic
 
@@ -557,7 +562,7 @@ do                                \
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
-* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`.
+* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`, `tuple<int, int, string> t1 { 2, 1, "ala" };`.
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
@@ -815,7 +820,35 @@ cout << ptr->a << endl;
 
 ### Makefile
 
-*TODO*
+```
+# First macros are provided. These can be uncommented with '#' if needed.
+CC        = g++                          # Compiler name
+EXE		  = sopang                       # Executable name
+CCFLAGS   = -Wall -pedantic -std=c++11   # Compiler flags: all warnings, pedantic, C++11 standard
+OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables assert()), opti level 3
+
+INCLUDE   = -I$(/path/to/lib)            # Include: header location
+LDFLAGS   = -L$(/path/to/lib)            # Link:
+LDLIBS    = -lboost_program_options -lm
+
+all: $(EXE)
+
+$(EXE): main.o sopang.o
+	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) $(LDFLAGS) $^ -o $@ $(LDLIBS)
+
+main.o: main.cpp helpers.hpp params.hpp
+	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c main.cpp
+
+sopang.o: sopang.cpp sopang.hpp helpers.hpp
+	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c sopang.cpp
+
+.PHONY: clean
+
+clean:
+	rm -f main.o sopang.o $(EXE)
+
+rebuild: clean all
+```
 
 Python
 --------------------
