@@ -770,8 +770,10 @@ int main()
 
     threads.push_back(thread([&mut]() {
         cout << "Locking..." << endl;
-        mut.try_lock_for(chrono::seconds(1));
-        cout << "After locking!" << endl;
+        bool res = mut.try_lock_for(chrono::seconds(1));
+
+        // This will print 0 (false) because we fail to acquire the lock.
+        cout << "After locking, res = " << res << endl;
     }));
 
     threads[0].join();
