@@ -745,7 +745,15 @@ for (int i = 0; i < 5; ++i)
 * Call once:
 
 ```
+vector<thread> threads;
 
+once_flag flag1;
+auto once = [&flag1]() { call_once(flag1, []() { cout << "Called!" << endl; }); };
+
+for (int i = 0; i < 5; ++i)
+{
+    threads.push_back(thread(once));
+} // Will print "Called!" only once.
 ```
 
 * Atomic access:
