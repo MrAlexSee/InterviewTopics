@@ -823,12 +823,12 @@ cout << ptr->a << endl;
 ```
 # First macros are provided. These can be uncommented with '#' if needed.
 CC        = g++                          # Compiler name
-EXE		  = sopang                       # Executable name
+EXE       = sopang                       # Executable name
 CCFLAGS   = -Wall -pedantic -std=c++11   # Compiler flags: all warnings, pedantic, C++11 standard.
 OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables assert()), opti level 3.
 
-INCLUDE   = -I$(/path/to/lib)            # -I: add directory searched for header files
-LDFLAGS   = -L$(/path/to/lib)            # -L: add directory searched for -l
+INCLUDE   = -I/path/to/lib               # -I: add directory searched for header files.
+LDFLAGS   = -L/path/to/lib               # -L: add directory searched for -l.
 LDLIBS    = -lm                          # Link with library libm.a.
 
 # Default rule is all.
@@ -839,7 +839,7 @@ $(EXE): main.o sopang.o
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 # Object file main.o depends on the following files.
-# -c means stop after compilation (no linking), this produces the object file
+# -c means stop after compilation (no linking), this produces the object file.
 main.o: main.cpp helpers.hpp params.hpp
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c main.cpp
 
