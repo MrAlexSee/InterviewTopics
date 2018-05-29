@@ -358,7 +358,7 @@ Common terms include:
 
 * [Black-box testing](https://en.wikipedia.org/wiki/Black-box_testing): testing without knowing the internals.
 
-* [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describe how much of source code is executed by unit tests. Could be measures in terms of functions, statements, branches, etc.
+* [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describe how much of source code is executed by unit tests. Could be measured in terms of functions, statements, branches, etc.
 
 * [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related is [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
 
@@ -556,6 +556,8 @@ do                                \
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
+* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`.
+
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
 #### Move semantics
@@ -576,7 +578,7 @@ MyString &operator= (MyString other) // pass-by-value
 }
 ```
 
-#### Tuples
+#### Tuple
 
 Creating a heterogenous tuple:
 
@@ -607,6 +609,20 @@ int x, y, z;
 tie(x, y, z) = rand3();
 
 cout << x << " " << y << " " << z << endl; // prints x y z
+```
+
+#### Array
+
+```
+array<int, 3> tab { 1, 2, 3 };
+cout << tab.size() << endl; // prints 3
+
+for (const int i : tab)
+{
+    cout << i << endl;
+}
+
+for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
 ```
 
 #### Lambdas
