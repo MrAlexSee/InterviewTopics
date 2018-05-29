@@ -425,7 +425,7 @@ C++
 [Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) is as follows:
 
 1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc.
-1. Compilation: produces object files. These can be grouped into a static library.
+1. Compilation: produces object files. These can be grouped into a static library. Object files can refer to symbols that are declared but not defined.
 1. Linking: combines object files into a dynamic library or an executable.
 
 ### Basic
@@ -824,25 +824,29 @@ cout << ptr->a << endl;
 # First macros are provided. These can be uncommented with '#' if needed.
 CC        = g++                          # Compiler name
 EXE		  = sopang                       # Executable name
-CCFLAGS   = -Wall -pedantic -std=c++11   # Compiler flags: all warnings, pedantic, C++11 standard
-OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables assert()), opti level 3
+CCFLAGS   = -Wall -pedantic -std=c++11   # Compiler flags: all warnings, pedantic, C++11 standard.
+OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables assert()), opti level 3.
 
-INCLUDE   = -I$(/path/to/lib)            # Include: header location
-LDFLAGS   = -L$(/path/to/lib)            # Link:
-LDLIBS    = -lboost_program_options -lm
+INCLUDE   = -I$(/path/to/lib)            # -I: add directory searched for header files
+LDFLAGS   = -L$(/path/to/lib)            # -L: add directory searched for -l
+LDLIBS    = -lm                          # Link with library libm.a.
 
+# Default rule is all.
 all: $(EXE)
 
+# Executable depends on the following object files. $@ is the target name, $^ are the dependencies.
 $(EXE): main.o sopang.o
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
+# Object file main.o depends on the following files.
+# -c means stop after compilation (no linking), this produces the object file
 main.o: main.cpp helpers.hpp params.hpp
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c main.cpp
 
 sopang.o: sopang.cpp sopang.hpp helpers.hpp
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c sopang.cpp
 
-.PHONY: clean
+.PHONY: clean # Phony targets are not associated with file dependencies.
 
 clean:
 	rm -f main.o sopang.o $(EXE)
