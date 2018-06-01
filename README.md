@@ -13,8 +13,8 @@ General
 ### Graphs
 
 * Bipartite: two disjoint, independent sets
-* Complete graph: every pair of vertices is adjacent, no loops
-* Strongly connected: every 2 vertices are reachable from each other
+* Complete graph: every pair of vertexes is adjacent, no loops
+* Strongly connected: every 2 vertexes are reachable from each other
 * Tree: connected, acyclic, undirected graph
 
 ### Complexity
@@ -74,7 +74,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm): makes a locally optimal choice at each step.
 
-* [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm): LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accurracy).
+* [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm): LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accuracy).
 
 #### Sorting
 
@@ -135,7 +135,7 @@ Techniques:
 
 * [Aho-Corasick](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm): a finite state machine which resembles a trie. Matches multiple queries at once while sliding over the text.
 
-* [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm): begin matching from the end of the pattern and jump forward based on mismatches. After proprocessing, the size of each shift can be determined in constant time: align the text with the rightmost occurrence of current char in P or shift the pattern by its total length. Worst case is O(nm + δ).
+* [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm): begin matching from the end of the pattern and jump forward based on mismatches. After preprocessing, the size of each shift can be determined in constant time: align the text with the rightmost occurrence of current char in P or shift the pattern by its total length. Worst case is O(nm + δ).
 
 * [KMP](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm): for each mismatch at position i in the pattern, shift P by i - l, where l is the length of the longest proper prefix of P[0, i − 1] which is also a suffix of P[0, i − 1] and start matching from position l in the pattern. Worst case is O(n + m).
 
