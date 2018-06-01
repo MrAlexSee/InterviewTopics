@@ -354,7 +354,7 @@ Common terms include:
 
 * [A/B testing](https://en.wikipedia.org/wiki/A/B_testing): a controlled experiment (i.e. ideally varying only in what is tested) of two variants, e.g., testing two website designs for user engagement.
 
-* [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development):
+* [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD): extension of TDD where tests are based on scenarios and descriptions.
 
 * [Black-box testing](https://en.wikipedia.org/wiki/Black-box_testing): testing without knowing the internals.
 
@@ -370,7 +370,7 @@ Common terms include:
 
 * [Spy](https://stackoverflow.com/questions/12827580/mocking-vs-spying-in-mocking-frameworks): related to a mock, this is usually a real object whose behavior is modified in some way, while a mock is all fake.
 
-* [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development): tests are written first and all features must pass specific tests.
+* [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD): tests are written first and all features must pass specific tests.
 
 * [White-box testing](https://en.wikipedia.org/wiki/White-box_testing): testing internal structure rather than a functionality/interface.
 
