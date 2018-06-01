@@ -382,8 +382,8 @@ Common terms include:
 
 ```
 
-#ifndef SOPANG_WHITEBOX
-#define SOPANG_WHITEBOX
+#ifndef TESTED_WHITEBOX
+#define TESTED_WHITEBOX
 #endif
 
 class Tested
