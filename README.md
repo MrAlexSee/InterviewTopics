@@ -349,7 +349,6 @@ MVVM
 
 A unit in a [unit test](https://en.wikipedia.org/wiki/Unit_testing) could be an entire module or interface or an individual method.
 Unit tests are often combined with [matchers](https://en.wikipedia.org/wiki/Hamcrest) (Hamcrest) which extend simple assertions and allow for the use of a declarative style.
-Unit tests are realized with the use of libraries such as [Catch2](https://github.com/catchorg/Catch2) for C++.
 
 Common terms include:
 
@@ -374,6 +373,37 @@ Common terms include:
 * [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development): tests are written first and all features must pass specific tests.
 
 * [White-box testing](https://en.wikipedia.org/wiki/White-box_testing): testing internal structure rather than a functionality/interface.
+
+#### Unit testing in C++
+
+* Unit tests are realized with the use of libraries such as [Catch2](https://github.com/catchorg/Catch2) for C++.
+
+* Accessing private members can be realized using various methods. In general, it is discouraged in favor of testing only the public interface. If necessary, once can use, e.g., [friend classes](https://stackoverflow.com/questions/14186245/unit-testing-c-how-to-test-private-members/14186634), shown below.
+
+```
+
+#ifndef SOPANG_WHITEBOX
+#define SOPANG_WHITEBOX
+#endif
+
+class Tested
+{
+public:
+
+private:
+    TESTED_WHITEBOX
+}
+```
+
+```
+#define TESTED_WHITEBOX \
+    friend class Testing;
+
+class Testing
+{
+    // call private functions from Tested
+}
+```
 
 ### Useful Linux commands
 
