@@ -455,7 +455,7 @@ C++
 [Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) is as follows:
 
 1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc.
-1. Compilation: produces object files. These can be grouped into a static library. Object files can refer to symbols that are declared but not defined.
+1. Compilation: produces object files (.o). These can be grouped into a static library (.a). Object files can refer to symbols that are declared but not defined.
 1. Linking: combines object files into a dynamic library or an executable.
 
 ### Basic
@@ -881,7 +881,7 @@ OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables
 
 INCLUDE   = -I/path/to/lib               # -I: add directory searched for header files.
 LDFLAGS   = -L/path/to/lib               # -L: add directory searched for -l.
-LDLIBS    = -lm                          # Link with library libm.a.
+LDLIBS    = -lm                          # Link with the library libm.a (static) or libm.so (shared, dynamic). Use -static to prevent linking with shared libraries.
 
 # Default rule is all.
 all: $(EXE)
