@@ -881,7 +881,10 @@ OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables
 
 INCLUDE   = -I/path/to/lib               # -I: add directory searched for header files.
 LDFLAGS   = -L/path/to/lib               # -L: add directory searched for -l.
-LDLIBS    = -lm                          # Link with the library libm.a (static) or libm.so (shared, dynamic). Use -static to prevent linking with shared libraries.
+
+# Link with the library libm.a (static) or libm.so (shared, dynamic).
+# Use -static to prevent linking with shared libraries.
+LDLIBS    = -lm
 
 # Default rule is all.
 all: $(EXE)
