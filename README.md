@@ -117,7 +117,7 @@ Techniques:
 
 * [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
 
-* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertices share a label.
+* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertexes share a label.
 
 * [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
 
@@ -279,6 +279,8 @@ MVVM
 
 * [KISS](https://en.wikipedia.org/wiki/KISS_principle): keep it simple, stupid.
 
+* [Lint](https://en.wikipedia.org/wiki/Lint_(software)): tools which analyze source code in order to find bugs, errors, and suspicious constructs. There exits many linters for various languages and platforms.
+
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
 * [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
@@ -413,10 +415,11 @@ class Testing
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
 * `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
 * `grep bash$ /etc/passwd | head -n1 | sed 's/:/ /g'` – grep lines ending with "bash", print the first line, replace each ":" with " "
+* `grep -nr 'pattern' .` – [recursively](https://stackoverflow.com/questions/4121803/how-can-i-use-grep-to-find-a-word-inside-a-folder) search for a pattern in a current directory, print line numbers
 * `df -h` – disk usage in human-readable
-* `find / -name "*.txt" 2> /dev/null` – find all files with txt extension while ignoring error messages
-* `ls -lah` – list current dir with hidden files and details in human-readable
-* `man gcc | grep [-]std=c++11 -C2` – search for a switch and show 2 lines around the result
+* `find / -name "*.txt" 2> /dev/null` – find all files with .txt extension while ignoring error messages
+* `ls -lah` – list current directory with hidden files and details in human-readable
+* `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `touch [file]` – create `[file]`
@@ -439,6 +442,7 @@ class Testing
 #### Net
 
 * `host [url]` – get IP for `[url]`
+* `wget [url]` – download a single file from `[url]`
 * `wget -m -e robots=off --no-parent [url]` – download recursively from `[url]`
 * `whois [IP]` – get information about `[IP]`
 
@@ -883,7 +887,7 @@ INCLUDE   = -I/path/to/lib               # -I: add directory searched for header
 LDFLAGS   = -L/path/to/lib               # -L: add directory searched for -l.
 
 # Link with the library libm.a (static) or libm.so (shared, dynamic).
-# Use -static to prevent linking with shared libraries.
+# Use -static to prefer static to dynamic linking (i.e. search for .a files first).
 LDLIBS    = -lm
 
 # Default rule is all.
