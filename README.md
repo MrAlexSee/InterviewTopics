@@ -595,7 +595,108 @@ do                                \
 
 #### Templates
 
-*TODO*
+Template function with a type:
+
+```
+template<typename T> // "typename" or "class" is a keyword for the type
+void printVector(const vector<T> &vec)
+{
+    for (const T &item : vec) { cout << item << endl; }
+}
+
+int main() 
+{
+    printVector<int>({ 1, 2, 3 });
+    printVector(vector<int> { 1, 2, 3 });
+}
+
+```
+
+Template function with a type and a value:
+
+```
+template<typename T, int N>
+void printVector(const vector<T> &vec)
+{
+    for (int i = 0; i < N and i < vec.size(); ++i) { cout << vec[i] << endl; }
+}
+
+int main() 
+{
+    printVector<int, 2>({ 1, 2, 3 }); // prints 1 2
+}
+```
+
+Class template:
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+    T val;
+};
+
+int main() 
+{
+    Box<int> box(2);
+    cout << box.val << endl;
+}
+```
+
+Function template inside a class template:
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+
+    template<int repeat>
+    void dumpVal()
+    {
+        for (int i = 0; i < repeat; ++i)
+        {
+            cout << val << endl;
+        }
+    }
+
+    T val;
+};
+
+int main() 
+{
+    Box<int> box(2);
+    box.dumpVal<5>();
+}
+```
+
+Function template inside a class template, definition outside the class:
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+
+    template<int repeat>
+    void dumpVal();
+
+    T val;
+};
+
+// Note that with templates the definition must be visible where the function is instantiated.
+// One way to achieve this is it #include the .cpp file with the definition in the header.
+template<typename T>
+template<int repeat>
+void Box<T>::dumpVal()
+{
+    for (int i = 0; i < repeat; ++i)
+    {
+        cout << val << endl;
+    }
+}
+```
 
 ##### Template specialization
 
@@ -638,6 +739,8 @@ do                                \
 * `constexpr`: a constant value which must be initialized at compile time.
 
 * Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`, `tuple<int, int, string> t1 { 2, 1, "ala" };`.
+
+* Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
