@@ -344,6 +344,7 @@ MVVM
 * Friend = defined outside a class but can access internal stuff
 * Inheritance
 * Interface = collection of methods (mostly abstract)
+* [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time)
 * [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
 * Virtual function = can be overridden
 
