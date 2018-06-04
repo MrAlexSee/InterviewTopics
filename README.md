@@ -384,7 +384,6 @@ Common terms include:
 * Accessing private members can be realized using various methods. In general, it is discouraged in favor of testing only the public interface. If necessary, once can use, e.g., [friend classes](https://stackoverflow.com/questions/14186245/unit-testing-c-how-to-test-private-members/14186634), shown below.
 
 ```
-
 #ifndef TESTED_WHITEBOX
 #define TESTED_WHITEBOX
 #endif
@@ -609,7 +608,6 @@ int main()
     printVector<int>({ 1, 2, 3 });
     printVector(vector<int> { 1, 2, 3 });
 }
-
 ```
 
 Template function with a type and a value:
@@ -707,6 +705,7 @@ Explicit (full) specialization means that all template arguments are provided.
 In C++ partial specialization is not allowed for functions (either member or non-member functions), using overloading is suggested instead.
 
 Template function with full specialization:
+
 ```
 template<typename T>
 void printVector(const vector<T> &vec)
@@ -805,7 +804,6 @@ int main()
     box.dumpVal("Val: "); // prints Val: "ala"
     box.dumpVal(1); // prints 1) "ala"
 }
-
 ```
 
 Template class with partial specialization:
@@ -1020,6 +1018,7 @@ for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
 ```
 sort(tab, tab + n, [](int a, int b) { return a > b; });
 ```
+
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
 
 * `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
