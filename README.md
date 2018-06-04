@@ -421,6 +421,8 @@ class Testing
 * `ls -lah` – list current directory with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
+* `nohup [cmd] &` – run `[cmd]` in the background immune to hangups (i.e. it won't be killed if the user logs off), appends output of this command to nohup.out
+* `ps -e` – show all running processes, can be used to determine the PID for a later call to `kill -9 [PID]` in order to kill a process which is associated with `[PID]`
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
 * `touch [file]` – create `[file]`
