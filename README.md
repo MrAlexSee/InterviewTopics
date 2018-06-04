@@ -615,7 +615,7 @@ int main()
 Template function with a type and a value:
 
 ```
-template<typename T, int N>
+template<typename T, int N> // type int N = 5 in order to provide a default template parameter value
 void printVector(const vector<T> &vec)
 {
     for (int i = 0; i < N and i < vec.size(); ++i) { cout << vec[i] << endl; }
@@ -700,11 +700,13 @@ void Box<T>::dumpVal()
 
 ##### Template specialization
 
-[Template specialization](https://www.geeksforgeeks.org/template-specialization-c/) refers to specific template definitions for particular data types.
+* [Template specialization](https://www.geeksforgeeks.org/template-specialization-c/) refers to specific template definitions for particular data types.
 Explicit (full) specialization means that all template arguments are provided.
-[Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided.
 
-Template function with specialization:
+* [Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided.
+In C++ partial specialization is not allowed for functions, using overloading is suggested instead.
+
+Template function with full specialization:
 ```
 template<typename T>
 void printVector(const vector<T> &vec)
@@ -725,7 +727,7 @@ int main()
 }
 ```
 
-Template class with specialization:
+Template class with full specialization:
 
 ```
 template<typename T>
@@ -758,6 +760,59 @@ int main()
     Box<string> sbox("ala");
     sbox.dumpVal(); // prints "ala" in quotes
 }
+```
+
+Template function in a template class with full class/function and class specialization:
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+
+    template<typename PT>
+    void dumpVal(const PT &prefix);
+
+    T val;
+};
+
+template<typename T>
+template<typename PT>
+void Box<T>::dumpVal(const PT &prefix)
+{
+    cout << prefix << val << endl;
+}
+
+// Template class (with template function) specialization.
+template<>
+template<typename PT>
+void Box<string>::dumpVal(const PT &prefix)
+{
+    cout << prefix << '\"' << val << '\"' << endl;
+}
+
+// Template class and template function (in template class) specialization.
+// Note: it is not possible to only specialize the member without specializing the class.
+template<>
+template<>
+void Box<string>::dumpVal(const int &prefix)
+{
+    cout << prefix << ") " << '\"' << val << '\"' << endl;
+}
+
+int main() 
+{
+    Box<string> box("ala");
+    box.dumpVal("Val: "); // prints Val: "ala"
+    box.dumpVal(1); // prints 1) "ala"
+}
+
+```
+
+Template class with partial specialization:
+
+```
+
 ```
 
 #### Bitwise operators
