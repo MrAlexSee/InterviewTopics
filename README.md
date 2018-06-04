@@ -344,7 +344,7 @@ MVVM
 * Friend = defined outside a class but can access internal stuff
 * Inheritance
 * Interface = collection of methods (mostly abstract)
-* [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time)
+* [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
 * [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
 * Virtual function = can be overridden
 
@@ -490,8 +490,45 @@ C++
 #### Operator overloading
 
 ```
-Type operator+ (const Type &type);
-friend Type operator+ (const Type &t1, const Type &t2);
+struct Num
+{
+    // Initializer list is useful when members are complex types,
+    // as it avoids calling the default constructor.
+    Num(int argN) : n(argN) { }
+
+    friend Num operator+ (const Num &t1, const Num &t2)
+    {
+       return Num(t1.n + t2.n);
+    }
+    
+    // Overloading the operator using a friend function allows for other types as arguments.
+    friend Num operator+ (int n, const Num &t2)
+    {
+       return Num(n + t2.n);
+    }
+
+    Num& operator+= (const Num& other)
+    {
+        n += other.n;
+        return *this;
+    }
+
+    int n;
+};
+
+int main() 
+{
+    Num num1 = Num(2) + Num(6);
+    Num num2 = 2 + Num(6);
+
+    cout << num1.n << " " << num2.n << endl;
+    
+    // This invokes the constructor of Num with 4 as argument.
+    // It wouldn't work if the constructor were explicit.
+    num2 += 4;
+
+    cout << num1.n << " " << num2.n << endl;
+}
 ```
 
 #### Variadic functions
