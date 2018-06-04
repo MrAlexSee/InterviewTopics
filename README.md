@@ -727,7 +727,7 @@ int main()
 }
 ```
 
-Template class with full specialization:
+Template class with full member function specialization:
 
 ```
 template<typename T>
@@ -762,7 +762,7 @@ int main()
 }
 ```
 
-Template function in a template class with full class/function and class specialization:
+Template function in a template class with full member function specialization:
 
 ```
 template<typename T>
@@ -783,7 +783,6 @@ void Box<T>::dumpVal(const PT &prefix)
     cout << prefix << val << endl;
 }
 
-// Template class (with template function) specialization.
 template<>
 template<typename PT>
 void Box<string>::dumpVal(const PT &prefix)
@@ -791,8 +790,8 @@ void Box<string>::dumpVal(const PT &prefix)
     cout << prefix << '\"' << val << '\"' << endl;
 }
 
-// Template class and template function (in template class) specialization.
-// Note: it is not possible to only specialize the member function without specializing the class.
+// Note: it is not possible to only specialize the member function parameter
+// without specializing the class parameter.
 template<>
 template<>
 void Box<string>::dumpVal(const int &prefix)
@@ -865,6 +864,47 @@ int main()
 
     VectorBox<int, string> sbox({ 1, 2, 3 }, "ala"); // This id will be enclosed in quotation marks.
     sbox.dumpVec();
+}
+```
+
+Template class with partial specialization for pointers (again, only allowed for classes):
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+    
+    void dump()
+    {
+        cout << val << endl;
+    }
+    
+    T val;
+};
+
+template<typename T>
+struct Box<T *>
+{
+    Box(T *valArg): val(valArg) { }
+    
+    void dump()
+    {
+        cout << *val << endl;
+    }
+    
+    T *val;
+};
+
+int main() 
+{
+    int n = 5;
+
+    Box<int> box(n);
+    box.dump(); // prints 5
+
+    Box<int *> pbox(&n);
+    pbox.dump(); // prints 5
 }
 ```
 
