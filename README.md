@@ -627,7 +627,7 @@ int main()
 }
 ```
 
-Class template:
+Template class:
 
 ```
 template<typename T>
@@ -644,7 +644,7 @@ int main()
 }
 ```
 
-Function template inside a class template:
+Template function inside a template class:
 
 ```
 template<typename T>
@@ -671,7 +671,7 @@ int main()
 }
 ```
 
-Function template inside a class template, definition outside the class:
+Template function inside a template class, definition outside the class:
 
 ```
 template<typename T>
@@ -700,7 +700,65 @@ void Box<T>::dumpVal()
 
 ##### Template specialization
 
-*TODO*
+[Template specialization](https://www.geeksforgeeks.org/template-specialization-c/) refers to specific template definitions for particular data types.
+Explicit (full) specialization means that all template arguments are provided.
+[Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided.
+
+Template function with specialization:
+```
+template<typename T>
+void printVector(const vector<T> &vec)
+{
+    for (int i = 0; i < vec.size(); ++i) { cout << vec[i] << endl; }
+}
+
+template<>
+void printVector(const vector<string> &vec)
+{
+    for (int i = 0; i < vec.size(); ++i) { cout << vec[i] << " "; }
+}
+
+int main() 
+{
+    // Strings are separated with spaces instead of newlines.
+    printVector<string>({ "ala", "ma", "kota" });
+}
+```
+
+Template class with specialization:
+
+```
+template<typename T>
+struct Box
+{
+    Box(T valArg): val(valArg) { }
+
+    void dumpVal();
+
+    T val;
+};
+
+template<typename T>
+void Box<T>::dumpVal()
+{
+    cout << val << endl;
+}
+
+template<>
+void Box<string>::dumpVal()
+{
+    cout << '\"' << val << '\"' << endl;
+}
+
+int main() 
+{
+    Box<int> box(2); // prints 2
+    box.dumpVal();
+
+    Box<string> sbox("ala");
+    sbox.dumpVal(); // prints "ala" in quotes
+}
+```
 
 #### Bitwise operators
 
