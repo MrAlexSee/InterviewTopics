@@ -422,9 +422,9 @@ class Testing
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
+* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
 * `touch [file]` – create `[file]`
 * `whereis [cmd]` – check the location of `[cmd]`
-* `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
 
 #### Packages
 
@@ -442,6 +442,7 @@ class Testing
 #### Net
 
 * `host [url]` – get IP for `[url]`
+* `scp [login]@[url]:[path] .` – copy file from remote (located at `[path]` at remote) to the current directory at the local machine
 * `wget [url]` – download a single file from `[url]`
 * `wget -m -e robots=off --no-parent [url]` – download recursively from `[url]`
 * `whois [IP]` – get information about `[IP]`
