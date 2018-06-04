@@ -704,7 +704,7 @@ void Box<T>::dumpVal()
 Explicit (full) specialization means that all template arguments are provided.
 
 * [Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided.
-In C++ partial specialization is not allowed for functions, using overloading is suggested instead.
+In C++ partial specialization is not allowed for functions (either member or non-member functions), using overloading is suggested instead.
 
 Template function with full specialization:
 ```
@@ -792,7 +792,7 @@ void Box<string>::dumpVal(const PT &prefix)
 }
 
 // Template class and template function (in template class) specialization.
-// Note: it is not possible to only specialize the member without specializing the class.
+// Note: it is not possible to only specialize the member function without specializing the class.
 template<>
 template<>
 void Box<string>::dumpVal(const int &prefix)
@@ -812,7 +812,60 @@ int main()
 Template class with partial specialization:
 
 ```
+template<typename TData, typename TID>
+struct VectorBox
+{
+    VectorBox(const vector<TData> &vecArg, const TID &idArg)
+        : vec(vecArg), id(idArg) { }
+    void dumpVec() const;
+    
+    vector<TData> vec;
+    TID id;
+};
 
+template<typename TData, typename TID>
+void VectorBox<TData, TID>::dumpVec() const
+{
+    cout << id << ": ";
+    
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        cout << vec[i] << " ";
+    }
+}
+
+// Partial specialization: requires specializing the enclosing class.
+// It is not possible to partially specialize the function without specializing the class.
+template <typename TData>
+struct VectorBox<TData, string>
+{
+    VectorBox(const vector<TData> &vecArg, const string &idArg)
+        : vec(vecArg), id(idArg) { }
+    void dumpVec() const;
+    
+    vector<TData> vec;
+    string id;
+};
+
+template<typename TData>
+void VectorBox<TData, string>::dumpVec() const
+{
+    cout << '\"' << id << '\"' << ": ";
+    
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        cout << vec[i] << " ";
+    }
+}
+
+int main()
+{
+    VectorBox<int, int> box(vector<int>{ 1, 2, 3 }, 0);
+    box.dumpVec();
+
+    VectorBox<int, string> sbox({ 1, 2, 3 }, "ala"); // This id will be enclosed in quotation marks.
+    sbox.dumpVec();
+}
 ```
 
 #### Bitwise operators
