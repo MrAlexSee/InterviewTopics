@@ -426,7 +426,7 @@ TEST_CASE("is addition correct", "[math]")
     // Check whether exception of a given type is thrown.
     REQUIRE_THROWS_AS([]() { throw invalid_argument("test"); }(), invalid_argument);
 
-    // There are also some matchers available in catch, which should be used with require that.
+    // There are also some matchers available in catch that can be used with REQUIRE_THAT.
     vector<int> vec{ 1, 2, 3 };
     REQUIRE_THAT(vec, VectorContains(2));
 }
@@ -671,7 +671,7 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 #### Variadic functions
 
-A [variadic](http://en.cppreference.com/w/cpp/utility/variadic) function allows for any number of arguments.
+A [variadic](http://en.cppreference.com/w/cpp/utility/variadic) function allows for the use of any number of arguments.
 
 ```cpp
 void printInts(const char *fmt, ...)
@@ -714,6 +714,24 @@ void printInts(int count, ...)
 }
 
 printInts(3, 1, 2, 3); // prints 1 2 3
+```
+
+In C++11 it can be achieved also with a parameter pack:
+
+```cpp
+// Functions with parameter packs work like recursion.
+template<typename T>
+void print(T n) { cout << n << " "; }
+
+// T1 is required for the recursion to finish (it consumes 1 arg with each call).
+template<typename T1, typename ... T2>
+void print(T1 arg, T2 ... args)
+{
+    print(arg);
+    print(args...);
+}
+
+print(1, 2, 3, "ala"); // prints 1 2 3 ala
 ```
 
 #### Preprocessor directives
@@ -1398,6 +1416,14 @@ cout << ptr->a << endl;
 
 * `weak_ptr`: doesn't increase the count, useful for preventing circular dependencies.
 * `unique_ptr`: only one reference, cannot be copied, move semantics allow for ownership transfer.
+
+#### Variadic templates
+
+[Variadic templates](https://en.cppreference.com/w/cpp/language/parameter_pack) use so-called parameter packs in order to allow for any number of template parameters.
+
+```cpp
+
+```
 
 ### C++14
 
