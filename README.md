@@ -632,9 +632,13 @@ A *badAPtr = reinterpret_cast<A *>(cPtr); // Static or dynamic cast here would n
 badAPtr->print(); // Fails at runtime.
 ```
 
-* **Const cast**:
+* **Const cast**: can add or remove the const modifier.
 
-```
+```cpp
+struct A { };
+
+const A *acPtr = new A;
+A *aPtr = const_cast<A *>(acPtr);
 ```
 
 #### Variadic functions
