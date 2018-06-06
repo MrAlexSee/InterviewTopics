@@ -535,7 +535,7 @@ int main()
 
 There are 4 following kinds of [casts](http://people.scs.carleton.ca/~dehne/projects/cpp-doc/tutorial/tut5-4.html).
 
-* Static cast : conversions which can be implicitly performed. 
+* **Static cast**: conversions which can be implicitly performed. 
 
 ```
 float f = 1.5;
@@ -566,10 +566,10 @@ bPtr2->print(); // prints B
 // B *bPtr3 = aPtr; // This would give error (invalid conversion).
 
 B *bPtr3 = static_cast<B *>(aPtr); // Down the hierarchy, bad cast (not B). 
-bPtr3->print(); // prints A
+bPtr3->print(); // Hence prints A.
 ```
 
-* Dynamic cast: can be used for casting polymorphic classes up and down the hierarchy, checks if the cast is valid.
+* **Dynamic cast**: can be used for casting polymorphic classes up and down the hierarchy, checks if the cast is valid.
 
 ```
 struct A 
@@ -597,12 +597,42 @@ if (bPtr3 != nullptr)
 }
 ```
 
-* Reinterpret cast: casts any pointer to any other pointer type.
+* Reinterpret cast: casts any pointer to any other pointer type or int. Unlike static cast, doesn't work for, e.g., casting between int and float.
 
 ```
+struct A 
+{
+    virtual void print() { cout << "A" << endl; }
+};
+struct B : public A 
+{
+    virtual void print() { cout << "B" << endl; }
+};
+
+A *aPtr = new A;
+B *bPtr = new B;
+
+A *abPtr = reinterpret_cast<A *>(bPtr); // Up the hierarchy, good cast = works the same as static_cast.
+abPtr->print(); // prints B
+
+B *bPtr2 = reinterpret_cast<B *>(abPtr); // Down the hierarchy, good cast = works the same as static_cast.
+bPtr2->print(); // prints B
+
+B *bPtr3 = reinterpret_cast<B *>(aPtr); // Down the hierarchy, bad cast (not B), works the same as static_cast. 
+bPtr3->print(); // Hence prints A.
+
+long pVal = reinterpret_cast<long>(aPtr);
+cout << hex << pVal << endl; // Prints aPtr value (i.e. memory address) in hex.
+
+reinterpret_cast<A *>(pVal)->print(); // prints A
+
+C *cPtr = new C;
+A *badAPtr = reinterpret_cast<A *>(cPtr); // Static or dynamic cast here would not compile.
+
+badAPtr->print(); // Fails at runtime.
 ```
 
-* Const cast
+* **Const cast**:
 
 ```
 ```
