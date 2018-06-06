@@ -383,7 +383,7 @@ Common terms include:
 
 * Accessing private members can be realized using various methods. In general, it is discouraged in favor of testing only the public interface. If necessary, once can use, e.g., [friend classes](https://stackoverflow.com/questions/14186245/unit-testing-c-how-to-test-private-members/14186634), shown below.
 
-```
+```cpp
 #ifndef TESTED_WHITEBOX
 #define TESTED_WHITEBOX
 #endif
@@ -397,7 +397,7 @@ private:
 }
 ```
 
-```
+```cpp
 #define TESTED_WHITEBOX \
     friend class Testing;
 
@@ -488,7 +488,7 @@ C++
 
 #### Operator overloading
 
-```
+```cpp
 struct Num
 {
     // Initializer list is useful when members are complex types,
@@ -537,7 +537,7 @@ There are 4 following kinds of [casts](http://people.scs.carleton.ca/~dehne/proj
 
 * **Static cast**: conversions which can be implicitly performed. 
 
-```
+```cpp
 float f = 1.5;
 int i = 1;
 
@@ -547,7 +547,7 @@ cout << static_cast<float>(i) << endl; // prints 1
 
 Works also for class pointer casting.
 
-```
+```cpp
 struct A 
 {
     virtual void print() { cout << "A" << endl; }
@@ -571,7 +571,7 @@ bPtr3->print(); // Hence prints A.
 
 * **Dynamic cast**: can be used for casting polymorphic classes up and down the hierarchy, checks if the cast is valid.
 
-```
+```cpp
 struct A 
 {
     virtual void print() { cout << "A" << endl; }
@@ -599,8 +599,8 @@ if (bPtr3 != nullptr)
 
 * Reinterpret cast: casts any pointer to any other pointer type or int. Unlike static cast, doesn't work for, e.g., casting between int and float.
 
-```
-struct A 
+```cpp
+struct A
 {
     virtual void print() { cout << "A" << endl; }
 };
@@ -649,7 +649,7 @@ A *aPtr = const_cast<A *>(acPtr);
 
 * Useful for [debug print](https://stackoverflow.com/questions/14251038/debug-macros-in-c):
 
-```
+```cpp
 #define DEBUG
 
 #ifdef DEBUG
@@ -666,7 +666,7 @@ DEBUG_PRINT("Hello debug 2");
 
 * Useful for code selection at compile-time:
 
-```
+```cpp
 #define ALG_TYPE 1
 
 #if ALG_TYPE == 1
@@ -680,7 +680,7 @@ DEBUG_PRINT("Hello debug 2");
 
 * Useful for OS-specific code:
 
-```
+```cpp
 #ifdef __linux__
     cout << "Hello Linux" << endl;
 #elif _WIN32
@@ -692,7 +692,7 @@ DEBUG_PRINT("Hello debug 2");
 
 * Use do-while for correct multi-line expansion:
 
-```
+```cpp
 #define PRINT(x, y)               \
 do                                \
 {                                 \
@@ -707,7 +707,7 @@ do                                \
 
 Template function with a type:
 
-```
+```cpp
 template<typename T> // "typename" or "class" is a keyword for the type
 void printVector(const vector<T> &vec)
 {
@@ -723,7 +723,7 @@ int main()
 
 Template function with a type and a value:
 
-```
+```cpp
 template<typename T, int N> // type int N = 5 in order to provide a default template parameter value
 void printVector(const vector<T> &vec)
 {
@@ -738,7 +738,7 @@ int main()
 
 Template class:
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -755,7 +755,7 @@ int main()
 
 Template function inside a template class:
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -782,7 +782,7 @@ int main()
 
 Template function inside a template class, definition outside the class:
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -817,7 +817,7 @@ In C++ partial specialization is not allowed for functions (either member or non
 
 Template function with full specialization:
 
-```
+```cpp
 template<typename T>
 void printVector(const vector<T> &vec)
 {
@@ -839,7 +839,7 @@ int main()
 
 Template class with full member function specialization:
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -874,7 +874,7 @@ int main()
 
 Template function in a template class with full member function specialization:
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -919,7 +919,7 @@ int main()
 
 Template class with partial specialization:
 
-```
+```cpp
 template<typename TData, typename TID>
 struct VectorBox
 {
@@ -978,7 +978,7 @@ int main()
 
 Template class with partial specialization for pointers (again, only allowed for classes):
 
-```
+```cpp
 template<typename T>
 struct Box
 {
@@ -1066,7 +1066,7 @@ int main()
 
 * obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
 
-```
+```cpp
 MyString(const MyString &other) { }
 MyString(MyString &&other) { } // steal the resources from other
 
@@ -1081,14 +1081,14 @@ MyString &operator= (MyString other) // pass-by-value
 
 Creating a heterogeneous tuple:
 
-```
+```cpp
 tuple<int, string> tup1 = make_tuple(1, "ala");
 cout << get<0>(tup1) << " " << get<1>(tup1) << endl;
 ```
 
 Using `tie` in order to unpack a tuple:
 
-```
+```cpp
 int x, y;
 tie(x, y) = make_tuple(1, 2);
 
@@ -1097,7 +1097,7 @@ cout << x << " " << y << endl; // prints 1 2
 
 Using `tie` with a function returning multiple values:
 
-```
+```cpp
 random_device rd;
 mt19937 mt(rd());
 uniform_int_distribution<int> dist(1, 100);
@@ -1112,7 +1112,7 @@ cout << x << " " << y << " " << z << endl; // prints x y z
 
 #### Array
 
-```
+```cpp
 array<int, 3> tab { 1, 2, 3 };
 cout << tab.size() << endl; // prints 3
 
@@ -1126,7 +1126,7 @@ for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
 
 #### Lambdas
 
-```
+```cpp
 sort(tab, tab + n, [](int a, int b) { return a > b; });
 ```
 
@@ -1138,7 +1138,7 @@ Lambdas automatically capture constants, in addition: `[x]` captures `x` by valu
 
 * Removing elements from a vector using iterators
 
-```
+```cpp
 for (auto it = vec.begin(); it != vec.end(); )
 {
     if (*it % 2 != 0)
@@ -1154,7 +1154,7 @@ for (auto it = vec.begin(); it != vec.end(); )
 
 * Removing elements from a vector like filter
 
-```
+```cpp
 vector<int> filtered;
 for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered.push_back(x); } });
 ```
@@ -1165,7 +1165,7 @@ for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered
 
 Using `operator()` (doesn't require C++11):
 
-```
+```cpp
 class Add
 {
 public:
@@ -1181,14 +1181,14 @@ int main()
 
 Using `std::function`:
 
-```
+```cpp
 function<int(int, int)> add = [](int x, int y) { return x + y; };
 cout << "x = " << add(1, 2) << endl;
 ```
 
 Argument binding:
 
-```
+```cpp
 auto add = [](int x, int y) { return x + y; };
 auto add5 = bind(add, placeholders::_1, 5);
 
@@ -1202,14 +1202,14 @@ Compile with `-pthread` on Linux.
 
 * Launching a simple thread:
 
-```
+```cpp
 thread t1([]() { cout << "t1" << endl; });
 t1.join(); // Blocks until t1 finishes
 ```
 
 * Atomic access:
 
-```
+```cpp
 vector<thread> threads;
 
 atomic<int> n;
@@ -1225,7 +1225,7 @@ for (int i = 0; i < 1000; ++i)
 
 * Call once:
 
-```
+```cpp
 vector<thread> threads;
 
 once_flag flag1;
@@ -1239,7 +1239,7 @@ for (int i = 0; i < 5; ++i)
 
 * Threads with synchronization:
 
-```
+```cpp
 vector<thread> threads;
 mutex mut;
 
@@ -1253,7 +1253,7 @@ for (int i = 0; i < 5; ++i)
 }
 ```
 
-```
+```cpp
 vector<thread> threads;
 mutex mut;
 
@@ -1268,7 +1268,7 @@ for (int i = 0; i < 5; ++i)
 
 * Thread with a timed mutex (i.e. with a timeout):
 
-```
+```cpp
 int main()
 {
     vector<thread> threads;
@@ -1290,7 +1290,7 @@ int main()
 
 * Threads with blocking on the result:
 
-```
+```cpp
 vector<future<int>> res;
 
 for (int i = 0; i < 5; ++i)
@@ -1306,7 +1306,7 @@ for (auto &f : res) { cout << f.get() << endl; }
 
 * Threads with a condition variable:
 
-```
+```cpp
 
 ```
 
@@ -1319,7 +1319,7 @@ for (auto &f : res) { cout << f.get() << endl; }
 
 Shared pointer can be created using the `make_shared` function:
 
-```
+```cpp
 struct Test { int a; };
 auto ptr = make_shared<Test>(); // ptr is a shared_ptr<Test>
 cout << ptr->a << endl;
@@ -1341,7 +1341,7 @@ cout << ptr->a << endl;
 
 ### Makefile
 
-```
+```makefile
 # First macros are provided. These can be uncommented with '#' if needed.
 CC        = g++                          # Compiler name
 EXE       = sopang                       # Executable name
@@ -1433,7 +1433,7 @@ Python
 
 #### Calling with args
 
-```
+```python
 def add(x, y):
   return x + y
 
@@ -1452,7 +1452,7 @@ def addStar(*args): # All params as a tuple
 
 #### Keyword args
 
-```
+```python
 def addKwargs(**kwargs): # All keyword params as a dict
   return sum(kwargs.values())
 ```
@@ -1469,7 +1469,7 @@ def addKwargs(**kwargs): # All keyword params as a dict
 
 ### Classes
 
-```
+```python
 class Point(object):
   n = 5 # Static var, access as Point.n
 
@@ -1488,7 +1488,7 @@ class Point(object):
 
 #### Inheritance
 
-```
+```python
 class Point3D(Point):
   def __init__(sefl, x, y, z):
     Point.__init__(self, x, y)
@@ -1500,7 +1500,7 @@ class Point3D(Point):
 
 ### Plotting
 
-```
+```python
 import matplotlib.pyplot as plt
 
 plt.title("title")
