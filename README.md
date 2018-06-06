@@ -1456,7 +1456,7 @@ Git
 * `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
 </br>
 
-* `git log`
+* `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside
 * `git pull` (this is `git fetch` followed by `git merge` to the current local branch)
 * `git reset --hard origin/master` – remove all local changes
 * `git rm [file]` – remove `[file]`
