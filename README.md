@@ -20,7 +20,7 @@ General
 ### Complexity
 
 * o, O, ϴ, Ω, ω
-* O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2<sup>n</sup>) < O(n!)
+* O(1) < O(log n) < O(n) < O(n log n) < O(n<sup>2</sup>) < O(2<sup>n</sup>) < O(n!)
 * P, NP, NP-complete, NP-hard, [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem)
 
 #### Amortized analysis
@@ -545,24 +545,71 @@ cout << static_cast<int>(f) << endl; // prints 1
 cout << static_cast<float>(i) << endl; // prints 1
 ``` 
 
-Works also for casting to a base class.
+Works also for class pointer casting.
 
 ```
+struct A 
+{
+    virtual void print() { cout << "A" << endl; }
+};
+struct B : public A 
+{
+    virtual void print() { cout << "B" << endl; }
+};
+
+A *abPtr = static_cast<A *>(bPtr); // Up the hierarchy.
+abPtr->print(); // prints B
+
+B *bPtr2 = static_cast<B *>(abPtr); // Down the hierarchy.
+bPtr2->print(); // prints B
+
+// B *bPtr3 = aPtr; // This would give error (invalid conversion).
+
+B *bPtr3 = static_cast<B *>(aPtr); // Down the hierarchy, bad cast (not B). 
+bPtr3->print(); // prints A
+```
+
+* Dynamic cast: can be used for casting polymorphic classes up and down the hierarchy, checks if the cast is valid.
+
+```
+struct A 
+{
+    virtual void print() { cout << "A" << endl; }
+};
+struct B : public A 
+{
+    virtual void print() { cout << "B" << endl; }
+};
+
+A *aPtr = new A;
 B *bPtr = new B;
-A* aPtr = static_cast<A *>(bPtr);
+
+A *abPtr = dynamic_cast<A *>(bPtr); // Up the hierarchy, good cast = works the same as static_cast.
+abPtr->print(); // prints B
+
+B *bPtr2 = dynamic_cast<B *>(abPtr); // Down the hierarchy, good cast = works the same as static_cast.
+bPtr2->print(); // prints B
+
+B *bPtr3 = dynamic_cast<B *>(aPtr); // Down the hierarchy, bad cast (not B), returns null. 
+if (bPtr3 != nullptr)
+{
+    bPtr3->print(); // This is not run.
+}
 ```
 
-* Dynamic cast
+* Reinterpret cast: casts any pointer to any other pointer type.
 
-* Reinterpret cast
+```
+```
 
 * Const cast
 
-*TODO*
+```
+```
 
 #### Variadic functions
 
-`int printf(const char* format, ...)`. Init with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
+`int printf(const char* format, ...)`. Initialize with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
 
 #### Preprocessor directives
 
