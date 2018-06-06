@@ -467,7 +467,7 @@ C++
 
 ### Basic
 
-* Abstract class has pure virtual functions: `virtual void fun() = 0;`
+* Abstract class has pure virtual functions: `virtual void fun() = 0;`. Each pure virtual function must be overridden for the class to be instantiated.
 
 * Class has private fields/funs by default, struct has public fields/funs by default.
 
@@ -597,7 +597,7 @@ if (bPtr3 != nullptr)
 }
 ```
 
-* Reinterpret cast: casts any pointer to any other pointer type or int. Unlike static cast, doesn't work for, e.g., casting between int and float.
+* **Reinterpret cast**: casts any pointer to any other pointer type or int. Unlike static cast, doesn't work for, e.g., casting between int and float.
 
 ```cpp
 struct A
@@ -1048,7 +1048,7 @@ int main()
 
 * `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
 
-* Static class: `struct Test { Test() = delete; };`
+* Static class: `struct Test { Test() = delete; };` (the compiler does not allow any use of a deleted function).
 
 * Mark overridden (virtual) functions with `override` keyword.
 
