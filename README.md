@@ -379,9 +379,7 @@ Common terms include:
 
 #### Unit testing in C++
 
-* Unit tests are realized with the use of libraries such as [Catch2](https://github.com/catchorg/Catch2) for C++.
-
-* Accessing private members can be realized using various methods. In general, it is discouraged in favor of testing only the public interface. If necessary, once can use, e.g., [friend classes](https://stackoverflow.com/questions/14186245/unit-testing-c-how-to-test-private-members/14186634), shown below.
+Accessing private members can be realized using various methods. In general, it is discouraged in favor of testing only the public interface. If necessary, once can use, e.g., [friend classes](https://stackoverflow.com/questions/14186245/unit-testing-c-how-to-test-private-members/14186634), shown below.
 
 ```cpp
 #ifndef TESTED_WHITEBOX
@@ -404,6 +402,33 @@ private:
 class Testing
 {
     // call private functions from Tested
+}
+```
+Example in C++ using the [Catch2](https://github.com/catchorg/Catch2) library:
+
+```cpp
+// Inserts the necessary main function.
+// It is recommended that this code should be in a separate file for faster compilation.
+#define CATCH_CONFIG_MAIN 
+#include "catch.hpp"
+
+#include <stdexcept>
+
+using namespace std;
+using Catch::Matchers::VectorContains;
+
+// Test case name, test case group (allows for running multiple grouped test cases).
+TEST_CASE("is addition correct", "[math]")
+{
+    // Require = checking for true (use CHECK not to stop on error).
+    REQUIRE([](int x, int y) { return x + y; }(2, 6) == 8);
+
+    // Check whether exception of a given type is thrown.
+    REQUIRE_THROWS_AS([]() { throw invalid_argument("test"); }(), invalid_argument);
+
+    // There are also some matchers available in catch, which should be used with require that.
+    vector<int> vec{ 1, 2, 3 };
+    REQUIRE_THAT(vec, VectorContains(2));
 }
 ```
 
