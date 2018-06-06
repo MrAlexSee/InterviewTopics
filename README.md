@@ -1424,7 +1424,7 @@ Git
 * `git checkout -b [branch-name] [base-branch-name]` – create a branch `[branch-name]` out of `[base-branch-name]`
 * `git commit -a` – commits changes to all tracked files (not only in the current directory)
 * `git commit -m "[msg]"` – commit with message `[msg]`
-* `git diff [file]` – show unstaged changes for `file`, `git diff --staged` to show all staged changes, ``git diff --staged [file]` to show all staged changes for `file`
+* `git diff [file]` – show unstaged changes for `file`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `file`
 * `git merge [branch-name]` – merge current branch with branch `[branch-name]`
 * `git push` – push local to to the corresponding remote branch
 * `git push origin [branch-name]` – push only branch `[branch-name]`
