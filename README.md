@@ -533,6 +533,31 @@ int main()
 
 #### Casting
 
+There are 4 following kinds of [casts](http://people.scs.carleton.ca/~dehne/projects/cpp-doc/tutorial/tut5-4.html).
+
+* Static cast : conversions which can be implicitly performed. 
+
+```
+float f = 1.5;
+int i = 1;
+
+cout << static_cast<int>(f) << endl; // prints 1
+cout << static_cast<float>(i) << endl; // prints 1
+``` 
+
+Works also for casting to a base class.
+
+```
+B *bPtr = new B;
+A* aPtr = static_cast<A *>(bPtr);
+```
+
+* Dynamic cast
+
+* Reinterpret cast
+
+* Const cast
+
 *TODO*
 
 #### Variadic functions
