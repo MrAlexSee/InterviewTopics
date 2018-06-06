@@ -716,14 +716,14 @@ void printInts(int count, ...)
 printInts(3, 1, 2, 3); // prints 1 2 3
 ```
 
-In C++11 it can be achieved also with a parameter pack:
+In C++11 it can be achieved also with a [parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack) (variadic template):
 
 ```cpp
 // Functions with parameter packs work like recursion.
 template<typename T>
 void print(T n) { cout << n << " "; }
 
-// T1 is required for the recursion to finish (it consumes 1 arg with each call).
+// T1 is required for the recursion to finish (it consumes the 1st arg with each call).
 template<typename T1, typename ... T2>
 void print(T1 arg, T2 ... args)
 {
@@ -1416,14 +1416,6 @@ cout << ptr->a << endl;
 
 * `weak_ptr`: doesn't increase the count, useful for preventing circular dependencies.
 * `unique_ptr`: only one reference, cannot be copied, move semantics allow for ownership transfer.
-
-#### Variadic templates
-
-[Variadic templates](https://en.cppreference.com/w/cpp/language/parameter_pack) use so-called parameter packs in order to allow for any number of template parameters.
-
-```cpp
-
-```
 
 ### C++14
 
