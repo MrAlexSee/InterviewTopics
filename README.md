@@ -421,7 +421,7 @@ class Testing
 * `ls -lah` – list current directory with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
-* `nohup [cmd] &` – run `[cmd]` in the background immune to hangups (i.e. it won't be killed if the user logs off), appends output of this command to nohup.out
+* `nohup [cmd] &` – run `[cmd]` in the background immune to hangups (i.e. it won't be killed if the user logs off), appends output of this command to `nohup.out`
 * `ps -e` – show all running processes, can be used to determine the PID for a later call to `kill -9 [PID]` in order to kill a process which is associated with `[PID]`
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
 * `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
@@ -646,7 +646,50 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 #### Variadic functions
 
-`int printf(const char* format, ...)`. Initialize with `va_list` , then `va_start`, `va_arg` for accessing each arg, finish with `va_end`.
+A [variadic](http://en.cppreference.com/w/cpp/utility/variadic) function allows for any number of arguments.
+
+```cpp
+void printInts(const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt); // 2nd arg to va_start is the name of the last argument before ...
+
+    while (*fmt)
+    {
+        if (*fmt == 'd') // Int
+        {
+            int d = va_arg(args, int);
+            cout << d << " ";
+        }
+
+        fmt += 1;
+    }
+
+    va_end(args);
+    cout << endl;
+}
+
+printInts("ddd", 1, 2, 3); // prints 1 2 3
+```
+
+```cpp
+void printInts(int count, ...)
+{
+    va_list args;
+    va_start(args, count); // 2nd arg to va_start is the name of the last argument before ...
+
+    for (int i = 0; i < count; ++i)
+    {
+        int d = va_arg(args, int);
+        cout << d << " ";
+    }
+
+    va_end(args);
+    cout << endl;
+}
+
+printInts(3, 1, 2, 3); // prints 1 2 3
+```
 
 #### Preprocessor directives
 
