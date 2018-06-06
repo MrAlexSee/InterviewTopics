@@ -636,9 +636,12 @@ badAPtr->print(); // Fails at runtime.
 
 ```cpp
 struct A { };
-
 const A *acPtr = new A;
+
+// Stripping the const -- this would not work without the cast.
 A *aPtr = const_cast<A *>(acPtr);
+
+const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant here.
 ```
 
 #### Variadic functions
