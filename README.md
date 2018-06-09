@@ -30,40 +30,39 @@ Table of Contents
         * [MVVM](#mvvm)
     * [Principles](#principles)
     * [Project planning](#project-planning)
-    * [Things to consider](#things-to-consider)
-    * [Scrum](#scrum)
+        * [Things to consider](#things-to-consider)
+        * [Scrum](#scrum)
     * [Language-related concepts](#language-related-concepts)
-    * [Object-oriented terminology](#object-oriented-terminology)
+        * [Object-oriented terminology](#object-oriented-terminology)
     * [Testing](#testing)
-    * [Unit testing in C  ](#unit-testing-in-c)
+        * [Unit testing in C++](#unit-testing-in-c)
     * [Useful Linux commands](#useful-linux-commands)
-    * [General](#general-1)
-    * [Packages](#packages)
-    * [Conversions](#conversions)
-    * [Net](#net)
-    * [Compression](#compression)
+        * [General](#general-1)
+        * [Compression](#compression)
+        * [Conversions](#conversions)
+        * [Net](#net)
+        * [Packages](#packages)
 * [C++](#c)
     * [Basic](#basic-1)
-    * [Memory management](#memory-management)
-    * [Operator overloading](#operator-overloading)
-    * [Casting](#casting)
-    * [Variadic functions](#variadic-functions)
-    * [Preprocessor directives](#preprocessor-directives)
-    * [Templates](#templates)
-        * [Template specialization](#template-specialization)
-    * [Bitwise operators](#bitwise-operators)
-    * [Data parsing](#data-parsing)
+        * [Bitwise operators](#bitwise-operators)
+        * [Casting](#casting)
+        * [Memory management](#memory-management)
+        * [Operator overloading](#operator-overloading)
+        * [Preprocessor directives](#preprocessor-directives)
+        * [Templates](#templates)
+            * [Template specialization](#template-specialization)
+        * [Variadic functions](#variadic-functions)
     * [Standard Library](#standard-library)
-    * [String](#string)
-    * [Vector](#vector)
+        * [String](#string)
+        * [Vector](#vector)
     * [C++11](#c11)
-    * [Move semantics](#move-semantics)
-    * [Tuple](#tuple)
-    * [Array](#array)
-    * [Lambdas](#lambdas)
-    * [Functors](#functors)
-    * [Multithreading](#multithreading)
-    * [Smart pointers](#smart-pointers)
+        * [Move semantics](#move-semantics)
+        * [Tuple](#tuple)
+        * [Array](#array)
+        * [Lambdas](#lambdas)
+        * [Functors](#functors)
+        * [Multithreading](#multithreading)
+        * [Smart pointers](#smart-pointers)
     * [C++14](#c14)
     * [C++17](#c17)
     * [Makefile](#makefile)
@@ -388,6 +387,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): don't add functionality until necessary.
 
+
 ### Project planning
 
 * [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
@@ -414,6 +414,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * Development team
 * Scrum master = servant-leader, helps the team
 
+
 ### Language-related concepts
 
 * Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
@@ -434,6 +435,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
 * [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
 * Virtual function = can be overridden
+
 
 ### Testing
 
@@ -519,6 +521,7 @@ TEST_CASE("is addition correct", "[math]")
 }
 ```
 
+
 ### Useful Linux commands
 
 #### General
@@ -540,12 +543,11 @@ TEST_CASE("is addition correct", "[math]")
 * `touch [file]` – create `[file]`
 * `whereis [cmd]` – check the location of `[cmd]`
 
-#### Packages
+#### Compression
 
-* `apt-get update` – update package index
-* `apt-get dist-upgrade` – install update and satisfy dependencies
-* `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
-* `update-alternatives --config [pkg]` – select a different version for `[pkg]`
+* `tar -xzf [in]` – extract, gunzip (j = bzip), input file `[in]`
+* `unzip [file]`
+* `zip [out] [file1] [file2]`
 
 #### Conversions
 
@@ -561,11 +563,13 @@ TEST_CASE("is addition correct", "[math]")
 * `wget -m -e robots=off --no-parent [url]` – download recursively from `[url]`
 * `whois [IP]` – get information about `[IP]`
 
-#### Compression
+#### Packages
 
-* `tar -xzf [in]` – extract, gunzip (j = bzip), input file `[in]`
-* `unzip [file]`
-* `zip [out] [file1] [file2]`
+* `apt-get update` – update package index
+* `apt-get dist-upgrade` – install update and satisfy dependencies
+* `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
+* `update-alternatives --config [pkg]` – select a different version for `[pkg]`
+
 
 C++
 --------------------
@@ -577,7 +581,10 @@ C++
 1. Compilation: produces object files (.o). These can be grouped into a static library (.a). Object files can refer to symbols that are declared but not defined.
 1. Linking: combines object files into a dynamic library or an executable.
 
+
 ### Basic
+
+* `assert(1 == 1 == 1)` doesn't fail, `assert(4 == 4 == 1)` doesn't fail, `assert(4 == 4 == 4)` fails, assert `assert(1 == 4 == 4)` fails.
 
 * Abstract class has pure virtual functions: `virtual void fun() = 0;`. Each pure virtual function must be overridden for the class to be instantiated.
 
@@ -589,59 +596,11 @@ C++
 
 * References cannot be null, reset or uninitialized.
 
-* `assert(1 == 1 == 1)` doesn't fail, `assert(4 == 4 == 1)` doesn't fail, `assert(4 == 4 == 4)` fails, assert `assert(1 == 4 == 4)` fails.
-
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)): destructor, copy constructor, copy assignment operator.
 
-#### Memory management
+#### Bitwise operators
 
-`malloc`/`calloc` return NULL on error and they must be matched with `free`/`realloc`.
-`new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
-
-#### Operator overloading
-
-```cpp
-struct Num
-{
-    // Initializer list is useful when members are complex types,
-    // as it avoids calling the default constructor.
-    // Note: variables are initialized in the order of their declaration in the class.
-    Num(int argN) : n(argN) { }
-
-    friend Num operator+ (const Num &t1, const Num &t2)
-    {
-       return Num(t1.n + t2.n);
-    }
-    
-    // Overloading the operator using a friend function allows for other types as arguments.
-    friend Num operator+ (int n, const Num &t2)
-    {
-       return Num(n + t2.n);
-    }
-
-    Num& operator+= (const Num& other)
-    {
-        n += other.n;
-        return *this;
-    }
-
-    int n;
-};
-
-int main() 
-{
-    Num num1 = Num(2) + Num(6);
-    Num num2 = 2 + Num(6);
-
-    cout << num1.n << " " << num2.n << endl;
-    
-    // This invokes the constructor of Num with 4 as argument.
-    // It wouldn't work if the constructor were explicit.
-    num2 += 4;
-
-    cout << num1.n << " " << num2.n << endl;
-}
-```
+*TODO*
 
 #### Casting
 
@@ -756,69 +715,54 @@ A *aPtr = const_cast<A *>(acPtr);
 const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant here.
 ```
 
-#### Variadic functions
+#### Memory management
 
-A [variadic](http://en.cppreference.com/w/cpp/utility/variadic) function allows for the use of any number of arguments.
+`malloc`/`calloc` return NULL on error and they must be matched with `free`/`realloc`.
+`new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
+
+#### Operator overloading
 
 ```cpp
-void printInts(const char *fmt, ...)
+struct Num
 {
-    va_list args;
-    va_start(args, fmt); // 2nd arg to va_start is the name of the last argument before ...
+    // Initializer list is useful when members are complex types,
+    // as it avoids calling the default constructor.
+    // Note: variables are initialized in the order of their declaration in the class.
+    Num(int argN) : n(argN) { }
 
-    while (*fmt)
+    friend Num operator+ (const Num &t1, const Num &t2)
     {
-        if (*fmt == 'd') // Int
-        {
-            int d = va_arg(args, int);
-            cout << d << " ";
-        }
-
-        fmt += 1;
+       return Num(t1.n + t2.n);
+    }
+    
+    // Overloading the operator using a friend function allows for other types as arguments.
+    friend Num operator+ (int n, const Num &t2)
+    {
+       return Num(n + t2.n);
     }
 
-    va_end(args);
-    cout << endl;
-}
-
-printInts("ddd", 1, 2, 3); // prints 1 2 3
-```
-
-```cpp
-void printInts(int count, ...)
-{
-    va_list args;
-    va_start(args, count); // 2nd arg to va_start is the name of the last argument before ...
-
-    for (int i = 0; i < count; ++i)
+    Num& operator+= (const Num& other)
     {
-        int d = va_arg(args, int);
-        cout << d << " ";
+        n += other.n;
+        return *this;
     }
 
-    va_end(args);
-    cout << endl;
-}
+    int n;
+};
 
-printInts(3, 1, 2, 3); // prints 1 2 3
-```
-
-In C++11 it can be achieved also with a [parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack) (variadic template):
-
-```cpp
-// Functions with parameter packs work like recursion.
-template<typename T>
-void print(T n) { cout << n << " "; }
-
-// T1 is required for the recursion to finish (it consumes the 1st arg with each call).
-template<typename T1, typename ... T2>
-void print(T1 arg, T2 ... args)
+int main() 
 {
-    print(arg);
-    print(args...);
-}
+    Num num1 = Num(2) + Num(6);
+    Num num2 = 2 + Num(6);
 
-print(1, 2, 3, "ala"); // prints 1 2 3 ala
+    cout << num1.n << " " << num2.n << endl;
+    
+    // This invokes the constructor of Num with 4 as argument.
+    // It wouldn't work if the constructor were explicit.
+    num2 += 4;
+
+    cout << num1.n << " " << num2.n << endl;
+}
 ```
 
 #### Preprocessor directives
@@ -878,6 +822,7 @@ do                                \
 ```
 
 * [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
+
 
 #### Templates
 
@@ -1193,13 +1138,71 @@ int main()
 }
 ```
 
-#### Bitwise operators
+#### Variadic functions
 
-*TODO*
+A [variadic](http://en.cppreference.com/w/cpp/utility/variadic) function allows for the use of any number of arguments.
 
-#### Data parsing
+```cpp
+void printInts(const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt); // 2nd arg to va_start is the name of the last argument before ...
 
-*TODO*
+    while (*fmt)
+    {
+        if (*fmt == 'd') // Int
+        {
+            int d = va_arg(args, int);
+            cout << d << " ";
+        }
+
+        fmt += 1;
+    }
+
+    va_end(args);
+    cout << endl;
+}
+
+printInts("ddd", 1, 2, 3); // prints 1 2 3
+```
+
+```cpp
+void printInts(int count, ...)
+{
+    va_list args;
+    va_start(args, count); // 2nd arg to va_start is the name of the last argument before ...
+
+    for (int i = 0; i < count; ++i)
+    {
+        int d = va_arg(args, int);
+        cout << d << " ";
+    }
+
+    va_end(args);
+    cout << endl;
+}
+
+printInts(3, 1, 2, 3); // prints 1 2 3
+```
+
+In C++11 it can be achieved also with a [parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack) (variadic template):
+
+```cpp
+// Functions with parameter packs work like recursion.
+template<typename T>
+void print(T n) { cout << n << " "; }
+
+// T1 is required for the recursion to finish (it consumes the 1st arg with each call).
+template<typename T1, typename ... T2>
+void print(T1 arg, T2 ... args)
+{
+    print(arg);
+    print(args...);
+}
+
+print(1, 2, 3, "ala"); // prints 1 2 3 ala
+```
+
 
 ### Standard Library
 
@@ -1210,6 +1213,7 @@ int main()
 #### String
 
 #### Vector
+
 
 ### C++11
 
