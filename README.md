@@ -4,27 +4,30 @@ Table of Contents
 * [Table of Contents](#table-of-contents)
 * [General](#general)
     * [Basic math](#basic-math)
-    * [Graphs](#graphs)
     * [Complexity](#complexity)
-    * [Amortized analysis](#amortized-analysis)
+        * [Amortized analysis](#amortized-analysis)
+    * [Graphs](#graphs)
     * [Data structures](#data-structures)
-    * [Basic](#basic)
-        * [BST](#bst)
-        * [Heap](#heap)
-    * [String matching](#string-matching)
+        * [Basic](#basic)
+            * [BST](#bst)
+            * [Heap](#heap)
+        * [String matching](#string-matching)
     * [Algorithms](#algorithms)
-    * [Sorting](#sorting)
-    * [Machine learning](#machine-learning)
-    * [Graphs](#graphs-1)
-    * [Trees](#trees)
-    * [String matching](#string-matching-1)
-        * [Exact](#exact)
-        * [Approximate](#approximate)
+        * [Graphs](#graphs-1)
+        * [Sorting](#sorting)
+        * [Machine learning](#machine-learning)
+        * [String matching](#string-matching-1)
+            * [Exact](#exact)
+            * [Approximate](#approximate)
+        * [Trees](#trees)
     * [Design patterns](#design-patterns)
-    * [Creational](#creational)
-    * [Structural](#structural)
-    * [Behavioral](#behavioral)
+        * [Creational](#creational)
+        * [Structural](#structural)
+        * [Behavioral](#behavioral)
     * [Architectural patterns](#architectural-patterns)
+        * [MVC](#mvc)
+        * [MVP](#mvp)
+        * [MVVM](#mvvm)
     * [Principles](#principles)
     * [Project planning](#project-planning)
     * [Things to consider](#things-to-consider)
@@ -91,12 +94,6 @@ General
 * There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k.
 * [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
 
-### Graphs
-
-* Bipartite: two disjoint, independent sets
-* Complete graph: every pair of vertexes is adjacent, no loops
-* Strongly connected: every 2 vertexes are reachable from each other
-* Tree: connected, acyclic, undirected graph
 
 ### Complexity
 
@@ -112,6 +109,15 @@ General
 * Accounting method: saving credit from costly operations to speed up other operations
 * Potential method: like the accounting method but with a custom function
 
+
+### Graphs
+
+* Bipartite: two disjoint, independent sets
+* Complete graph: every pair of vertexes is adjacent, no loops
+* Strongly connected: every 2 vertexes are reachable from each other
+* Tree: connected, acyclic, undirected graph
+
+
 ### Data structures
 
 #### Basic
@@ -125,7 +131,6 @@ Array      | O(1)     | O(n)     | O(n)           | O(n)
 List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
-
 
 ##### BST
 
@@ -147,6 +152,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree): a trie which stores all suffixes of the input string, search is O(m), space is around 10n.
 
+
 ### Algorithms
 
 * [Brute-force](https://en.wikipedia.org/wiki/Brute-force_search): exhaustive search, checking all solution candidates.
@@ -157,17 +163,21 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Las Vegas](https://en.wikipedia.org/wiki/Las_Vegas_algorithm) vs [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm): LV is a randomized algorithm which always produces a correct result or informs about the failure (it gambles with computational resources), MC is a randomized algorithm which might report an incorrect result (it gambles with result accuracy).
 
-#### Sorting
+#### Graphs
 
-* [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort): best O(n), avg O(n²), worst O(n²)
-* [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort): best O(n), avg O(n²), worst O(n²)
-* [Selection sort](https://en.wikipedia.org/wiki/Selection_sort): best, avg, worst O(n²)
-<br />
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
 
-* [Heapsort](https://en.wikipedia.org/wiki/Heapsort): best, avg, worst O(n log n)
-* [Mergesort](https://en.wikipedia.org/wiki/Merge_sort): best, avg, worst O(n log n)
-* [Radix sort](https://en.wikipedia.org/wiki/Radix_sort): best, avg, worst O(w n)
-* [Quicksort](https://en.wikipedia.org/wiki/Quicksort): best O(n log n), avg O(n log n), worst O(n²), related: [quickselect](https://en.wikipedia.org/wiki/Quickselect), finds k-th smallest element in O(n) avg time.
+* [B*](https://en.wikipedia.org/wiki/B*)
+
+* [D*](https://en.wikipedia.org/wiki/D*)
+
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
+
+* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertexes share a label.
+
+* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
+
+* [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram): partitioning into regions based on a distance to the closest point.
 
 #### Machine learning
 
@@ -188,27 +198,17 @@ Techniques:
 * [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
 * [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
 
-#### Graphs
+#### Sorting
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
+* [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort): best O(n), avg O(n²), worst O(n²)
+* [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort): best O(n), avg O(n²), worst O(n²)
+* [Selection sort](https://en.wikipedia.org/wiki/Selection_sort): best, avg, worst O(n²)
+<br />
 
-* [B*](https://en.wikipedia.org/wiki/B*)
-
-* [D*](https://en.wikipedia.org/wiki/D*)
-
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
-
-* [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertexes share a label.
-
-* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
-
-* [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram): partitioning into regions based on a distance to the closest point.
-
-#### Trees
-
-* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
-
-* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
+* [Heapsort](https://en.wikipedia.org/wiki/Heapsort): best, avg, worst O(n log n)
+* [Mergesort](https://en.wikipedia.org/wiki/Merge_sort): best, avg, worst O(n log n)
+* [Radix sort](https://en.wikipedia.org/wiki/Radix_sort): best, avg, worst O(w n)
+* [Quicksort](https://en.wikipedia.org/wiki/Quicksort): best O(n log n), avg O(n log n), worst O(n²), related: [quickselect](https://en.wikipedia.org/wiki/Quickselect), finds k-th smallest element in O(n) avg time.
 
 #### String matching
 
@@ -233,6 +233,13 @@ Techniques:
 * [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm)
 
 * [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
+
+#### Trees
+
+* [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
+
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
+
 
 ### Design patterns
 
@@ -314,6 +321,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * Visitor: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
 
+
 ### Architectural patterns
 
 * Broker: coordination among components, for instance in between the client and servers.
@@ -323,8 +331,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 * P2P
 * Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler.
 
-####
-MVC
+#### MVC
 
 * Model: data + state.
 * View: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data).
@@ -332,19 +339,18 @@ MVC
 
 Problem is with the controller which is tightly coupled with a view and may get bloated, since most of the logic is there.
 
-####
-MVP
+#### MVP
 
 * Model: the same as in MVC.
 * View: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call.
 * Presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility.
 
-####
-MVVM
+#### MVVM
 
 * Model: the same as in MVC.
 * View: binds to the observables that are exposed by the viewmodel.
 * Viewmodel: has observables for the view and allows the view to pass events to the model.
+
 
 ### Principles
 
