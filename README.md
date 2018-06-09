@@ -28,12 +28,12 @@ Table of Contents
         * [MVC](#mvc)
         * [MVP](#mvp)
         * [MVVM](#mvvm)
+    * [Language-related concepts](#language-related-concepts)
+        * [Object-oriented terminology](#object-oriented-terminology)
     * [Principles](#principles)
     * [Project planning](#project-planning)
         * [Things to consider](#things-to-consider)
         * [Scrum](#scrum)
-    * [Language-related concepts](#language-related-concepts)
-        * [Object-oriented terminology](#object-oriented-terminology)
     * [Testing](#testing)
         * [Unit testing in C++](#unit-testing-in-c)
     * [Useful Linux commands](#useful-linux-commands)
@@ -351,6 +351,28 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * Viewmodel: has observables for the view and allows the view to pass events to the model.
 
 
+### Language-related concepts
+
+* Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
+* Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
+* Introspection: ability to examine type or properties at runtime.
+* Monkey patching: dynamic replacement of attributes at runtime.
+* Reflection: modification of program structure at runtime.
+* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual).
+* Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters).
+
+#### Object-oriented terminology
+
+* Abstraction
+* Encapsulation = hiding data
+* Friend = defined outside a class but can access internal stuff
+* Inheritance
+* Interface = collection of methods (mostly abstract)
+* [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
+* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
+* Virtual function = can be overridden
+
+
 ### Principles
 
 * [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so).
@@ -413,28 +435,6 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * Product owner = stakeholders
 * Development team
 * Scrum master = servant-leader, helps the team
-
-
-### Language-related concepts
-
-* Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
-* Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
-* Introspection: ability to examine type or properties at runtime.
-* Monkey patching: dynamic replacement of attributes at runtime.
-* Reflection: modification of program structure at runtime.
-* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual).
-* Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters).
-
-#### Object-oriented terminology
-
-* Abstraction
-* Encapsulation = hiding data
-* Friend = defined outside a class but can access internal stuff
-* Inheritance
-* Interface = collection of methods (mostly abstract)
-* [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
-* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
-* Virtual function = can be overridden
 
 
 ### Testing
