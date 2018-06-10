@@ -1745,26 +1745,40 @@ Git
 #### [Basic commands](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html)
 
 * `git init`
+
 * `git clone [address]`
 </br>
 
 * `git add -u` – add all already-tracked files
+
 * `git add .` – add all files from the current directory, also untracked
+
 * `git checkout [branch-name]` – switch to branch `[branch-name]`
+
 * `git checkout -b [branch-name] [base-branch-name]` – create a branch `[branch-name]` out of `[base-branch-name]`
+
 * `git commit -a` – commits changes to all tracked files (not only in the current directory)
+
 * `git commit -m "[msg]"` – commit with message `[msg]`
+
 * `git diff [file]` – show unstaged changes for `file`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `file`
-* `git merge [branch-name]` – merge current branch with branch `[branch-name]`
-* `git push` – push local to to the corresponding remote branch
-* `git push origin [branch-name]` – push only branch `[branch-name]`
-* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
-</br>
 
 * `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside
+
+* `git merge [branch-name]` – merge current branch with branch `[branch-name]`
+
 * `git pull` (this is `git fetch` followed by `git merge` to the current local branch)
+
+* `git push` – push local to to the corresponding remote branch
+
+* `git push origin [branch-name]` – push only branch `[branch-name]`
+
+* `git rebase [branch-name]` – moves the entire current branch to the tip of `[branch-name]`
+
 * `git reset --hard origin/master` – remove all local changes
+
 * `git rm [file]` – remove `[file]`
+
 * `git rm --cached [file]` – stop `[file]` from being tracked
 
 #### Related terminology
