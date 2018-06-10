@@ -80,6 +80,7 @@ Table of Contents
     * [Basic commands](#basic-commands)
     * [Related terminology](#related-terminology)
     * [GitFlow](#gitflow)
+1. [Acknowledgements](#acknowledgements)
 
 General
 --------------------
@@ -335,6 +336,8 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 #### MVC
 
+[Model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+
 * Model: data + state.
 * View: lean, rendering UI, loosely coupled, not knowing what to do when the user presses the button (only forwards data).
 * Controller: receives the input from the view and interacts with the model (e.g., activity in Android).
@@ -343,11 +346,15 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 #### MVP
 
+[Model-view-presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter)
+
 * Model: the same as in MVC.
 * View: it is now up to the view which is a bit smarter than in MVC to determine which functions from the presenter to call.
 * Presenter: is like a controller but is just an interface, not tied to the view in order to allow more flexibility.
 
 #### MVVM
+
+[Model-view-viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 
 * Model: the same as in MVC.
 * View: binds to the observables that are exposed by the viewmodel.
@@ -1798,3 +1805,9 @@ Git
 * **release**: branched out of develop, no new features can be added, merged into master when ready to ship, next also merged back into develop
 
 This is in opposition to a [centralized](https://www.atlassian.com/git/tutorials/comparing-workflows) (SVN-like) workflow, where all features are branched out of and merged into a single master branch.
+
+Acknowledgements
+--------------------
+
+All references are provided as links next to the descriptions.
+These are mostly based on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and the [C++ reference](http://en.cppreference.com/w/) website.
