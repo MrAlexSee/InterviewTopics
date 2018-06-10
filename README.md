@@ -68,13 +68,13 @@ Table of Contents
     * [Makefile](#makefile)
 1. [Python](#python)
     * [Selected features](#selected-features)
-    * [List functions](#list-functions)
     * [Functions](#functions)
-    * [Calling with args](#calling-with-args)
-    * [Keyword args](#keyword-args)
+        * [Calling with args](#calling-with-args)
+        * [Keyword args](#keyword-args)
     * [Filter, map, reduce](#filter-map-reduce)
+    * [List functions](#list-functions)
     * [Classes](#classes)
-    * [Inheritance](#inheritance)
+        * [Inheritance](#inheritance)
     * [Plotting](#plotting)
 1. [Git](#git)
     * [Basic commands](#basic-commands)
@@ -1642,14 +1642,6 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 * `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
 
 
-### List functions
-
-* `del l[1]` removes an element at index 1.
-* `l.pop(1)` removes an element at index 1 and returns this element.
-* `l.pop(l.index(max(l)))` removes the max element.
-* `l.remove(x)` removes the first value matching `x`.
-
-
 ### Functions
 
 #### Calling with args
@@ -1685,9 +1677,17 @@ def addKwargs(**kwargs): # All keyword params as a dict
 ### Filter, map, reduce
 
 * List comprehension combines map with filter: `[2 * x for x in xrange(10) if x % 2 == 0]`.
-* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))` – this is the same as list comprehension above
+* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`: this is the same as list comprehension above.
 * `map(len, ["ala","ma","kota"]) == [3,2,4]`
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
+
+
+### List functions
+
+* `del l[1]` removes an element at index 1.
+* `l.pop(1)` removes an element at index 1 and returns this element.
+* `l.pop(l.index(max(l)))` removes the max element.
+* `l.remove(x)` removes the first value matching `x`.
 
 
 ### Classes
@@ -1720,6 +1720,7 @@ class Point3D(Point):
   def mysum(self):
     return Point.mysum(self) + self.z
 ```
+
 
 ### Plotting
 
