@@ -1,8 +1,8 @@
 Table of Contents
 --------------------
 
-* [Table of Contents](#table-of-contents)
-* [General](#general)
+1. [Table of Contents](#table-of-contents)
+1. [General](#general)
     * [Basic math](#basic-math)
     * [Complexity](#complexity)
         * [Amortized analysis](#amortized-analysis)
@@ -42,7 +42,7 @@ Table of Contents
         * [Conversions](#conversions)
         * [Net](#net)
         * [Packages](#packages)
-* [C++](#c)
+1. [C++](#c)
     * [Basic](#basic-1)
         * [Bitwise operators](#bitwise-operators)
         * [Casting](#casting)
@@ -66,7 +66,7 @@ Table of Contents
     * [C++14](#c14)
     * [C++17](#c17)
     * [Makefile](#makefile)
-* [Python](#python)
+1. [Python](#python)
     * [Selected features](#selected-features)
     * [List functions](#list-functions)
     * [Functions](#functions)
@@ -76,7 +76,7 @@ Table of Contents
     * [Classes](#classes)
     * [Inheritance](#inheritance)
     * [Plotting](#plotting)
-* [Git](#git)
+1. [Git](#git)
     * [Basic commands](#basic-commands)
     * [Related terminology](#related-terminology)
     * [GitFlow](#gitflow)
@@ -530,47 +530,73 @@ TEST_CASE("is addition correct", "[math]")
 #### General
 
 * `cat [file]` – print file contents
+
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
+
 * `df -h` – disk usage in human-readable
+
 * `find / -name "*.txt" 2> /dev/null` – find all files with .txt extension while ignoring error messages
+
 * `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
+
 * `grep bash$ /etc/passwd | head -n1 | sed 's/:/ /g'` – grep lines ending with "bash", print the first line, replace each ":" with " "
+
 * `grep -nr 'pattern' .` – [recursively](https://stackoverflow.com/questions/4121803/how-can-i-use-grep-to-find-a-word-inside-a-folder) search for a pattern in a current directory, print line numbers
+
 * `ls -lah` – list current directory with hidden files and details in human-readable
+
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
+
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
+
 * `nohup [cmd] &` – run `[cmd]` in the background immune to hangups (i.e. it won't be killed if the user logs off), appends output of this command to `nohup.out`
+
 * `ps -e` – show all running processes, can be used to determine the PID for a later call to `kill -9 [PID]` in order to kill a process which is associated with `[PID]`
+
 * `rm -rf [dir]` – remove `[dir]` recursively without prompting
+
 * `rm $(find . -name "*.txt")` – argument list might be too long, using xargs which converts input into arguments of a command: `find . -name "*.txt" | xargs rm` or `find . -name "*.txt" | xargs -i{} rm {}` (the latter calls remove multiple times with a single argument)
+
 * `touch [file]` – create `[file]`
+
 * `whereis [cmd]` – check the location of `[cmd]`
 
 #### Compression
 
 * `tar -xzf [in]` – extract, gunzip (j = bzip), input file `[in]`
+
 * `unzip [file]`
+
 * `zip [out] [file1] [file2]`
 
 #### Conversions
 
 * `dot -Tpdf [in].dot -o [out].pdf` – convert dot (graph) file `[in]` to `[out].pdf`
+
 * `pdfcrop --margins '0 0 0 0' [in].pdf [out].pdf` – crop pdf file `[in].pdf`, write to `[out].pdf`
+
 * `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
 
 #### Net
 
 * `host [url]` – get IP for `[url]`
+
 * `scp [login]@[url]:[path] .` – copy file from remote (located at `[path]` at remote) to the current directory at the local machine
+
 * `wget [url]` – download a single file from `[url]`
+
 * `wget -m -e robots=off --no-parent [url]` – download recursively from `[url]`
+
 * `whois [IP]` – get information about `[IP]`
 
 #### Packages
 
 * `apt-get update` – update package index
+
 * `apt-get dist-upgrade` – install update and satisfy dependencies
+
 * `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
+
 * `update-alternatives --config [pkg]` – select a different version for `[pkg]`
 
 
@@ -578,7 +604,7 @@ C++
 --------------------
 
 [C++](https://en.wikipedia.org/wiki/C%2B%2B): compiled, static typing, object-oriented.
-[Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) is as follows:
+[Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) proceeds as follows:
 
 1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc.
 1. Compilation: produces object files (.o). These can be grouped into a static library (.a). Object files can refer to symbols that are declared but not defined.
@@ -1244,8 +1270,9 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 #### Move semantics
 
-* lvalue: has address and can be assigned.
-* rvalue: a temporary object `string getName() { return "ala"; } string &&name = getName();`
+* **lvalue**: has address and can be assigned.
+
+* **rvalue**: a temporary object `string getName() { return "ala"; } string &&name = getName();`
 
 * obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
 
