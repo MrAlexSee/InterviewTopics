@@ -361,8 +361,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * Introspection: ability to examine type or properties at runtime.
 * Monkey patching: dynamic replacement of attributes at runtime.
 * Reflection: modification of program structure at runtime.
-* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual).
 * Single dispatch (depends on object type as in C++) vs double dispatch (depends both on object type and parameters).
+* Static dispatch (e.g., function overloading) vs dynamic dispatch (for dynamic dispatch, declare a C++ method as virtual).
 
 #### Object-oriented terminology
 
@@ -435,8 +435,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. [Agile](https://en.wikipedia.org/wiki/Agile_software_development), iterative, incremental, flexible.
 
-* Product owner = stakeholders
 * Development team
+* Product owner = stakeholders
 * Scrum master = servant-leader, helps the team
 
 
@@ -531,11 +531,11 @@ TEST_CASE("is addition correct", "[math]")
 
 * `cat [file]` – print file contents
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
+* `df -h` – disk usage in human-readable
+* `find / -name "*.txt" 2> /dev/null` – find all files with .txt extension while ignoring error messages
 * `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
 * `grep bash$ /etc/passwd | head -n1 | sed 's/:/ /g'` – grep lines ending with "bash", print the first line, replace each ":" with " "
 * `grep -nr 'pattern' .` – [recursively](https://stackoverflow.com/questions/4121803/how-can-i-use-grep-to-find-a-word-inside-a-folder) search for a pattern in a current directory, print line numbers
-* `df -h` – disk usage in human-readable
-* `find / -name "*.txt" 2> /dev/null` – find all files with .txt extension while ignoring error messages
 * `ls -lah` – list current directory with hidden files and details in human-readable
 * `man gcc | grep [-]std=c++11 -C2` – search for a switch in a manpage and show 2 lines around the result
 * `mv [src] [dst]` – move file `[src]` to `[dst]`, can be used for renaming
@@ -555,8 +555,8 @@ TEST_CASE("is addition correct", "[math]")
 #### Conversions
 
 * `dot -Tpdf [in].dot -o [out].pdf` – convert dot (graph) file `[in]` to `[out].pdf`
-* `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
 * `pdfcrop --margins '0 0 0 0' [in].pdf [out].pdf` – crop pdf file `[in].pdf`, write to `[out].pdf`
+* `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
 
 #### Net
 
