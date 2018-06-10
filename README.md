@@ -56,9 +56,9 @@ Table of Contents
         * [String](#string)
         * [Vector](#vector)
     * [C++11](#c11)
+        * [Array](#array)
         * [Move semantics](#move-semantics)
         * [Tuple](#tuple)
-        * [Array](#array)
         * [Lambdas](#lambdas)
         * [Functors](#functors)
         * [Multithreading](#multithreading)
@@ -1248,13 +1248,15 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 * Use `-std=c++11` switch for compilation.
 
+* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`, `tuple<int, int, string> t1 { 2, 1, "ala" };`.
+
+* `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
+
 * `for (const int i : tab) { }` works for arrays and containers with `begin()` and `end()`.
 
 * Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`
 
-* `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
-
-* Static class: `struct Test { Test() = delete; };` (the compiler does not allow any use of a deleted function).
+* Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
 
 * Mark overridden (virtual) functions with `override` keyword.
 
@@ -1262,11 +1264,23 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
-* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`, `tuple<int, int, string> t1 { 2, 1, "ala" };`.
-
-* Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
-
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
+
+* Static class: `struct Test { Test() = delete; };` (the compiler does not allow any use of any deleted function).
+
+#### Array
+
+```cpp
+array<int, 3> tab { 1, 2, 3 };
+cout << tab.size() << endl; // prints 3
+
+for (const int i : tab)
+{
+    cout << i << endl;
+}
+
+for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
+```
 
 #### Move semantics
 
@@ -1318,20 +1332,6 @@ int x, y, z;
 tie(x, y, z) = rand3();
 
 cout << x << " " << y << " " << z << endl; // prints x y z
-```
-
-#### Array
-
-```cpp
-array<int, 3> tab { 1, 2, 3 };
-cout << tab.size() << endl; // prints 3
-
-for (const int i : tab)
-{
-    cout << i << endl;
-}
-
-for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
 ```
 
 #### Lambdas
