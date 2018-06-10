@@ -1328,11 +1328,24 @@ cout << add5(3) << endl; // prints 8
 sort(tab, tab + n, [](int a, int b) { return a > b; });
 ```
 
-Assigning a lambda to a variable:
+The return value is automatically deduced. Assigning a lambda to a variable:
 
 ```cpp
+// Argument parentheses () are optional when there are no args.
 auto fun = []() { cout << "lambda" << endl; };
 fun(); // prints lambda
+```
+
+The return value can be also explicitly specified:
+
+```cpp
+int n = 5;
+    
+// Without "-> int&" returns int and following assignment fails.
+auto f = [](int &n) -> int& { return n; };
+
+f(n) = 10;
+cout << n << endl; // prints 10
 ```
 
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
@@ -1565,6 +1578,17 @@ auto add = [](auto x, auto y) { return x + y; };
  
 cout << add(2, 4) << endl; // prints 6
 cout << add(string("ala"), string("kota")) << endl; // prints alakota
+```
+* Lambdas with capture initializers and `mutable` (allows for the modification of variables which are passed by value):
+
+```cpp
+// Variable n has an initial value = 0, it is retained through calls and local to the lambda.
+// Keyword mutable allows for the modification of a variable which is captured by value.
+auto add = [n = 0](auto x) mutable { n = n + x; return n; };
+
+cout << add(2) << endl; // prints 2
+cout << add(2) << endl; // prints 4
+cout << add(2) << endl; // prints 6
 ```
 
 * Variable templates:
