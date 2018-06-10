@@ -1341,7 +1341,7 @@ The return value can be also explicitly specified:
 ```cpp
 int n = 5;
     
-// Without "-> int&" returns int and following assignment fails.
+// Without "-> int&" returns int and the following assignment fails.
 auto f = [](int &n) -> int& { return n; };
 
 f(n) = 10;
@@ -1565,6 +1565,7 @@ tie(x, y, z) = rand3();
 cout << x << " " << y << " " << z << endl; // prints x y z
 ```
 
+
 ### C++14
 
 * Use `-std=c++14` switch for compilation.
@@ -1584,11 +1585,20 @@ cout << add(string("ala"), string("kota")) << endl; // prints alakota
 ```cpp
 // Variable n has an initial value = 0, it is retained through calls and local to the lambda.
 // Keyword mutable allows for the modification of a variable which is captured by value.
-auto add = [n = 0](auto x) mutable { n = n + x; return n; };
+auto add = [n = 0](auto x) mutable { n += x; return n; };
 
 cout << add(2) << endl; // prints 2
 cout << add(2) << endl; // prints 4
 cout << add(2) << endl; // prints 6
+```
+
+```cpp
+vector<int> vec { 1, 2, 3, 4 };
+auto reduceMult = [acc = 1](auto x) mutable { acc *= x; return acc; };
+
+int cur;
+for (const int n : vec) { cur = reduceMult(n); }
+cout << cur << endl; // prints 24
 ```
 
 * Variable templates:
