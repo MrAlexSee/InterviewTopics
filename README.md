@@ -1383,7 +1383,7 @@ MyString &operator= (MyString other) // pass-by-value
 
 #### Multithreading
 
-Before C++11 it was required to use OS-specific functionality, e.g., pthreads on Linux.
+Before C++11 it was required to use OS-specific functionality, e.g., pthreads on Linux. In C++11 it is possible to use a unified interface for multithreading.
 Compile with `-pthread` on Linux.
 
 * Launching a simple thread:
