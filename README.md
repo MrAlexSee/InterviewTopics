@@ -87,11 +87,14 @@ General
 ### Basic math
 
 * [Arithmetic series](https://en.wikipedia.org/wiki/Arithmetic_progression) sum: n(a1 + an) / 2 = ϴ(n²)
+
 * [Bayes theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem): P(A|B) = P(B|A) P(A) / P(B)
+
+* [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
+
 * [Harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)) sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
 
-* There are n! permutations for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k.
-* [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
+* There are n! [permutations](https://en.wikipedia.org/wiki/Permutation) for n elements: n ways to choose the 1st element, n-1 ways to choose the 2nd element, etc. k-permutation = permutation of subsequence of length k.
 
 
 ### Complexity
@@ -183,10 +186,10 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 Supervised, unsupervised, reinforced.
 Applications:
 
-* classification (discrete)
-* regression (continuous)
-* clustering
-* density estimation
+* [Classification](https://en.wikipedia.org/wiki/Statistical_classification) (discrete)
+* [Regression](https://en.wikipedia.org/wiki/Regression_analysis) (continuous)
+* [Clustering](https://en.wikipedia.org/wiki/Cluster_analysis)
+* [Density estimation](https://en.wikipedia.org/wiki/Density_estimation)
 
 Techniques:
 
