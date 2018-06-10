@@ -1555,7 +1555,31 @@ cout << x << " " << y << " " << z << endl; // prints x y z
 ### C++14
 
 * Use `-std=c++14` switch for compilation.
+
 * Binary literals: `cout << 0b10001 << endl` prints 17.
+
+* Generic lambdas (using `auto`):
+
+```cpp
+auto add = [](auto x, auto y) { return x + y; };
+ 
+cout << add(2, 4) << endl; // prints 6
+cout << add(string("ala"), string("kota")) << endl; // prints alakota
+```
+
+* Variable templates:
+
+```cpp
+template<class T> // Must be outside block scope.
+constexpr T pi = T(3.1415926535897932385L); 
+
+int main()
+{
+    cout << pi<double> << endl; // prints 3.14...
+    cout << pi<float> << endl; // prints 3.14...
+    cout << pi<int> << endl; // prints 3
+}
+```
 
 ### C++17 
 
