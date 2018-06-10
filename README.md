@@ -1326,11 +1326,13 @@ sort(tab, tab + n, [](int a, int b) { return a > b; });
 
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
 
-* `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map
-* `for_each(tab, tab + n, [&z](int &x) { x = x + z; });` also works like map (the same)
-* `int acc = 0; for_each(tab, tab + n, [&acc](int x) { acc = acc + x; });` works like reduce
+* `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map.
+* `for_each(tab, tab + n, [&z](int &x) { x = x + z; });` also works like map (the same).
+* `int acc = 0; for_each(tab, tab + n, [&acc](int x) { acc = acc + x; });` works like reduce.
 
-* Removing elements from a vector using iterators
+Removing elements (filtering):
+
+* Removing elements from a vector using iterators (no lambda):
 
 ```cpp
 for (auto it = vec.begin(); it != vec.end(); )
@@ -1346,7 +1348,7 @@ for (auto it = vec.begin(); it != vec.end(); )
 }
 ```
 
-* Removing elements from a vector like filter
+* Removing elements from a vector like filter with a lambda:
 
 ```cpp
 vector<int> filtered;
