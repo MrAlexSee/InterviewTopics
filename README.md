@@ -629,7 +629,6 @@ C++
 
 #### Bitwise operators
 
-*TODO*
 
 #### Casting
 
@@ -1237,8 +1236,6 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 [C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees for multiple writers.
 
-*TODO*
-
 #### String
 
 #### Vector
@@ -1557,7 +1554,6 @@ cout << x << " " << y << " " << z << endl; // prints x y z
 
 * Use `-std=c++17` switch for compilation.
 
-*TODO*
 
 ### Makefile
 
@@ -1598,17 +1594,20 @@ clean:
 rebuild: clean all
 ```
 
+
 Python
 --------------------
 
-[Python](https://en.wikipedia.org/wiki/Python_(programming_language)): interpreted, object-oriented, garbage-collected, name binding, duck typing (based on runtime object interface),  many libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT. Stuff below is relevant to Python2.
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)): interpreted, object-oriented, garbage-collected, with name binding, duck typing (based on runtime object interface), has multiple libraries. Reference interpreter is called CPython, other: PyPy which is based on JIT.
+The description below refers to **Python2** which is not compatible with Python3.
 
-[Not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
+Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-python-very-good-for-functional-programming) for functional programming:
 
 * no tail recursion (i.e. no using equivalent memory to a loop)
 * no pattern matching
-* not too many list functions
 * no concise way to combine functions
+* not too many list functions
+
 
 ### Selected features
 
