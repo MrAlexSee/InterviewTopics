@@ -1580,7 +1580,7 @@ auto add = [](auto x, auto y) { return x + y; };
 cout << add(2, 4) << endl; // prints 6
 cout << add(string("ala"), string("kota")) << endl; // prints alakota
 ```
-* Lambdas with capture initializers and `mutable` (allows for the modification of variables which are passed by value):
+* Lambdas with capture initializers:
 
 ```cpp
 // Variable n has an initial value = 0, it is retained through calls and local to the lambda.
