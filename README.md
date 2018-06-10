@@ -1617,13 +1617,13 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 
 * `[1,2,3,4][::2] == [1,3]`, `[1,2,3][::-1] == list(reversed([1,2,3]))`
 
-* `l = [[]] * 5`: same reference replicated, doesn't work as expected. Use `l = [[] for _ in xrange(5)]` instead.
+* `l = [[]] * 5`: same list reference is replicated, doesn't work as expected (adding an element to one sublist will add it to all sublists). Use `l = [[] for _ in xrange(5)]` instead.
 
 * Deep copy: `l = copy.deepcopy(x)`, works with nested lists.
 
 * `dir(obj)` returns a list of defined members (functions and variables).
 
-* Functions are first-class citizens in Python, nested functions are allowed, functions can be assigned, returned, etc.
+* Functions are first-class citizens in Python: nested functions are allowed, functions can be assigned, returned, etc.
 
 * Import from subdir requires a present `__init__.py` file (may be empty).
 
@@ -1641,12 +1641,14 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 
 * `zip([1,2,3],[4,5,6]) == [(1,4), (2,5), (3,6)]`
 
+
 ### List functions
 
 * `del l[1]` removes an element at index 1.
 * `l.pop(1)` removes an element at index 1 and returns this element.
 * `l.pop(l.index(max(l)))` removes the max element.
 * `l.remove(x)` removes the first value matching `x`.
+
 
 ### Functions
 
@@ -1663,11 +1665,11 @@ def addStar(*args): # All params as a tuple
   return sum(args)
 ```
 
+* `print addStar(1, 2, 3)`
 * Default arg values must follow from the left.
 * Calling with explicit arg names: `print add(x = 5, y = 4)`.
-* `print addStar(1, 2, 3)`
-* Unpacking operator: `print add(*[1, 2])`
 * Partial application (argument binding): `add5 = functools.partial(lambda x,y: x + y, 5)`
+* Unpacking operator: `print add(*[1, 2])`
 
 #### Keyword args
 
@@ -1679,12 +1681,14 @@ def addKwargs(**kwargs): # All keyword params as a dict
 * `print addKwargs(x = 2, y = 3)`
 * `print addKwargs(**{"x": 2, "y" = 3})`
 
+
 ### Filter, map, reduce
 
 * List comprehension combines map with filter: `[2 * x for x in xrange(10) if x % 2 == 0]`.
-* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`
+* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))` – this is the same as list comprehension above
 * `map(len, ["ala","ma","kota"]) == [3,2,4]`
 * `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
+
 
 ### Classes
 
