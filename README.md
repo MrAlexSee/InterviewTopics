@@ -57,12 +57,12 @@ Table of Contents
         * [Vector](#vector)
     * [C++11](#c11)
         * [Array](#array)
-        * [Move semantics](#move-semantics)
-        * [Tuple](#tuple)
-        * [Lambdas](#lambdas)
         * [Functors](#functors)
+        * [Lambdas](#lambdas)
+        * [Move semantics](#move-semantics)
         * [Multithreading](#multithreading)
         * [Smart pointers](#smart-pointers)
+        * [Tuple](#tuple)
     * [C++14](#c14)
     * [C++17](#c17)
     * [Makefile](#makefile)
@@ -1252,6 +1252,8 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 * `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
 
+* `constexpr`: a constant value which must be initialized at compile time.
+
 * `for (const int i : tab) { }` works for arrays and containers with `begin()` and `end()`.
 
 * Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`
@@ -1261,8 +1263,6 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 * Mark overridden (virtual) functions with `override` keyword.
 
 * `nullptr` is a pointer type NULL (NULL is just 0).
-
-* `constexpr`: a constant value which must be initialized at compile time.
 
 * [Rule of five](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_Five): destructor, copy constructor, move constructor, copy assignment operator, move assignment operator.
 
@@ -1282,56 +1282,40 @@ for (const int i : tab)
 for_each(tab.begin(), tab.end(), [](int x) { cout << x << endl; });
 ```
 
-#### Move semantics
+#### Functors
 
-* **lvalue**: has address and can be assigned.
+[Functor](https://en.wikipedia.org/wiki/Function_object) = function object.
 
-* **rvalue**: a temporary object `string getName() { return "ala"; } string &&name = getName();`
-
-* obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
+Using `operator()` (doesn't require C++11):
 
 ```cpp
-MyString(const MyString &other) { }
-MyString(MyString &&other) { } // steal the resources from other
-
-MyString &operator= (MyString other) // pass-by-value
+class Add
 {
-  swap(other);
-  return *this;
+public:
+    int operator() (int x, int y, int z = 3) { return x + y; }
+};
+
+int main()
+{
+    Add add;
+    cout << "x = " << add(1, 2) << endl;
 }
 ```
 
-#### Tuple
-
-Creating a heterogeneous tuple:
+Using `std::function`:
 
 ```cpp
-tuple<int, string> tup1 = make_tuple(1, "ala");
-cout << get<0>(tup1) << " " << get<1>(tup1) << endl;
+function<int(int, int)> add = [](int x, int y) { return x + y; };
+cout << "x = " << add(1, 2) << endl;
 ```
 
-Using `tie` in order to unpack a tuple:
+Argument binding:
 
 ```cpp
-int x, y;
-tie(x, y) = make_tuple(1, 2);
+auto add = [](int x, int y) { return x + y; };
+auto add5 = bind(add, placeholders::_1, 5);
 
-cout << x << " " << y << endl; // prints 1 2
-```
-
-Using `tie` with a function returning multiple values:
-
-```cpp
-random_device rd;
-mt19937 mt(rd());
-uniform_int_distribution<int> dist(1, 100);
-
-auto rand3 = [&mt, &dist]() { return make_tuple(dist(mt), dist(mt), dist(mt)); };
-
-int x, y, z;
-tie(x, y, z) = rand3();
-
-cout << x << " " << y << " " << z << endl; // prints x y z
+cout << add5(3) << endl; // prints 8
 ```
 
 #### Lambdas
@@ -1369,40 +1353,23 @@ vector<int> filtered;
 for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered.push_back(x); } });
 ```
 
-#### Functors
+#### Move semantics
 
-[Functor](https://en.wikipedia.org/wiki/Function_object) = function object.
+* **lvalue**: has address and can be assigned.
 
-Using `operator()` (doesn't require C++11):
+* **rvalue**: a temporary object `string getName() { return "ala"; } string &&name = getName();`
+
+* obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
 
 ```cpp
-class Add
-{
-public:
-    int operator() (int x, int y, int z = 3) { return x + y; }
-};
+MyString(const MyString &other) { }
+MyString(MyString &&other) { } // steal the resources from other
 
-int main()
+MyString &operator= (MyString other) // pass-by-value
 {
-    Add add;
-    cout << "x = " << add(1, 2) << endl;
+  swap(other);
+  return *this;
 }
-```
-
-Using `std::function`:
-
-```cpp
-function<int(int, int)> add = [](int x, int y) { return x + y; };
-cout << "x = " << add(1, 2) << endl;
-```
-
-Argument binding:
-
-```cpp
-auto add = [](int x, int y) { return x + y; };
-auto add5 = bind(add, placeholders::_1, 5);
-
-cout << add5(3) << endl; // prints 8
 ```
 
 #### Multithreading
@@ -1537,6 +1504,39 @@ cout << ptr->a << endl;
 
 * `weak_ptr`: doesn't increase the count, useful for preventing circular dependencies.
 * `unique_ptr`: only one reference, cannot be copied, move semantics allow for ownership transfer.
+
+#### Tuple
+
+Creating a heterogeneous tuple:
+
+```cpp
+tuple<int, string> tup1 = make_tuple(1, "ala");
+cout << get<0>(tup1) << " " << get<1>(tup1) << endl;
+```
+
+Using `tie` in order to unpack a tuple:
+
+```cpp
+int x, y;
+tie(x, y) = make_tuple(1, 2);
+
+cout << x << " " << y << endl; // prints 1 2
+```
+
+Using `tie` with a function returning multiple values:
+
+```cpp
+random_device rd;
+mt19937 mt(rd());
+uniform_int_distribution<int> dist(1, 100);
+
+auto rand3 = [&mt, &dist]() { return make_tuple(dist(mt), dist(mt), dist(mt)); };
+
+int x, y, z;
+tie(x, y, z) = rand3();
+
+cout << x << " " << y << " " << z << endl; // prints x y z
+```
 
 ### C++14
 
