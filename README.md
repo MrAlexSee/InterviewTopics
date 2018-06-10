@@ -1324,6 +1324,13 @@ cout << add5(3) << endl; // prints 8
 sort(tab, tab + n, [](int a, int b) { return a > b; });
 ```
 
+Assigning a lambda to a variable:
+
+```cpp
+auto fun = []() { cout << "lambda" << endl; };
+fun(); // prints lambda
+```
+
 Lambdas automatically capture constants, in addition: `[x]` captures `x` by value, `[&x]` captures x by reference.
 
 * `transform(tab, tab + n, tab, [&z](int x) { return x + z; });` works like map.
