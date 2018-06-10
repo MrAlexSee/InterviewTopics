@@ -1501,7 +1501,7 @@ for (auto &f : res) { cout << f.get() << endl; }
 
 #### Smart pointers
 
-* `shared_ptr<int>tab (new int[size]);`: resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
+* **Shared pointer**: `shared_ptr<int>tab (new int[size]);`. Resource is deallocated when the last pointer is destroyed. Thread-safe for reference counting, not thread-safe for pointed object access.
 
 Shared pointer can be created using the `make_shared` function:
 
@@ -1511,8 +1511,9 @@ auto ptr = make_shared<Test>(); // ptr is a shared_ptr<Test>
 cout << ptr->a << endl;
 ```
 
-* `weak_ptr`: doesn't increase the count, useful for preventing circular dependencies.
-* `unique_ptr`: only one reference, cannot be copied, move semantics allow for ownership transfer.
+* **Unique pointer**: `unique_ptr`. Only one reference, cannot be copied, move semantics allow for ownership transfer.
+
+* **Weak pointer**: `weak_ptr`. Doesn't increase the count, useful for preventing circular dependencies.
 
 #### Tuple
 
