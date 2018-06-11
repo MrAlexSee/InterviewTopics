@@ -64,6 +64,8 @@ Table of Contents
         * [Smart pointers](#smart-pointers)
         * [Tuple](#tuple)
     * [C++14](#c14)
+        * [Generic lambdas](#generic-lambdas)
+        * [Variable templates](#variable-templates)
     * [C++17](#c17)
     * [Makefile](#makefile)
 1. [Python](#python)
@@ -1410,7 +1412,7 @@ thread t1([]() { cout << "t1" << endl; });
 t1.join(); // Blocks until t1 finishes
 ```
 
-* Atomic access:
+* **Atomic access**:
 
 ```cpp
 vector<thread> threads;
@@ -1426,7 +1428,7 @@ for (int i = 0; i < 1000; ++i)
 }
 ```
 
-* Call once:
+* **Call once**:
 
 ```cpp
 vector<thread> threads;
@@ -1440,7 +1442,7 @@ for (int i = 0; i < 5; ++i)
 } // Will print "Called!" only once.
 ```
 
-* Threads with synchronization:
+* Threads with **synchronization**:
 
 ```cpp
 vector<thread> threads;
@@ -1469,7 +1471,7 @@ for (int i = 0; i < 5; ++i)
 }
 ```
 
-* Thread with a timed mutex (i.e. with a timeout):
+* Thread with a **timed mutex** (i.e. mutex with a timeout):
 
 ```cpp
 int main()
@@ -1491,7 +1493,7 @@ int main()
 }
 ```
 
-* Threads with blocking on the result:
+* Threads with **blocking** on the result:
 
 ```cpp
 vector<future<int>> res;
@@ -1507,7 +1509,7 @@ for (int i = 0; i < 5; ++i)
 for (auto &f : res) { cout << f.get() << endl; }
 ```
 
-* Threads with a condition variable:
+* Threads with a **condition variable**:
 
 ```cpp
 
@@ -1572,7 +1574,9 @@ cout << x << " " << y << " " << z << endl; // prints x y z
 
 * Binary literals: `cout << 0b10001 << endl` prints 17.
 
-* Generic lambdas (using `auto`):
+#### Improved lambdas 
+
+**Generics** can be achieved in lambdas using `auto` keyword:
 
 ```cpp
 auto add = [](auto x, auto y) { return x + y; };
@@ -1580,7 +1584,7 @@ auto add = [](auto x, auto y) { return x + y; };
 cout << add(2, 4) << endl; // prints 6
 cout << add(string("ala"), string("kota")) << endl; // prints alakota
 ```
-* Lambdas with capture initializers:
+Lambdas with **capture initializers**:
 
 ```cpp
 // Variable n has an initial value = 0, it is retained through calls and local to the lambda.
@@ -1601,7 +1605,7 @@ for (const int n : vec) { cur = reduceMult(n); }
 cout << cur << endl; // prints 24
 ```
 
-* Variable templates:
+#### Variable templates
 
 ```cpp
 template<class T> // Must be outside block scope.
