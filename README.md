@@ -272,67 +272,67 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 #### Structural
 
-* Adapter: wrapper
+* **Adapter**: wrapper
 
-* Bridge: decouple abstraction from implementation in order to facilitate changes.
+* **Bridge**: decouple abstraction from implementation in order to facilitate changes.
 
-* Composite: groups of objects treated the same as a single object.
+* **Composite**: groups of objects treated the same as a single object.
 
-* Decorator: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
+* **Decorator**: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
 
-* Extension: allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
+* **Extension**: allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
 
-* Facade: a higher-level interface which is easier to use.
+* **Facade**: a higher-level interface which is easier to use.
 
-* Flyweight: use sharing to support large numbers of lightweight similar objects efficiently.
+* **Flyweight**: use sharing to support large numbers of lightweight similar objects efficiently.
 
-* Marker: use an empty interface to indicate specific behavior (e.g., Serializable).
+* **Marker**: use an empty interface to indicate specific behavior (e.g., Serializable).
 
-* Proxy: used in order to control access to an object.
+* **Proxy**: used in order to control access to an object.
 
-* Twin: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
+* **Twin**: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
 
 #### Behavioral
 
-* Blackboard: knowledge sources publish potential solutions on the blackboard, the control component is in between.
+* **Blackboard**: knowledge sources publish potential solutions on the blackboard, the control component is in between.
 
-* Chain of responsibility: a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
+* **Chain of responsibility**: a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
 
-* Command: object encapsulates all information needed to perform an action at a later time, including the receiver.
+* **Command**: object encapsulates all information needed to perform an action at a later time, including the receiver.
 
-* Interpreter: use of DSL, e.g., SQL, user interface descriptions.
+* **Interpreter**: use of DSL, e.g., SQL, user interface descriptions.
 
-* Iterator: decouples algorithms from containers.
+* **Iterator**: decouples algorithms from containers.
 
-* Mediator: encapsulates communication between objects, reduces coupling.
+* **Mediator**: encapsulates communication between objects, reduces coupling.
 
-* Memento: checkpointing, allows for undo via rollback.
+* **Memento**: checkpointing, allows for undo via rollback.
 
-* Null object/nullable type: avoid problems with null dereference.
+* **Null object**/**nullable type**: avoid problems with null dereference.
 
-* Observer: publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
+* **Observer**: publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
 
-* Servant: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters.
+* **Servant**: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters.
 
-* Specification: combining rules using boolean operators, mostly for data filtering.
+* **Specification**: combining rules using boolean operators, mostly for data filtering.
 
-* State: implement state machine where each state is a derived class calling parent interface methods.
+* **State**: implement state machine where each state is a derived class calling parent interface methods.
 
-* Strategy: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data).
+* **Strategy**: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data).
 
-* Template method: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes.
+* **Template method**: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes.
 
-* Visitor: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
+* **Visitor**: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
 
 
 ### Architectural patterns
 
-* Broker: coordination among components, for instance in between the client and servers.
-* Client-server
-* Layered: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
-* Master-slave
-* P2P
-* Pipe-filter: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler.
+* **Broker**: coordination among components, for instance in between the client and servers.
+* **Client-server**
+* **Layered**: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
+* **Master-slave**
+* **P2P**
+* **Pipe-filter**: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler.
 
 #### MVC
 
