@@ -1255,19 +1255,13 @@ A [vector](http://en.cppreference.com/w/cpp/container/vector) is a dynamic conta
 
 ```cpp
 vector<int> vec1 { 4, 10 }; // Initializer list
-
-// prints 4 10
-for (const int n : vec1) { cout << n << " "; }
+for (const int n : vec1) { cout << n << " "; } // prints 4 10
 
 vector<int> vec2(4, 10); // Constructor
-
-// prints 10 10 10 10
-for (const int n : vec2) { cout << n << " "; }
+for (const int n : vec2) { cout << n << " "; } // prints 10 10 10 10
 
 vector<int> vec3(vec2.begin(), vec2.begin() + 2);
-
-// prints 10 10
-for (const int n : vec3) { cout << n << " "; }
+for (const int n : vec3) { cout << n << " "; } // prints 10 10
 ```
 
 * `insert` inserts a single value or multiple values:
@@ -1278,8 +1272,7 @@ vector<int> vec { 1, 2 };
 vec.insert(vec.begin(), 3);
 vec.insert(vec.end(), 4);
 
-// prints 3 1 2 4
-for (const int n : vec) { cout << n << " "; }
+for (const int n : vec) { cout << n << " "; } // prints 3 1 2 4
 ```
 
 ```cpp
@@ -1287,9 +1280,7 @@ vector<int> vec1 { 1, 2 };
 vector<int> vec2 { 3, 4 };
 
 vec1.insert(vec1.end(), vec2.begin(), vec2.end());
-
-// prints 1 2 3 4
-for (const int n : vec1) { cout << n << " "; }
+for (const int n : vec1) { cout << n << " "; } // prints 1 2 3 4
 ```
 
 * `pop_back()` removes the last element.
@@ -1300,9 +1291,22 @@ for (const int n : vec1) { cout << n << " "; }
 
 ```cpp
 vector<int> vec1 { 1, 2, 3, 4 };
+for (auto it = vec1.rbegin(); it != vec1.rend(); ++it) { cout << *it << endl; } // Prints 4 3 2 1
+```
 
-// Prints 4 3 2 1
-for (auto it = vec1.rbegin(); it != vec1.rend(); ++it) { cout << *it << endl; }
+* `resize(size_type n, value_type val = value_type())` changes the size and fills with copies of val if new size is larger:
+
+```cpp
+vector<int> vec { 1, 2, 3, 4 };
+
+vec.resize(2);
+for (const int n : vec) { cout << n << " "; } // prints 1 2
+
+vec.resize(4);
+for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0
+
+vec.resize(6, 10);
+for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 ```
 
 * `capacity() const` indicates for how many elements is the space currently allocated.
