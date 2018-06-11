@@ -1325,7 +1325,7 @@ for (const int n : vec) { cout << n << " "; } // prints 2 3 4 5
 auto it = vec.erase(vec.begin() + 1, vec.begin() + 3);
 
 for (const int n : vec) { cout << n << " "; } // prints 2 5
-cout << *it << endl; // Print 5 - returned iterator follows the last removed element.
+cout << *it << endl; // Prints 5 - returned iterator follows the last removed element.
 ```
 
 * `pop_back()` removes the last element.
