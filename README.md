@@ -1254,7 +1254,20 @@ A [vector](http://en.cppreference.com/w/cpp/container/vector) is a dynamic conta
 * Constructor examples:
 
 ```cpp
+vector<int> vec1 { 4, 10 }; // Initializer list
 
+// prints 4 10
+for (const int n : vec1) { cout << n << " "; }
+
+vector<int> vec2(4, 10); // Constructor
+
+// prints 10 10 10 10
+for (const int n : vec2) { cout << n << " "; }
+
+vector<int> vec3(vec2.begin(), vec2.begin() + 2);
+
+// prints 10 10
+for (const int n : vec3) { cout << n << " "; }
 ```
 
 * `insert` inserts a single value or multiple values:
@@ -1265,7 +1278,7 @@ vector<int> vec { 1, 2 };
 vec.insert(vec.begin(), 3);
 vec.insert(vec.end(), 4);
 
-// Prints 3 1 2 4
+// prints 3 1 2 4
 for (const int n : vec) { cout << n << " "; }
 ```
 
@@ -1275,13 +1288,22 @@ vector<int> vec2 { 3, 4 };
 
 vec1.insert(vec1.end(), vec2.begin(), vec2.end());
 
-// Prints 1 2 3 4
+// prints 1 2 3 4
 for (const int n : vec1) { cout << n << " "; }
 ```
 
 * `pop_back()` removes the last element.
 
 * `push_back(const T &val)` adds a copy of val to the end of the vector.
+
+* `rbegin()` and `rend()` return reverse iterators:
+
+```cpp
+vector<int> vec1 { 1, 2, 3, 4 };
+
+// Prints 4 3 2 1
+for (auto it = vec1.rbegin(); it != vec1.rend(); ++it) { cout << *it << endl; }
+```
 
 * `capacity() const` indicates for how many elements is the space currently allocated.
 
