@@ -1264,6 +1264,15 @@ vector<int> vec3(vec2.begin(), vec2.begin() + 2);
 for (const int n : vec3) { cout << n << " "; } // prints 10 10
 ```
 
+* Direct access through `data() const` (since C++11):
+
+```cpp
+vector<int> vec { 1, 2, 3, 4 };
+
+int *p = vec.data();
+for_each(p, p + vec.size(), [](int n) { cout << n << " "; }); // prints 1 2 3 4
+```
+
 * `insert` inserts a single value or multiple values:
 
 ```cpp
@@ -1291,7 +1300,7 @@ for (const int n : vec1) { cout << n << " "; } // prints 1 2 3 4
 
 ```cpp
 vector<int> vec1 { 1, 2, 3, 4 };
-for (auto it = vec1.rbegin(); it != vec1.rend(); ++it) { cout << *it << endl; } // Prints 4 3 2 1
+for (auto it = vec1.rbegin(); it != vec1.rend(); ++it) { cout << *it << endl; } // prints 4 3 2 1
 ```
 
 * `resize(size_type n, value_type val = value_type())` changes the size and fills with copies of val if new size is larger:
