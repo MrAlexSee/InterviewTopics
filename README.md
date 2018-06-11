@@ -250,25 +250,25 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 #### Creational
 
-* Abstract factory: encapsulate individual factories under a generic interface.
+* **Abstract factory**: encapsulate individual factories under a generic interface.
 
-* Builder: separate construction from interpretation.
+* **Builder**: separate construction from interpretation.
 
-* Dependency injection
+* **Dependency injection**
 
-* Factory
+* **Factory**
 
-* Lazy initialization
+* **Lazy initialization**
 
-* Multiton: registry of singletons
+* **Multiton**: a registry (map) of singletons
 
-* Object pool
+* **Object pool**
 
-* Prototype: create new objects from a skeleton.
+* **Prototype**: create new objects from a skeleton.
 
-* RAII: constructor/destructor
+* **RAII**
 
-* Singleton
+* **Singleton**
 
 #### Structural
 
@@ -407,7 +407,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): components of the system should behave in an expected way, might apply to both the UI and the source code.
 
-* [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): constructor/destructor.
+* [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): resource acquisition is initialization, meaning that holding a resource is tied to the lifetime of an object. In C++ realized through constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
 
