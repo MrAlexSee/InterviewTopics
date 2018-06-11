@@ -1292,7 +1292,7 @@ vec1.insert(vec1.end(), vec2.begin(), vec2.end());
 for (const int n : vec1) { cout << n << " "; } // prints 1 2 3 4
 ```
 
-* `emplace` works like insert but constructs the element from args (since C++11):
+* `emplace(const_iterator pos, Args &&... args)` works like insert but constructs the element from args (since C++11):
 
 ```cpp
 struct A
@@ -1306,10 +1306,26 @@ vector<A> vec;
 vec.insert(vec.begin(), A(1));
 vec.insert(vec.begin(), A(2));
 
-// Insert wouldn't compile here because the constructor is explicit.
+// Insert wouldn't compile here because the constructor is marked with explicit.
 vec.emplace(vec.begin(), 3);
 
 for (const A &a: vec) { cout << a.n << " "; } // prints 3 2 1
+```
+
+* `erase` removes a single value or multiple values:
+
+```cpp
+vector<int> vec { 1, 2, 3, 4, 5, 6 };
+
+vec.erase(vec.begin());
+vec.erase(vec.end() - 1);
+
+for (const int n : vec) { cout << n << " "; } // prints 2 3 4 5
+
+auto it = vec.erase(vec.begin() + 1, vec.begin() + 3);
+
+for (const int n : vec) { cout << n << " "; } // prints 2 5
+cout << *it << endl; // Print 5 - returned iterator follows the last removed element.
 ```
 
 * `pop_back()` removes the last element.
