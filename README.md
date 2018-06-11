@@ -64,7 +64,7 @@ Table of Contents
         * [Smart pointers](#smart-pointers)
         * [Tuple](#tuple)
     * [C++14](#c14)
-        * [Generic lambdas](#generic-lambdas)
+        * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
     * [C++17](#c17)
     * [Makefile](#makefile)
@@ -1249,6 +1249,43 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 #### Vector
 
+A [vector](http://en.cppreference.com/w/cpp/container/vector) is a dynamic container where elements are stored contiguously (i.e. they can be accessed through pointer offset). 
+
+* Constructor examples:
+
+```cpp
+
+```
+
+* `insert` inserts a single value or multiple values:
+
+```cpp
+vector<int> vec { 1, 2 };
+    
+vec.insert(vec.begin(), 3);
+vec.insert(vec.end(), 4);
+
+// Prints 3 1 2 4
+for (const int n : vec) { cout << n << " "; }
+```
+
+```cpp
+vector<int> vec1 { 1, 2 };
+vector<int> vec2 { 3, 4 };
+
+vec1.insert(vec1.end(), vec2.begin(), vec2.end());
+
+// Prints 1 2 3 4
+for (const int n : vec1) { cout << n << " "; }
+```
+
+* `pop_back()` removes the last element.
+
+* `push_back(const T &val)` adds a copy of val to the end of the vector.
+
+* `capacity() const` indicates for how many elements is the space currently allocated.
+
+* `size() const` returns the current element count.
 
 ### C++11
 
@@ -1260,7 +1297,7 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
-* `for (const int i : tab) { }` works for arrays and containers with `begin()` and `end()`.
+* `for (const int i : tab) { }` works for static arrays and containers with `begin()` and `end()` (string, vector, etc.).
 
 * Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`
 
@@ -1871,5 +1908,5 @@ This is in opposition to a [centralized](https://www.atlassian.com/git/tutorials
 Acknowledgements
 --------------------
 
-All references are provided as links next to the descriptions.
+All references are provided as clickable links next to the descriptions.
 These are mostly based on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and the [C++ reference](http://en.cppreference.com/w/) website.
