@@ -1292,6 +1292,26 @@ vec1.insert(vec1.end(), vec2.begin(), vec2.end());
 for (const int n : vec1) { cout << n << " "; } // prints 1 2 3 4
 ```
 
+* `emplace` works like insert but constructs the element from args (since C++11):
+
+```cpp
+struct A
+{
+    explicit A(int argN): n(argN) { }
+    int n;
+};
+
+vector<A> vec;
+
+vec.insert(vec.begin(), A(1));
+vec.insert(vec.begin(), A(2));
+
+// Insert wouldn't compile here because the constructor is explicit.
+vec.emplace(vec.begin(), 3);
+
+for (const A &a: vec) { cout << a.n << " "; } // prints 3 2 1
+```
+
 * `pop_back()` removes the last element.
 
 * `push_back(const T &val)` adds a copy of val to the end of the vector.
