@@ -1356,6 +1356,8 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 
 * `capacity() const` indicates for how many elements is the space currently allocated.
 
+* `reserve(size_type cap)` increases the capacity to at least `cap` elements.
+
 * `size() const` returns the current element count.
 
 ### C++11
