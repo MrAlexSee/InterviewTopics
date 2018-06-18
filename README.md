@@ -51,6 +51,7 @@ Table of Contents
         * [Preprocessor directives](#preprocessor-directives)
         * [Templates](#templates)
             * [Template specialization](#template-specialization)
+            * [Template metaprogramming](#template-metaprogramming)
         * [Variadic functions](#variadic-functions)
     * [Standard Library](#standard-library)
         * [String](#string)
@@ -412,6 +413,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): resource acquisition is initialization, meaning that holding a resource is tied to the lifetime of an object. In C++ realized through constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
+
+* [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae): substitution failure is not an error. 
 
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
@@ -934,7 +937,7 @@ struct Box
 int main() 
 {
     Box<int> box(2);
-    box.dumpVal<5>();
+    box.dumpVal<5>(); // Template argument must be a constant.
 }
 ```
 
@@ -1172,6 +1175,32 @@ int main()
 
     Box<int *> pbox(&n);
     pbox.dump(); // prints 5
+}
+```
+
+##### Template metaprogramming
+
+[Template metaprogramming](https://en.wikibooks.org/wiki/C%2B%2B_Programming/Templates/Template_Meta-Programming): performing computation at compile-time with the use of templates. Cumbersome, but Turing-complete, limited use in [real life](https://stackoverflow.com/questions/63494/does-anyone-use-template-metaprogramming-in-real-life).
+
+Example with calculating the factorial using a specialized template for the base case:
+
+```cpp
+template<int N>
+struct Factorial
+{
+    enum { value = N * Factorial<N - 1>::value };
+};
+
+template<>
+struct Factorial<0>
+{
+    enum { value = 1 };
+};
+
+int main()
+{
+    cout << Factorial<5>::value << endl; // prints 120
+    // cout << Factorial<-2>::value << endl; // Wouldn't compile, template instantation max depth exceeded.
 }
 ```
 
