@@ -414,7 +414,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
 
-* [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae): substitution failure is not an error. 
+* [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae): substitution failure is not an error.
 
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
@@ -547,7 +547,7 @@ TEST_CASE("is addition correct", "[math]")
 
 * `df -h` – disk usage in human-readable
 
-* `find / -name "*.txt" 2> /dev/null` – find all files with .txt extension while ignoring error messages
+* `find / -name "*.txt" -size +256c 2> /dev/null` – find all files with .txt extension which are larger than 256 bytes (type `-256c` for smaller than) while ignoring error messages
 
 * `grep ^alex /etc/passwd | cut -d: -f1` – grep lines starting with "alex", delimit on ":" and print the first field
 
