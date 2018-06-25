@@ -1178,6 +1178,27 @@ int main()
 }
 ```
 
+Using `enable_if` for selecting template specialization based on the properties of template arguments:
+
+```cpp
+template<typename T, typename = typename enable_if<is_arithmetic<T>::value, T>::type>
+inline string toString(T val)
+{
+    return to_string(val);
+}
+
+inline string toString(const string &str)
+{
+    return str;
+}
+
+int main()
+{
+    string str = toString("ala") + toString(5);
+    cout << str << endl; // prints ala5
+}
+```
+
 ##### Template metaprogramming
 
 [Template metaprogramming](https://en.wikibooks.org/wiki/C%2B%2B_Programming/Templates/Template_Meta-Programming): performing computation at compile-time with the use of templates. Cumbersome, but Turing-complete, limited use in [real life](https://stackoverflow.com/questions/63494/does-anyone-use-template-metaprogramming-in-real-life).
