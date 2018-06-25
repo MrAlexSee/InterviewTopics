@@ -1985,6 +1985,8 @@ Git
 
 * `git reset --hard origin/master` – remove all local changes
 
+* `git show [commit id]:./main.cpp` – show file `main.cpp` from a commit with id `[commit id]`
+
 * `git rm [file]` – remove `[file]`
 
 * `git rm --cached [file]` – stop `[file]` from being tracked
