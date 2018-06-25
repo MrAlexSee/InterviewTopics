@@ -1178,7 +1178,8 @@ int main()
 }
 ```
 
-Using `enable_if` for selecting template specialization based on the properties of template arguments:
+Using `enable_if` for selecting template specialization based on the properties of template arguments.
+Various predicates are available from the `<type_traits>` header.
 
 ```cpp
 template<typename T, typename = typename enable_if<is_arithmetic<T>::value, T>::type>
