@@ -1298,9 +1298,39 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 #### String
 
+A [string]() is a dynamic container for chars which are stored contiguously (i.e. they can be accessed through pointer offset).
+
+* Constructor examples:
+
+```cpp
+string str1("ala"); // copy constructor
+string str2 = "ala"; // also copy constructor
+
+string str3("ala ma kota", 4, 2); // pos 4, len 2 -> "ma"
+string str4("ala ma kota", 3); // len 3 -> "ala"
+string str5(5, 'a'); // 5 * 'a' -> "aaaaa"
+```
+
+* Direct access through `c_str()`:
+
+```cpp
+string str("ala");
+const char *cStr = str.c_str();
+
+for_each(cStr, cStr + str.size(), [](char c) { cout << c; }); // prints ala
+```
+
+* `erase`
+
+* `insert`
+
+* `resize`
+
+* `capacity()`, `size()` (or `length()`), `reserve()` work like for a vector (see below)
+
 #### Vector
 
-A [vector](http://en.cppreference.com/w/cpp/container/vector) is a dynamic container where elements are stored contiguously (i.e. they can be accessed through pointer offset). 
+A [vector](http://en.cppreference.com/w/cpp/container/vector) is a dynamic container where elements are stored contiguously (i.e. they can be accessed through pointer offset).
 
 * Constructor examples:
 
@@ -1363,6 +1393,19 @@ vec.emplace(vec.begin(), 3);
 for (const A &a: vec) { cout << a.n << " "; } // prints 3 2 1
 ```
 
+Using emplace with `move` for performance.
+
+```cpp
+vector<string> vec;
+
+string str = "ala";
+
+// Since emplace constructs the object directly from arguments, it is probably better
+// to use it here (performance-wise) than push-back which might construct the object twice.
+vec.emplace_back(move(str)); // Move leaves str in a "valid but unspecified state".
+cout << vec[0] << endl; // prints ala
+```
+
 * `erase` removes a single value or multiple values:
 
 ```cpp
@@ -1410,6 +1453,7 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 * `reserve(size_type cap)` increases the capacity to at least `cap` elements.
 
 * `size() const` returns the current element count.
+
 
 ### C++11
 
