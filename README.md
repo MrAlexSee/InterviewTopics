@@ -1899,6 +1899,8 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 
 * Functions are first-class citizens in Python: nested functions are allowed, functions can be assigned, returned, etc.
 
+* `globals()` and `locals()` return a dictionary of global/local variables. They can be used for reflection.
+
 * Import from subdir requires a present `__init__.py` file (may be empty).
 
 * `reverse(l)` returns an iterator to `l` (if `l` changes, data pointed to by an iterator changes too).
