@@ -1914,6 +1914,8 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 
 * `dir(obj)` returns a list of defined members (functions and variables).
 
+* `for i, s in enumerate(["ala", "ma", "kota"]): print i, s` prints 0 ala 1 ma 2 kota
+
 * Functions are first-class citizens in Python: nested functions are allowed, functions can be assigned, returned, etc.
 
 * `globals()` and `locals()` return a dictionary of global/local variables. They can be used for reflection.
