@@ -1529,6 +1529,21 @@ auto add5 = bind(add, placeholders::_1, 5);
 cout << add5(3) << endl; // prints 8
 ```
 
+Binding a member function:
+
+```cpp
+struct Test
+{
+    void dumpXYZ(int x, int y) const { cout << (x + y + z) << endl; }
+    const int z = 5;
+};
+
+Test t;
+function<void(int, int)> fun = bind(&Test::dumpXYZ, &t, placeholders::_1, placeholders::_2);
+
+fun(1, 2); // prints 8
+```
+
 #### Lambdas
 
 ```cpp
