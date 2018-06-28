@@ -1794,6 +1794,8 @@ cout << x << " " << y << " " << z << endl; // prints x y z
 
 * Binary literals: `cout << 0b10001 << endl` prints 17.
 
+* Decimal separator: `cout << 10'000.0 << endl` prints 10000.
+
 #### Improved lambdas 
 
 **Generics** can be achieved in lambdas using `auto` keyword:
