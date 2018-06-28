@@ -171,7 +171,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 #### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all negibhors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all neighbors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
 
 * [B*](https://en.wikipedia.org/wiki/B*)
 
