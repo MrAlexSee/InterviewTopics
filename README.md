@@ -1311,6 +1311,17 @@ string str4("ala ma kota", 3); // len 3 -> "ala"
 string str5(5, 'a'); // 5 * 'a' -> "aaaaa"
 ```
 
+* Comparison can be achieved with the overloaded equals operator:
+
+```cpp
+string s11 = "ala";
+string s12 = "ala";
+string s2 = "kota";
+
+cout << (s11 == s12) << " " << (s12 == s11) << endl; // prints 1 1
+cout << (s11 == s2) << " " << (s12 == s2) << endl; // prints 0 0
+```
+
 * Direct access through `c_str()`:
 
 ```cpp
@@ -1326,7 +1337,7 @@ for_each(cStr, cStr + str.size(), [](char c) { cout << c; }); // prints ala
 
 * `resize`
 
-* `capacity()`, `size()` (or `length()`), `reserve()` work like for a vector (see below)
+* `capacity()`, `size()` (or `length()`), `reserve()` work like for a vector (see below).
 
 #### Vector
 
@@ -1796,6 +1807,17 @@ int x, y, z;
 tie(x, y, z) = rand3();
 
 cout << x << " " << y << " " << z << endl; // prints x y z
+```
+
+#### Using
+
+Keyword `using` can be used as a `typedef`:
+
+```cpp
+using id = unsigned long; // This is equivalent to: typedef unsigned long id;
+
+id n = 100;
+cout << n << endl; // prints 100
 ```
 
 
