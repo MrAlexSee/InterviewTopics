@@ -1354,6 +1354,17 @@ int *p = vec.data();
 for_each(p, p + vec.size(), [](int n) { cout << n << " "; }); // prints 1 2 3 4
 ```
 
+* Element-wise comparison can be achieved with the overloaded equals operator:
+
+```cpp
+vector<int> v11 { 1, 2, 3 };
+vector<int> v12 { 1, 2, 3 };
+vector<int> v2  { 3, 2, 1 };
+
+cout << (v11 == v12) << " " << (v12 == v11) << endl; // prints 1 1
+cout << (v11 == v2) << " " << (v12 == v2) << endl; // prints 0 0
+```
+
 * `insert` inserts a single value or multiple values:
 
 ```cpp
