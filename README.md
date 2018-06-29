@@ -64,6 +64,7 @@ Table of Contents
         * [Multithreading](#multithreading)
         * [Smart pointers](#smart-pointers)
         * [Tuple](#tuple)
+        * [Using](#using)
     * [C++14](#c14)
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
