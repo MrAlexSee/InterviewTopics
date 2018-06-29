@@ -62,6 +62,7 @@ Table of Contents
         * [Lambdas](#lambdas)
         * [Move semantics](#move-semantics)
         * [Multithreading](#multithreading)
+        * [Range-based for loop](#range-based-for-loop)
         * [Smart pointers](#smart-pointers)
         * [Tuple](#tuple)
         * [Using](#using)
@@ -1488,8 +1489,6 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
-* `for (const int i : tab) { }` works for static arrays and containers with `begin()` and `end()` (string, vector, etc.).
-
 * Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`
 
 * Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
@@ -1760,6 +1759,61 @@ for (auto &f : res) { cout << f.get() << endl; }
 
 * `future<void> res(async(fun));`: async can take fun with args or a lambda, `res.get();` blocks until the result is available.
 * `std::promise` is the producer and `std::future` is the consumer.
+
+
+#### Range-based for loop
+
+Simple example: `for (const int i : tab) { }`. It works for static arrays and containers with `begin()` and `end()` (string, vector, etc.).
+
+Custom-implemented range which works with the range-based loop:
+
+```cpp
+class Range
+{
+public:
+    class iterator
+    {
+        public:
+            iterator(int start)
+                :i(start) { }
+
+            friend bool operator== (const iterator &i1, const iterator &i2)
+            {
+                return i1.i == i2.i;
+            }
+            friend bool operator!= (const iterator &i1, const iterator &i2)
+            {
+                return !(i1 == i2);
+            }
+
+            int &operator* ()
+            {
+                return i;
+            }
+            int &operator++ ()
+            {
+                return ++i;
+            }
+
+        private:
+            int i;
+    };
+
+    Range(int startArg, int endArg)
+        :startVal(startArg), endVal(endArg) { }
+
+    iterator begin() { return iterator(startVal); }
+    iterator end() { return iterator(endVal + 1); };
+
+private:
+    int startVal, endVal;
+};
+
+for (int n : Range(1, 6))
+{
+    cout << n << endl;
+}
+```
 
 #### Smart pointers
 
