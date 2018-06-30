@@ -1933,6 +1933,32 @@ auto add = [](auto x, auto y) { return x + y; };
 cout << add(2, 4) << endl; // prints 6
 cout << add(string("ala"), string("kota")) << endl; // prints alakota
 ```
+
+Returning a reference to `auto`:
+
+```cpp
+auto add = [](auto &x, auto &y) { x += y; return x; }; // Returns a copy.
+
+int x = 1, y = 2;
+int ret = add(x, y);
+
+cout << ret << " " << x << endl; // prints 3 3
+
+ret += 2;
+cout << ret << " " << x << endl; // prints 5 3 (x is unchanged)
+
+auto addRef = [](auto &x, auto &y) -> auto &{ x += y; return x; }; // Returns a reference.
+
+x = 1;
+y = 2;
+int &ref = addRef(x, y);
+
+cout << ref << " " << x << endl; // prints 3 3
+
+ref += 2;
+cout << ref << " " << x << endl; // prints 5 5 (x is changed)
+```
+
 Lambdas with **capture initializers**:
 
 ```cpp
