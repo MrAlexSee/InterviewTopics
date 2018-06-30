@@ -1324,6 +1324,18 @@ cout << (s11 == s12) << " " << (s12 == s11) << endl; // prints 1 1
 cout << (s11 == s2) << " " << (s12 == s2) << endl; // prints 0 0
 ```
 
+* Append using overloaded `+` and `+=` operators:
+
+```cpp
+// Needs string(), otherwise treats these two as const char[].
+cout << string("ala") + "ma" << endl; // prints alama
+
+string str = "ala";
+str += "ma";
+
+cout << str << endl; // prints alama
+```
+
 * Direct access through `c_str()`:
 
 ```cpp
@@ -1335,7 +1347,21 @@ for_each(cStr, cStr + str.size(), [](char c) { cout << c; }); // prints ala
 
 * `erase`
 
-* `insert`
+```cpp
+string str = "ala ma kota";
+str.erase(4, 3); // pos, len
+
+cout << str << endl; // prints ala kota
+```
+
+* `insert` (multiple overloads exist)
+
+```cpp
+string str = "ala kota";
+str.insert(4, "ma ");
+
+cout << str << endl; // prints ala ma kota
+```
 
 * `resize`
 
