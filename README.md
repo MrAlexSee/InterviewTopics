@@ -406,6 +406,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
+* [Naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)): how are identifiers (names) written for functions, variables, etc. Examples: camelCase, PascalCase, snake_case, kebab-case.
+
 * [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
 
 * [Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor): one should select the answer that makes the fewest assumptions (simpler theories are preferable).
