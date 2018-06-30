@@ -402,7 +402,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [KISS](https://en.wikipedia.org/wiki/KISS_principle): keep it simple, stupid.
 
-* [Lint](https://en.wikipedia.org/wiki/Lint_(software)): tools which analyze source code in order to find bugs, errors, and suspicious constructs. There exits many linters for various languages and platforms.
+* [Lint](https://en.wikipedia.org/wiki/Lint_(software)): tools which analyze source code in order to find bugs, errors, and suspicious constructs. There exits many linters for various languages and platforms. Examples: `Cppcheck` for C++, `pylint` for Python.
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
