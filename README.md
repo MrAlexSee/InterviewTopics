@@ -2247,6 +2247,8 @@ Git
 
 * `git reset [file]` – remove `[file]` from the current index, this is basically undo for `git add [file]`
 
+* `git show [commit id]` – show log and changes from commit with id `[commit id]`
+
 * `git show [commit id]:./main.cpp` – show file `main.cpp` from a commit with id `[commit id]`
 
 * `git rm [file]` – remove `[file]`
