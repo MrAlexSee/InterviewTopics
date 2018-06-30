@@ -1923,6 +1923,24 @@ cout << n << endl; // prints 100
 
 * Decimal separator: `cout << 10'000.0 << endl` prints 10000.
 
+#### Chrono literals
+
+Chrono duration from C++11 augmented with literals:
+
+```cpp
+auto day = 24h; // same as chrono::hours(24)
+auto min = 2min; // same as chrono::minutes(2);
+
+cout << day.count() << endl; // prints 24
+cout << min.count() << endl; // prints 2
+
+auto diff = day - min;
+cout << diff.count() << endl; // prints 1438 (1440 minutes in a day minus 2)
+
+auto millisInTwoMinutes = chrono::milliseconds(min);
+cout << millisInTwoMinutes.count() << endl; // prints 120000
+```
+
 #### Improved lambdas 
 
 **Generics** can be achieved in lambdas using `auto` keyword:
