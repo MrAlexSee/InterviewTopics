@@ -1365,6 +1365,19 @@ cout << str << endl; // prints ala ma kota
 
 * `resize`
 
+```cpp
+string str = "ala ma";
+
+str.resize(3);
+cout << str << " " << str.size() << endl; // prints ala 3
+
+str.resize(6); // inserts null chars
+cout << str << " " << str.size() << endl; // prints ala 6
+
+str.resize(8, 'a');
+cout << str << " " << str.size() << endl; // prints alaaa 8
+```
+
 * `capacity()`, `size()` (or `length()`), `reserve()` work like for a vector (see below).
 
 #### Vector
