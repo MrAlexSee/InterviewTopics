@@ -2023,28 +2023,32 @@ int main()
 
 ```makefile
 # First macros are provided. These can be uncommented with '#' if needed.
-CC        = g++                          # Compiler name
-EXE       = sopang                       # Executable name
-CCFLAGS   = -Wall -pedantic -std=c++11   # Compiler flags: all warnings, pedantic, C++11 standard.
-OPTFLAGS  = -DNDEBUG -O3                 # Option flags: define NDEBUG (disables assert()), opti level 3.
+CC        = g++                        # Compiler name.
+CCFLAGS   = -Wall -pedantic -std=c++11 # Compiler flags: all warnings, pedantic, C++11 standard.
+OPTFLAGS  = -DNDEBUG -O3               # Optional flags: define NDEBUG (disables assert()), opti level 3.
 
-INCLUDE   = -I/path/to/lib               # -I: add directory searched for header files.
-LDFLAGS   = -L/path/to/lib               # -L: add directory searched for -l.
+INCLUDE   = -I"/path/to/lib"           # -I: add directory searched for header files.
+LDFLAGS   = -L"/path/to/lib"           # -L: add directory searched for -l.
 
 # Link with the library libm.a (static) or libm.so (shared, dynamic).
-# Use -static to prefer static to dynamic linking (i.e. search for .a files first).
+# Add -static to LDFLAGS to prefer static to dynamic linking (i.e. search for .a files first).
 LDLIBS    = -lm
+
+EXE       = sopang                     # Executable name
+OBJ       = main.o sopang.o            # List of object files
 
 # Default rule is all.
 all: $(EXE)
 
-# Executable depends on the following object files. $@ is the target name, $^ are the dependencies.
-$(EXE): main.o sopang.o
-	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) $(LDFLAGS) $^ -o $@ $(LDLIBS)
+# The executable depends on all object files. $@ is the target name, $^ are the dependencies.
+# Note that LDLIBS come at the end because the linker should encounter undefined symbols first
+# (i.e. before the libraries).
+$(EXE): $(OBJ)
+	$(CC) $(CCFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
-# Object file main.o depends on the following files.
-# -c means stop after compilation (no linking), this produces the object file.
-main.o: main.cpp helpers.hpp params.hpp
+# Object file main.o depends on the following .cpp and .hpp files.
+# -c means stop after the compilation (no linking), this produces the object file main.o.
+main.o: main.cpp helpers.hpp params.hpp sopang.hpp
 	$(CC) $(CCFLAGS) $(OPTFLAGS) $(INCLUDE) -c main.cpp
 
 sopang.o: sopang.cpp sopang.hpp helpers.hpp
@@ -2052,8 +2056,10 @@ sopang.o: sopang.cpp sopang.hpp helpers.hpp
 
 .PHONY: clean # Phony targets are not associated with file dependencies.
 
+# This is invoked when the user types "make clean".
+# The following command removes the executable and object files.
 clean:
-	rm -f main.o sopang.o $(EXE)
+	rm -f $(EXE) $(OBJ)
 
 rebuild: clean all
 ```
