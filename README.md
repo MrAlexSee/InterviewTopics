@@ -769,7 +769,7 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 #### Operator overloading
 
-The following example demonstrates overloads for the majority of operators.
+The following example demonstrates overloads for the majority of [operators](https://en.cppreference.com/w/cpp/language/operators).
 Note: [binary operators](https://stackoverflow.com/questions/4622330/operator-overloading-member-function-vs-non-member-function) can be realized as member or global (usually friend) functions.
 The former are translated as follows: `n1 + n2` -> `n1.operator+(n2)`, so the first (left) operand must be always of class type (i.e. this is less flexible).
 If the global function uses only the public interface of the class, there is no need for making it a friend.
@@ -777,16 +777,28 @@ If the global function uses only the public interface of the class, there is no 
 Also note: the initializer list `Num(int argN) : n(argN) { }` is useful when members are complex types, as it avoids calling the default constructor. Variables are initialized in the order of their declaration in the class (i.e. not necessarily in the order in the initializer list).
 
 ```cpp
-struct Num
+class Num
 {
+public:
     Num(int argN) : n(argN) { }
+    
+    Num(const Num &other) // Copy constructor
+    {
+        this->n = other.n;
+    }
+
+    // Copy assignment operator
+    Num &operator= (const Num &other) // Or pass-by-value for copy-and-swap idiom.
+    {
+        this->n = other.n;
+        return *this;
+    }
 
     friend Num operator+ (const Num &t1, const Num &t2)
     {
        return Num(t1.n + t2.n);
     }
     
-    // Overloading the operator using a friend function allows for other types as arguments.
     friend Num operator+ (int n, const Num &t2)
     {
        return Num(n + t2.n);
@@ -798,21 +810,84 @@ struct Num
         return *this;
     }
 
+    Num &operator++() // postfix ++
+    {
+        this->n += 1;
+        return *this;
+    }
+
+    Num operator++(int) // prefix ++
+    {
+        Num old(*this);
+
+        operator++();
+        return old;
+    }
+
+    friend bool operator== (const Num &n1, const Num &n2)
+    {
+        return n1.n == n2.n;
+    }
+    // Member version follows.
+    // bool operator== (const Num &other)
+    // {
+    //     return this->n == other.n;
+    // }
+    friend bool operator!= (const Num &n1, const Num &n2)
+    {
+        return !(n1.n == n2.n);
+    }
+
+    friend bool operator< (const Num &n1, const Num &n2)
+    {
+        return n1.n < n2.n;
+    }
+    friend bool operator<= (const Num &n1, const Num &n2)
+    {
+        return n1.n <= n2.n;
+    }
+
+    friend ostream &operator<<(ostream &out, const Num &num)
+    {
+        if (num.n == 100)
+        {
+            cout << "one hundred";
+        }
+        else
+        {
+            cout << num.n;
+        }
+
+        return out;
+    }
+
+private:
     int n;
 };
 
-int main() 
+int main()
 {
     Num num1 = Num(2) + Num(6);
+    // Thanks to the friend overload, this works even when the Num constructor is explicit.
     Num num2 = 2 + Num(6);
 
-    cout << num1.n << " " << num2.n << endl;
+    cout << num1 << " " << num2 << endl; // prints 8 8
     
     // This invokes the constructor of Num with 4 as argument.
     // It wouldn't work if the constructor were explicit.
     num2 += 4;
 
-    cout << num1.n << " " << num2.n << endl;
+    cout << num1 << " " << num2 << endl; // prints 8 12
+
+    cout << (num1 == num1) << " " << (num1 == num2) << endl; // prints 1 0
+    cout << (num1 != num1) << " " << (num1 != num2) << endl; // prints 0 1
+    cout << (num1 < num2) << " " << (num1 <= num2) << endl; // prints 1 1
+
+    cout << Num(100) << endl; // Prints "one hundred" using the overloaded << operator.
+
+    ++num1;
+    num1++;
+    cout << num1 << endl; // prints 10
 }
 ```
 
