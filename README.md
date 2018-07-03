@@ -1482,6 +1482,10 @@ for (const int n : vec2) { cout << n << " "; } // prints 10 10 10 10
 
 vector<int> vec3(vec2.begin(), vec2.begin() + 2);
 for (const int n : vec3) { cout << n << " "; } // prints 10 10
+
+vector<int> vec4(3);
+for (const int n : vec4) { cout << n << " "; } // prints 0 0 0 (3 default-inserted instances)
+
 ```
 
 * Direct access through `data() const` (since C++11):
