@@ -420,6 +420,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [SFINAE](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/SFINAE): substitution failure is not an error. Removes functions which do not yield valid template instantiations from a set of overloaded functions.
 
+* [Short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation): following arguments of a Boolean expression are evaluated only when the evaluation of previous arguments is not sufficient to determine the result.
+
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
 * [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): each data element is stored exactly once
