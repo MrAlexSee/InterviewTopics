@@ -794,20 +794,25 @@ public:
         return *this;
     }
 
-    friend Num operator+ (const Num &t1, const Num &t2)
-    {
-       return Num(t1.n + t2.n);
-    }
-    
-    friend Num operator+ (int n, const Num &t2)
-    {
-       return Num(n + t2.n);
-    }
-
     Num& operator+= (const Num& other)
     {
         n += other.n;
         return *this;
+    }
+
+    friend Num operator+ (const Num &t1, const Num &t2)
+    {
+       return Num(t1.n + t2.n);
+    }
+    // Alternative variant using the += operator follows.
+    // friend Num operator+ (Num t1, const Num &t2)
+    // {
+    //     return t1 += t2;
+    // }
+    
+    friend Num operator+ (int n, const Num &t2)
+    {
+       return Num(n + t2.n);
     }
 
     Num &operator++() // postfix ++
@@ -828,7 +833,7 @@ public:
     {
         return n1.n == n2.n;
     }
-    // Member version follows.
+    // Alternative member variant follows.
     // bool operator== (const Num &other)
     // {
     //     return this->n == other.n;
