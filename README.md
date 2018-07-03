@@ -251,7 +251,8 @@ Techniques:
 
 ### Design patterns
 
-The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. Obvious patterns are only listed and not described.
+The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. 
+Obvious patterns are only listed and not described.
 
 #### Creational
 
@@ -406,7 +407,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
-* [Naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)): how are identifiers (names) written for functions, variables, etc. Examples: camelCase, PascalCase, snake_case, kebab-case.
+* [Naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)): determines how the identifiers (names) are written for functions, variables, etc. Examples: camelCase, PascalCase, snake_case, kebab-case.
 
 * [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
 
@@ -770,9 +771,10 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 The following example demonstrates overloads for the majority of operators.
 Note: [binary operators](https://stackoverflow.com/questions/4622330/operator-overloading-member-function-vs-non-member-function) can be realized as member or global (usually friend) functions.
-These are translated as follows: `n1 + n2` -> `n1.operator+(n2)`, so the first (left) operand must be always of class type (i.e. this is less flexible).
+The former are translated as follows: `n1 + n2` -> `n1.operator+(n2)`, so the first (left) operand must be always of class type (i.e. this is less flexible).
+If the global function uses only the public interface of the class, there is no need for making it a friend.
 
-Also note: the initializer list (`Num(int argN) : n(argN) { }`) is useful when members are complex types, as it avoids calling the default constructor. Variables are initialized in the order of their declaration in the class (i.e. not necessarily in the order in the initializer list).
+Also note: the initializer list `Num(int argN) : n(argN) { }` is useful when members are complex types, as it avoids calling the default constructor. Variables are initialized in the order of their declaration in the class (i.e. not necessarily in the order in the initializer list).
 
 ```cpp
 struct Num
@@ -979,11 +981,9 @@ void Box<T>::dumpVal()
 
 ##### Template specialization
 
-* [Template specialization](https://www.geeksforgeeks.org/template-specialization-c/) refers to specific template definitions for particular data types.
-Explicit (full) specialization means that all template arguments are provided.
+* [Template specialization](https://www.geeksforgeeks.org/template-specialization-c/) refers to specific template definitions for particular data types. Explicit (full) specialization means that all template arguments are provided.
 
-* [Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided.
-In C++ partial specialization is not allowed for functions (either member or non-member functions), using overloading is suggested instead.
+* [Partial specialization](https://en.wikipedia.org/wiki/Partial_template_specialization) means that only some arguments are provided. In C++ partial specialization is not allowed for functions (either member or non-member functions), using overloading is suggested instead.
 
 Template function with full specialization:
 
