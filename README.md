@@ -766,12 +766,15 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 #### Operator overloading
 
+The following example demonstrates overloads for the majority of operators.
+Note: [binary operators](https://stackoverflow.com/questions/4622330/operator-overloading-member-function-vs-non-member-function) can be realized as member or global (usually friend) functions.
+These are translated as follows: `n1 + n2` -> `n1.operator+(n2)`, so the first (left) operand must be always of class type (i.e. this is less flexible).
+
+Also note: the initializer list (`Num(int argN) : n(argN) { }`) is useful when members are complex types, as it avoids calling the default constructor. Variables are initialized in the order of their declaration in the class (i.e. not necessarily in the order in the initializer list).
+
 ```cpp
 struct Num
 {
-    // Initializer list is useful when members are complex types,
-    // as it avoids calling the default constructor.
-    // Note: variables are initialized in the order of their declaration in the class.
     Num(int argN) : n(argN) { }
 
     friend Num operator+ (const Num &t1, const Num &t2)
