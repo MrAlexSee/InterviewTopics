@@ -780,9 +780,13 @@ Also note: the initializer list `Num(int argN) : n(argN) { }` is useful when mem
 class Num
 {
 public:
+    // CONSTRUCTORS AND ASSIGNMENT OPERATORS
+
+    Num() { }
     Num(int argN) : n(argN) { }
     
-    Num(const Num &other) // Copy constructor
+    // Copy constructor
+    Num(const Num &other)
     {
         this->n = other.n;
     }
@@ -793,6 +797,8 @@ public:
         this->n = other.n;
         return *this;
     }
+
+    // ARITHMETIC (BINARY) OPERATORS
 
     Num& operator+= (const Num& other)
     {
@@ -815,19 +821,43 @@ public:
        return Num(n + t2.n);
     }
 
-    Num &operator++() // postfix ++
+    // Other arithmetic operators (- * /) follow the same scheme as plus above.
+
+    // Bitwise operators can be also overloaded.
+    friend Num operator| (const Num &t1, const Num &t2)
+    {
+        return Num(t1.n | t2.n);
+    }
+
+    // UNARY OPERATORS
+
+    Num &operator++ () // postfix ++
     {
         this->n += 1;
         return *this;
     }
 
-    Num operator++(int) // prefix ++
+    Num operator++ (int) // prefix ++
     {
-        Num old(*this);
+        Num old(*this); // Invokes the copy constructor.
 
         operator++();
         return old;
     }
+
+    // Operator-- follows the same scheme as ++ above.
+
+    Num operator- () // unary minus
+    {
+        return Num(-1 * this->n);
+    }
+
+    Num operator! () // logical not
+    {
+        return Num(-1 * this->n);
+    }
+
+    // RELATIONAL OPERATORS
 
     friend bool operator== (const Num &n1, const Num &n2)
     {
@@ -840,7 +870,7 @@ public:
     // }
     friend bool operator!= (const Num &n1, const Num &n2)
     {
-        return !(n1.n == n2.n);
+        return !(n1 == n2);
     }
 
     friend bool operator< (const Num &n1, const Num &n2)
@@ -852,7 +882,15 @@ public:
         return n1.n <= n2.n;
     }
 
-    friend ostream &operator<<(ostream &out, const Num &num)
+    // I/O OPERATORS
+
+    friend istream &operator>> (istream &in, Num &num)
+    {
+        in >> num.n;
+        return in;
+    }
+
+    friend ostream &operator<< (ostream &out, const Num &num)
     {
         if (num.n == 100)
         {
@@ -873,6 +911,7 @@ private:
 int main()
 {
     Num num1 = Num(2) + Num(6);
+
     // Thanks to the friend overload, this works even when the Num constructor is explicit.
     Num num2 = 2 + Num(6);
 
@@ -883,6 +922,13 @@ int main()
     num2 += 4;
 
     cout << num1 << " " << num2 << endl; // prints 8 12
+    cout << (Num(2) | Num(4)) << endl; // prints 6 (bitwise or)
+
+    ++num1;
+    num1++;
+
+    cout << num1 << endl; // prints 10
+    cout << -num1 << " " << !num1 << " " << num1 << endl; // prints -10 -10 10
 
     cout << (num1 == num1) << " " << (num1 == num2) << endl; // prints 1 0
     cout << (num1 != num1) << " " << (num1 != num2) << endl; // prints 0 1
@@ -890,9 +936,9 @@ int main()
 
     cout << Num(100) << endl; // Prints "one hundred" using the overloaded << operator.
 
-    ++num1;
-    num1++;
-    cout << num1 << endl; // prints 10
+    Num num3;
+    cin >> num3;
+    cout << num3 << endl; // Prints the number entered by the user.
 }
 ```
 
