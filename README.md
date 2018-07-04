@@ -1807,14 +1807,110 @@ for_each(vec.begin(), vec.end(), [&filtered](int x) { if (x % 2 == 0) { filtered
 
 * obtaining an rvalue explicitly: `string s = "ala"; string &&sRef = move(s);`
 
-```cpp
-MyString(const MyString &other) { }
-MyString(MyString &&other) { } // steal the resources from other
+An example with a rule of five implementation follows.
 
-MyString &operator= (MyString other) // pass-by-value
+```cpp
+class MyString
 {
-  swap(other);
-  return *this;
+public:
+    // No argument constructor.
+    MyString() { }
+    
+    // Destructor
+    ~MyString()
+    {
+        delete[] buf;
+    }
+
+    // Argument constructor.
+    MyString(const string &str)
+    {
+        this->size = str.size();
+        this->buf = new char[size + 1];
+
+        strcpy(buf, str.c_str());
+    }
+
+    // Copy constructor.
+    MyString(const MyString &other)
+    {
+        this->size = other.size;
+        this->buf = new char[size + 1];
+
+        strcpy(buf, other.buf);
+    }
+
+    // Move copy constructor.
+    MyString(MyString &&other)
+    {
+        this->size = other.size;
+        this->buf = other.buf;
+
+        // Prevents the destructor from freeing the "stolen" memory.
+        other.buf = nullptr;
+    }
+
+    // Copy assignment operator using copy-and-swap idiom (for both lvalues and rvalues).
+    // This is ambiguous to the compiler if used together with the move operator,
+    // so we use the version with reference as an argument (below).
+
+    // MyString &operator= (MyString other)
+    // {
+    //     swap(this->size, other.size);
+    //     swap(this->buf, other.buf);
+
+    //     return *this;
+    // }
+    MyString &operator= (const MyString &other)
+    {
+        delete[] buf;
+
+        this->size = other.size;
+        this->buf = new char[size + 1];
+
+        strcpy(buf, other.buf);
+
+        return *this;
+    }
+
+    // Move copy assignment operator.
+    MyString &operator= (MyString &&other)
+    {
+        if (this != &other)
+        {
+            delete[] buf;
+
+            this->size = other.size;
+            this->buf = other.buf;
+
+            // Prevents the destructor from freeing the "stolen" memory.
+            other.buf = nullptr;
+        }
+
+        return *this;
+    }
+
+    inline const char *getBuf() const { return buf; }
+
+private:
+    size_t size = 0;
+    char *buf = nullptr;
+};
+
+int main()
+{
+    MyString s1("ada");
+    MyString s2("ala");
+    
+    MyString s3 = s2; // copy constructor
+    s2 = s1; // copy assignment operator
+
+    cout << s2.getBuf() << " " << s3.getBuf() << endl; // prints ada ala
+
+    s3 = move(s1); // move copy assignment operator
+    MyString s4 = move(s2); // move copy constructor
+
+    cout << s3.getBuf() << " " << s4.getBuf() << endl; // prints ada ada
 }
 ```
 
