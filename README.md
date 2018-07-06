@@ -81,7 +81,6 @@ Table of Contents
     * [List functions](#list-functions)
     * [Classes](#classes)
         * [Inheritance](#inheritance)
-    * [File system](#file-system)
     * [Plotting](#plotting)
 1. [Git](#git)
     * [Basic commands](#basic-commands)
@@ -2439,18 +2438,6 @@ class Point3D(Point):
 ```
 
 
-### File system
-
-Python provides convenient abstractions for working with the file system.
-Selected examples are presented below.
-
-Obtaining a list of all files with a given extension from a directory:
-
-```python
-
-```
-
-
 ### Plotting
 
 ```python
@@ -2464,7 +2451,6 @@ plt.tight_layout()
 plt.xlim(0.9, 3.1)
 plt.ylim(3.9, 6.1)
 
-# Draws a black line with dots.
 plt.plot([1,2,3], [4,5,6], "ko-")
 plt.show()
 ```
