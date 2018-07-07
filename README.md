@@ -2487,7 +2487,7 @@ ignoring Linux hidden folders:
 dirPath = os.path.expanduser("~/Desktop/Fingerprints")
 fSizes = []
 
-for dirPath, dirNames, fileNames in os.walk(dirPath):
+for dirPath, _, fileNames in os.walk(dirPath):
     # We exclude paths which are contained within a hidden directory.
     if "." not in dirPath:
         for fName in fileNames:
