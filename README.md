@@ -2445,11 +2445,57 @@ class Point3D(Point):
 Python provides convenient abstractions for working with the file system.
 Selected examples are presented below.
 
-Obtaining a list of all files with a given extension from a directory:
+Obtaining the list of all files with a given extension from a directory:
 
 ```python
+dirPath = "."
+ext = ".py"
 
+print [path for path in os.listdir(dirPath) if os.path.splitext(path)[1] == ext]
 ```
+
+Creating a file in a directory if it doesn't yet exist:
+
+```python
+dirPath = "."
+fName = "test.txt"
+
+fPath = os.path.join(dirPath, fName)
+
+if not os.path.exists(fPath):
+    open(fPath, "w")
+```
+
+Reading a numerical csv file:
+
+```python
+fPath = "test.csv"
+
+# The file will be closed at the end of the "with" block.
+with open(fPath, "r") as f:
+    text = f.read()
+
+lines = text.split("\n")
+data = [[float(num) for num in l.split(",") if num] for l in lines if l]
+```
+
+Returning the sum of file sizes from a directory (recursive, includes subdirectories),
+ignoring Linux hidden folders:
+
+```python
+# Expands the home directory.
+dirPath = os.path.expanduser("~/Desktop/Fingerprints")
+fSizes = []
+
+for dirPath, dirNames, fileNames in os.walk(dirPath):
+    # We exclude paths which are contained within a hidden directory.
+    if "." not in dirPath:
+        for fName in fileNames:
+            fSizes += [os.path.getsize(os.path.join(dirPath, fName))]
+
+print sum(fSizes) / 1024.0
+```
+
 
 ### Plotting
 
