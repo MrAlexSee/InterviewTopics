@@ -1667,7 +1667,7 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
-* Enum class values require scoping: `enum class Letters { A, B, C }; cout << (int)Letters::A << endl;`, use `static_cast<>()` in order to use them as integers.
+* Enum class values require scoping: `enum class Letters { A, B, C }; cout << static_cast<int>(Letters::A);`, note the use of a static cast (also required to use as switch cases).
 
 * Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
 
