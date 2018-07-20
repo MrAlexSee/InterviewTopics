@@ -30,7 +30,7 @@ Table of Contents
         * [MVVM](#mvvm)
     * [Language-related concepts](#language-related-concepts)
         * [Object-oriented terminology](#object-oriented-terminology)
-    * [Principles](#principles)
+    * [Principles and abbreviations](#principles-and-abbreviations)
     * [Project planning](#project-planning)
         * [Things to consider](#things-to-consider)
         * [Scrum](#scrum)
@@ -391,7 +391,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * Virtual function = can be overridden
 
 
-### Principles
+### Principles and abbreviations
 
 * [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so).
 
@@ -420,6 +420,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): resource acquisition is initialization, meaning that holding a resource is tied to the lifetime of an object. In C++ realized through constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
+
+* [RFC](https://en.wikipedia.org/wiki/Request_for_Comments): request for comments, a kind of a pre-standardization or standardization document in the Internet-related context.
 
 * [SFINAE](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/SFINAE): substitution failure is not an error. Removes functions which do not yield valid template instantiations from a set of overloaded functions.
 
