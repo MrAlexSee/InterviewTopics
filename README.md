@@ -401,7 +401,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete): create, read, update, delete, 4 basic functions of persistent storage.
 
-* [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself): avoid redundancy.
+* [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself): don't repeat yourself, i.e. avoid redundancy.
 
 * [KISS](https://en.wikipedia.org/wiki/KISS_principle): keep it simple, stupid.
 
@@ -421,7 +421,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
 
-* [RFC](https://en.wikipedia.org/wiki/Request_for_Comments): request for comments, a kind of a pre-standardization or standardization document in the Internet-related context.
+* [RFC](https://en.wikipedia.org/wiki/Request_for_Comments): Request for Comments, a kind of a pre-standardization or standardization document in the Internet-related context.
 
 * [SFINAE](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/SFINAE): substitution failure is not an error. Removes functions which do not yield valid template instantiations from a set of overloaded functions.
 
@@ -429,11 +429,13 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
-* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): each data element is stored exactly once
+* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): single source of truth, meaning  that each data element is stored exactly once
+
+* [WORA](https://en.wikipedia.org/wiki/Write_once,_run_anywhere): write once, run anywhere, a Java slogan indicating that a Java program can be run on any device with a [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine)
 
 * [Worse is better](https://en.wikipedia.org/wiki/Worse_is_better): less functionality is sometimes preferable (e.g., easier to use).
 
-* [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): don't add functionality until necessary.
+* [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): you ain't gonna need it, that is don't add functionality until necessary.
 
 
 ### Project planning
