@@ -409,7 +409,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
 
-* [Naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)): determines how the identifiers (names) are written for functions, variables, etc. Examples: camelCase, PascalCase, snake_case, kebab-case.
+* [Naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)): determines how the identifiers (names) are written for functions, variables, etc. Examples: `camelCase`, `PascalCase`, `snake_case`, `kebab-case`.
 
 * [Not invented here](https://en.wikipedia.org/wiki/Not_invented_here): avoiding using products, guidelines, etc. created outside the company.
 
@@ -429,9 +429,9 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
-* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): single source of truth, meaning  that each data element is stored exactly once
+* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): single source of truth, meaning  that each data element is stored exactly once.
 
-* [WORA](https://en.wikipedia.org/wiki/Write_once,_run_anywhere): write once, run anywhere, a Java slogan indicating that a Java program can be run on any device with a [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine)
+* [WORA](https://en.wikipedia.org/wiki/Write_once,_run_anywhere): write once, run anywhere, a Java slogan indicating that a Java program can be run on any device with a [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine).
 
 * [Worse is better](https://en.wikipedia.org/wiki/Worse_is_better): less functionality is sometimes preferable (e.g., easier to use).
 
