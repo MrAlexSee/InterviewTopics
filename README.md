@@ -8,7 +8,7 @@ Table of Contents
     * [Graphs](#graphs)
     * [Data structures](#data-structures)
         * [Basic](#basic)
-            * [BST](#bst)
+            * [Binary search tree](#binary-search-tree)
             * [Heap](#heap)
         * [String matching](#string-matching)
     * [Algorithms](#algorithms)
@@ -140,7 +140,7 @@ List       | O(n)     | O(n)     | O(1)           | O(n)
 BST        | O(log n) | O(log n) | O(log n)       | O(n)
 Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
-##### BST
+##### Binary search tree
 
 * [AVL](https://en.wikipedia.org/wiki/AVL_tree): first self-balancing BST. Height of two child subtrees differs by at most 1. In order to balance after a regular insertion of new node w: travel up to the root to find the first unbalanced node z. Rotate subtree rooted with z: 4 cases based on node z and its child/grandchild: a) y is left, x is left (on the path to w), b) left-right, c) right-left, d) right-right.
 
@@ -320,7 +320,7 @@ Obvious patterns are only listed and not described.
 
 * **Servant**: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters.
 
-* **Specification**: combining rules using boolean operators, mostly for data filtering.
+* **Specification**: combining rules using Boolean operators, mostly for data filtering.
 
 * **State**: implement state machine where each state is a derived class calling parent interface methods.
 
@@ -2328,7 +2328,9 @@ Python is [not great](https://stackoverflow.com/questions/1017621/why-isnt-pytho
 
 * `dir(obj)` returns a list of defined members (functions and variables).
 
-* `for i, s in enumerate(["ala", "ma", "kota"]): print i, s` prints 0 ala 1 ma 2 kota
+* `for i, s in enumerate(["ala", "ma", "kota"]): print i, s` prints `0 ala 1 ma 2 kota`
+
+* `"{0} {1:.2f}".format(0.6666, 0.6666)` returns `0.6666 0.67`
 
 * Functions are first-class citizens in Python: nested functions are allowed, functions can be assigned, returned, etc.
 
@@ -2405,6 +2407,7 @@ def addKwargs(**kwargs): # All keyword params as a dict
 ### List functions
 
 * `del l[1]` removes an element at index 1.
+* `del l[:]` clears the entire list.
 * `l.pop(1)` removes an element at index 1 and returns this element.
 * `l.pop(l.index(max(l)))` removes the max element.
 * `l.remove(x)` removes the first value matching `x`.
@@ -2433,7 +2436,7 @@ class Point(object):
 
 ```python
 class Point3D(Point):
-  def __init__(sefl, x, y, z):
+  def __init__(self, x, y, z):
     Point.__init__(self, x, y)
     self.z = z
 
