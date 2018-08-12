@@ -98,7 +98,7 @@ General
 
 * [Bayes theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem): P(A|B) = P(B|A) P(A) / P(B)
 
-* [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
+* [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient) (number of ways to select unordered items): n! / [k! (n - k)!], for ordered items: n! / (n - k)!
 
 * [Harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)) sum: 1 + 1/2 + 1/3 + ... + 1/n = ln n + O(1)
 
@@ -107,7 +107,7 @@ General
 
 ### Complexity
 
-* o, O, ϴ, Ω, ω
+* o() binds from above >, O() binds from above ≥, ϴ() binds from above and below, Ω() binds from below ≤, ω() binds from below <
 * O(1) < O(log n) < O(n) < O(n log n) < O(n<sup>2</sup>) < O(2<sup>n</sup>) < O(n!)
 * P, NP, NP-complete, NP-hard, [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem)
 
