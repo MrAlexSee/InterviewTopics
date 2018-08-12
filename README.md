@@ -5,7 +5,6 @@ Table of Contents
 1. [General](#general)
     * [Basic math](#basic-math)
     * [Complexity](#complexity)
-        * [Amortized analysis](#amortized-analysis)
     * [Graphs](#graphs)
     * [Data structures](#data-structures)
         * [Basic](#basic)
@@ -109,9 +108,7 @@ General
 
 * o() binds from above >, O() binds from above ≥, ϴ() binds from above and below, Ω() binds from below ≤, ω() binds from below <
 * O(1) < O(log n) < O(n) < O(n log n) < O(n<sup>2</sup>) < O(2<sup>n</sup>) < O(n!)
-* P, NP, NP-complete, NP-hard, [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem)
-
-#### Amortized analysis
+* P: efficiently solvable, NP: efficiently verifiable (formally: solvable on a non-deterministic Turing machine), NP-hard: every problem from NP can be reduced to this problem in polynomial time, NP-complete: in NP-hard and in NP. Efficient = polynomial complexity. [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem) problem.
 
 [Amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) looks at the entire execution sequence, not just the worst-case scenario.
 
