@@ -108,7 +108,7 @@ General
 
 * o() binds from above >, O() binds from above ≥, ϴ() binds from above and below, Ω() binds from below ≤, ω() binds from below <
 * O(1) < O(log n) < O(n) < O(n log n) < O(n<sup>2</sup>) < O(2<sup>n</sup>) < O(n!)
-* P: efficiently solvable, NP: efficiently verifiable (formally: solvable on a non-deterministic Turing machine), NP-hard: every problem from NP can be reduced to this problem in polynomial time, NP-complete: in NP-hard and in NP. Efficient = polynomial complexity. [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem) problem.
+* P: efficiently solvable, NP: efficiently verifiable (formally: solvable on a non-deterministic Turing machine), NP-hard: every problem from NP can be reduced to this problem in polynomial time, NP-complete: in NP-hard and in NP. Efficient = polynomial complexity. [P vs NP](https://en.wikipedia.org/wiki/P_versus_NP_problem) problem. If any NP-complete problem (e.g., graph coloring, Boolean satisfiability) could be solved in polynomial time, then P = NP.
 
 [Amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) looks at the entire execution sequence, not just the worst-case scenario.
 
@@ -129,8 +129,9 @@ General
 
 #### Basic
 
-Average cases are presented. BST is assumed to be balanced, hashing a simple item is assumed to be constant-time.
-For the hash table worst-case for all operations is O(n).
+Average cases for time complexity are presented.
+BST is assumed to be balanced, hashing a simple item is assumed to be constant-time.
+For the hash table the worst-case for all operations is O(n).
 
 Structure  | Access   | Search   | Insert/delete  | Space
 ---------- | -------- | ---------| -------------- | -------
