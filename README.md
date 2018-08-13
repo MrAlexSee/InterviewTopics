@@ -165,7 +165,9 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Brute-force](https://en.wikipedia.org/wiki/Brute-force_search): exhaustive search, checking all solution candidates.
 
-* [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming): solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with [memoization](https://en.wikipedia.org/wiki/Memoization) (result caching).
+* [Divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm): recursively breaking a problem into non-overlapping subproblems. Examples: quicksort, mergesort.
+
+* [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming): solving simpler subproblems and storing solutions, e.g., Fibonacci sequence with [memoization](https://en.wikipedia.org/wiki/Memoization) (result caching). Here the problems are overlapping (unlike in D&C).
 
 * [Greedy algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm): makes a locally optimal choice at each step.
 
@@ -239,7 +241,7 @@ Techniques:
 
 * [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance): counts the number of single-character edits (insert, delete, substitute) needed to transform one word into another.
 
-* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm)
+* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm): a dynamic programming algorithm.
 
 * [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
 
@@ -247,7 +249,7 @@ Techniques:
 
 * [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm): minimum spanning tree. Divide all nodes into a forest, always take the shortest edge, span only if spanning two distinct trees, otherwise discard.
 
-* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): DFS (pre-order, in-order, post-order), BFS (use a priority queue based on depth).
+* [Traversal](https://en.wikipedia.org/wiki/Tree_traversal): depth-first search (DFS: pre-order, in-order, post-order), breadth-first search (BFS, use a priority queue based on depth).
 
 
 ### Design patterns
