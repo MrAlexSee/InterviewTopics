@@ -241,9 +241,9 @@ Techniques:
 
 * [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance): counts the number of single-character edits (insert, delete, substitute) needed to transform one word into another.
 
-* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm): a dynamic programming algorithm.
+* [Needleman-Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm): a dynamic programming algorithm for calculating an optimal global alignment (whole query and whole text). It can use a custom similarity matrix.
 
-* [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
+* [Smith-Waterman](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm): similar to N-W above, but computes local alignment (whole query and a substring of text).
 
 #### Trees
 
