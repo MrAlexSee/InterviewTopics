@@ -189,7 +189,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 #### Machine learning
 
-Supervised, unsupervised, reinforced.
+Supervised (input data is labeled), unsupervised (input data is unlabeled), reinforced (maximizing reward based on actions).
 Applications:
 
 * [Classification](https://en.wikipedia.org/wiki/Statistical_classification) (discrete)
@@ -199,12 +199,13 @@ Applications:
 
 Techniques:
 
-* [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network)
+* [ANN](https://en.wikipedia.org/wiki/Artificial_neural_network): artificial neural network. Recurrent networks have backward connections which create a system with memory.
 * [Association rules](https://en.wikipedia.org/wiki/Association_rule_learning): created mostly based on frequency of appearance, e.g., `{onions, potatoes} => {burger}`.
-* Bayesian
-* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning): sets of rules
-* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts.
-* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation.
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning): sets of rules. Useful for distinct features, might create human-readable models. Multiple decision trees built on randomly selected subsets of data can form a random forest.
+* [Deep learning](https://en.wikipedia.org/wiki/Deep_learning): using multiple layers of nonlinear processing units. Levels correspond to different levels of abstraction and form a hierarchy of concepts. In other words, learning partially consists in finding data representations.
+* [Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model): models a Markov process (probability of each next state depends only on the previous state) with hidden states.
+* [Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier): naive means that features are independent of one another.
+* [SVM](https://en.wikipedia.org/wiki/Support_vector_machine): separate data by hyperplanes with the largest margin. Kernel functions allow for implicit mapping into higher dimensions in order to ensure data segregation. Directly applicable only to binary problems.
 
 #### Sorting
 
