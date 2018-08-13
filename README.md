@@ -372,8 +372,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 ### Language-related concepts
 
-* Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
 * Binding: early = at compile time (e.g., overloading), late (dynamic) = at run time (e.g., overriding).
+* Declarative (functional, logic, reactive) vs imperative languages (procedural, object-oriented).
 * Introspection: ability to examine type or properties at runtime.
 * Monkey patching: dynamic replacement of attributes at runtime.
 * Reflection: modification of program structure at runtime.
@@ -382,19 +382,23 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 #### Object-oriented terminology
 
-* Abstraction
-* Encapsulation = hiding data
-* Friend = defined outside a class but can access internal stuff
-* Inheritance
-* Interface = collection of methods (mostly abstract)
+* [Abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science)): employing representations which contain only relevant information.
+* [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)): hiding and restricting access to certain information
+* [Friend function](https://en.wikipedia.org/wiki/Friend_function): defined outside a class but can access internal (private, protected) data.
+* [Inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)): basing a class on another class, retaining its properties. Creates a parent-child (superclass-subclass) relation.
+* [Interface](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)): a collection of methods (mostly abstract), conceptually a protocol for communication (may form an API).
 * [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
 * [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
-* Virtual function = can be overridden
+* [Virtual function](https://en.wikipedia.org/wiki/Virtual_function): a function which can be overridden, selected via dynamic dispatch.
 
 
 ### Principles and abbreviations
 
 * [ACID](https://en.wikipedia.org/wiki/ACID): for transactions: atomicity (all or nothing), consistency (one valid state to another), isolation (concurrent execution same result as sequential), durability (once committed remains so).
+
+* [ABI](https://en.wikipedia.org/wiki/Application_binary_interface): application binary interface, determines how components "talk" to each other at the level of machine code.
+
+* [API](https://en.wikipedia.org/wiki/Application_programming_interface): application programming interface, determines how components "talk" to each other at the level of source code.
 
 * [Broken windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
 
