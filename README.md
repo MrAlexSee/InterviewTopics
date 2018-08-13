@@ -183,7 +183,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertexes share a label.
 
-* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start, cf. [Eulerian path](https://en.wikipedia.org/wiki/Eulerian_path) which visits each edge exactly once).
+* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start, cf. [Eulerian path](https://en.wikipedia.org/wiki/Eulerian_path) which visits each edge exactly once). The problem is NP-hard, brute force solution takes O(n!), dynamic programming approach takes O(n<sup>2</sup> 2<sup>n</sup>).
 
 * [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram): partitioning into regions based on a distance to the closest point.
 
