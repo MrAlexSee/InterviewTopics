@@ -158,7 +158,7 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 * [Suffix array](https://en.wikipedia.org/wiki/Suffix_array): stores indexes of sorted suffixes from the input text, search is O(m log n), space is around 5n.
 
-* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree): a trie which stores all suffixes of the input string, search is O(m), space is around 10n.
+* [Suffix tree](https://en.wikipedia.org/wiki/Suffix_tree): a compacted trie which stores all suffixes of the input string, search is O(m), space is around 10n.
 
 
 ### Algorithms
@@ -173,17 +173,17 @@ Hash table | O(1)     | O(1)     | O(1)           | O(n)
 
 #### Graphs
 
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has start at the begginning). While open is not empty, take current from open with lowest estimate, move it to closed, and expand all neighbors. Finish if current is the goal. Heuristic must be admissible (not overestimating).
+* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): maintain a closed and open set (open has the starting node at the beginning). While open is not empty, take current from open with the lowest heuristic estimate. Finish if current is the goal, otherwise move it to closed and expand all its neighbors. Ignore neighbors in the closed set (already visited). Finish if current is the goal. Heuristic must be admissible (not overestimating) for the algorithm to find an optimal solution. Example of a [best-first](https://en.wikipedia.org/wiki/Best-first_search) search, where the most promising node (based on the heuristic) is expanded first. Bidirectional variants (searching both from the start and from the goal) exist.
 
-* [B*](https://en.wikipedia.org/wiki/B*)
+* [B*](https://en.wikipedia.org/wiki/B*): related to A*, uses interval (pessimistic, optimistic) estimates which contain the true value for expanding the nodes.
 
-* [D*](https://en.wikipedia.org/wiki/D*)
+* [D*](https://en.wikipedia.org/wiki/D*): searches backwards from the goal, uses additional node states such as raise and lower. This allows for handling obstacles more effectively and updates estimates as these obstacles are approached. Alternative D* lite is more commonly used.
 
-* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic.
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): specific case of A* without a heuristic. A common variant finds shortest paths between the start and all other nodes in the graph.
 
 * [Coloring](https://en.wikipedia.org/wiki/Graph_coloring): labeling where no adjacent vertexes share a label.
 
-* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start).
+* [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem): find the shortest Hamiltonian cycle (visits each node exactly once and returns to the start, cf. [Eulerian path](https://en.wikipedia.org/wiki/Eulerian_path) which visits each edge exactly once).
 
 * [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram): partitioning into regions based on a distance to the closest point.
 
