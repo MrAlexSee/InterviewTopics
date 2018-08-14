@@ -1694,6 +1694,9 @@ auto it = vec.erase(vec.begin() + 1, vec.begin() + 3);
 
 for (const int n : vec) { cout << n << " "; } // prints 2 5
 cout << *it << endl; // Prints 5 - returned iterator follows the last removed element.
+
+vec.clear(); // Removes all elements.
+cout << vec.size() << endl; // prints 0
 ```
 
 * `pop_back()` removes the last element.
