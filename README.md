@@ -383,13 +383,13 @@ Problem is with the controller which is tightly coupled with a view and may get 
 #### Object-oriented terminology
 
 * [Abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science)): employing representations which contain only relevant information.
-* [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)): hiding and restricting access to certain information
+* [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)): hiding and restricting access to certain information.
 * [Friend function](https://en.wikipedia.org/wiki/Friend_function): defined outside a class but can access internal (private, protected) data.
 * [Inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)): basing a class on another class, retaining its properties. Creates a parent-child (superclass-subclass) relation.
 * [Interface](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)): a collection of methods (mostly abstract), conceptually a protocol for communication (may form an API).
 * [Overloading vs overriding](https://stackoverflow.com/questions/837864/java-overloading-vs-overriding): overloading refers to multiple methods with the same name but different parameters (return value doesn't matter, overloading is resolved at compile time), overriding refers to the redefinition of a function from the base class in the derived class (overriding is resolved at run-time).
-* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) = more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
-* [Virtual function](https://en.wikipedia.org/wiki/Virtual_function): a function which can be overridden, selected via dynamic dispatch.
+* [Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)): more than one form, examples: function overloading (ad-hoc polymorphism), generics, inheritance.
+* [Virtual function](https://en.wikipedia.org/wiki/Virtual_function): a function which can be overridden, it is selected via dynamic dispatch.
 
 
 ### Principles and abbreviations
@@ -403,6 +403,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * [Broken windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
 
 * [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultaneously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped).
+
+* [CLI](https://en.wikipedia.org/wiki/Command-line_interface): command-line interface.
 
 * [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete): create, read, update, delete, 4 basic functions of persistent storage.
 
@@ -425,6 +427,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): resource acquisition is initialization, meaning that holding a resource is tied to the lifetime of an object. In C++ realized through constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
+
+* [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop): read-eval-print loop, a program which reads and evaluates a set of instructions entered by the user, followed by printing the result.
 
 * [RFC](https://en.wikipedia.org/wiki/Request_for_Comments): Request for Comments, a kind of a pre-standardization or standardization document in the Internet-related context.
 
@@ -451,7 +455,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Neutral build](https://en.wikipedia.org/wiki/Neutral_build): done in a neutral environment (outside deployment), catches errors such as different environmental variables, unchecked files, etc.
 
-* [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working.
+* [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working. Sometimes also called a daily build. It is often coupled with automated testing.
 
 #### Things to consider
 
