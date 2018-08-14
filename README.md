@@ -266,37 +266,37 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * [Factory](https://en.wikipedia.org/wiki/Factory_method_pattern): use functions of a factory in order to create objects instead of using their constructors.
 
-* [Lazy initialization](https://en.wikipedia.org/wiki/Lazy_initialization): delay the operation (which is usually expensive) until its result is needed.
+* [Lazy initialization](https://en.wikipedia.org/wiki/Lazy_initialization): delay performing the operation (which is usually expensive) until its result is needed.
 
-* [Multiton](https://en.wikipedia.org/wiki/Multiton_pattern): a registry (map) of singletons/
+* [Multiton](https://en.wikipedia.org/wiki/Multiton_pattern): a registry (map) of singletons.
 
 * [Object pool](https://en.wikipedia.org/wiki/Object_pool_pattern): store a pool of objects which are ready to be used so that no time is spent on initializing them when needed (e.g., thread pool).
 
 * [Prototype](https://en.wikipedia.org/wiki/Prototype_pattern): create new objects from a skeleton. Prototypes may be used by an abstract factory.
 
-* [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern): only a single instance can exist.
+* [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern): only a single object instance can exist.
 
 #### Structural
 
-* **Adapter**: wrapper
+* [Adapter](https://en.wikipedia.org/wiki/Adapter_pattern): a wrapper which provides an alternative interface to the existing code.
 
-* **Bridge**: decouple abstraction from implementation in order to facilitate changes.
+* [Bridge](https://en.wikipedia.org/wiki/Bridge_pattern): decouples abstraction from implementation in order to facilitate changes (created upfront unlike the adapter).
 
-* **Composite**: groups of objects treated the same as a single object.
+* [Composite](https://en.wikipedia.org/wiki/Composite_pattern): treating multiple objects as a single object.
 
-* **Decorator**: dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
+* [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern): dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
 
-* **Extension**: allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
+* [Extension](https://kotlinlang.org/docs/reference/extensions.html): allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
 
-* **Facade**: a higher-level interface which is easier to use.
+* [Facade](https://en.wikipedia.org/wiki/Facade_pattern): a higher-level interface which is easier to use.
 
-* **Flyweight**: use sharing to support large numbers of lightweight similar objects efficiently.
+* [Flyweight](https://en.wikipedia.org/wiki/Flyweight_pattern): use sharing to support large numbers of lightweight similar objects efficiently.
 
-* **Marker**: use an empty interface to indicate specific behavior (e.g., Serializable).
+* [Marker](https://en.wikipedia.org/wiki/Marker_interface_pattern): use an empty interface to indicate specific behavior (e.g., Serializable).
 
-* **Proxy**: used in order to control access to an object.
+* [Proxy](https://en.wikipedia.org/wiki/Proxy_pattern): used in order to control access to an object or provide additional functionality. 
 
-* **Twin**: multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
+* [Twin](https://en.wikipedia.org/wiki/Twin_pattern): multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
 
 #### Behavioral
 
