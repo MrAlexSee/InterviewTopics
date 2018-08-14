@@ -53,6 +53,7 @@ Table of Contents
             * [Template metaprogramming](#template-metaprogramming)
         * [Variadic functions](#variadic-functions)
     * [Standard Library](#standard-library)
+        * [Set](#set)
         * [String](#string)
         * [Vector](#vector)
     * [C++11](#c11)
