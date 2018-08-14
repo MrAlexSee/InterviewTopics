@@ -336,7 +336,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 * [Broker](https://en.wikipedia.org/wiki/Broker_pattern): provides coordination among components, for instance in between the client and servers.
 * [Client-server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model): servers provide a service and clients request a service.
 * [Layered](https://en.wikipedia.org/wiki/Layer_(object-oriented_design)): levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
-* [Master-slave](https://en.wikipedia.org/wiki/Master/slave_(technology)): master has a control over the slaves, sometimes can be configured dynamically.
+* [Master-slave](https://en.wikipedia.org/wiki/Master/slave_(technology)): master has control over the slaves, sometimes can be configured dynamically.
 * [P2P](https://en.wikipedia.org/wiki/Peer-to-peer): peer-to-peer, equally privileged participants.
 * [Pipe-filter](https://en.wikipedia.org/wiki/Pipeline_(software)): `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler. Pipes pass the data along and filters filter the data.
 
@@ -1453,9 +1453,60 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 [C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees for multiple writers.
 
+#### Set
+
+A [set](https://en.cppreference.com/w/cpp/container/set) is a dynamic container of unique elements. Usually implemented as a self-balancing BST. An [unordered_set](https://en.cppreference.com/w/cpp/container/unordered_set) is implemented as a hash table.
+
+* Elements are printed in order:
+
+```cpp
+set<int> s1 { 1, 5, 2, 3, 4 };
+for (const int n : s1) { cout << n << endl; } // prints 1 2 3 4 5
+```
+
+* Element-wise comparison can be achieved with the overloaded equals operator:
+
+```cpp
+set<int> s1 { 1, 2, 3, 4, 5 };
+set<int> s2 { 1, 2 };
+
+cout << (s1 == s1) << " " << (s2 == s2) << endl; // prints 1 1
+cout << (s1 == s2) << " " << (s2 == s1) << endl; // prints 0 0
+```
+
+* `insert` inserts a single value or multiple values:
+
+```cpp
+set<int> s1 { 1, 2 };
+
+s1.insert(3);
+s1.insert(s1.begin(), 4);
+s1.insert(s1.end(), 0);
+
+for (const int n : s1) { cout << n << " "; } // prints 0 1 2 3 4
+```
+
+```cpp
+set<int> s1 { 1, 2 };
+set<int> s2 { 3, 4 };
+
+s1.insert(s2.begin(), s2.end());
+
+for (const int n : s1) { cout << n << " "; } // prints 1 2 3 4
+```
+
+* Checking whether an element is present:
+
+```cpp
+set<int> s1 { 1, 2, 3, 4 };
+
+cout << (s1.count(1) > 0) << " " << (s1.count(5) > 0) << endl; // prints 1 0
+cout << (s1.find(1) != s1.end()) << " " << (s1.find(5) != s1.end()) << endl; // prints 1 0
+```
+
 #### String
 
-A [string]() is a dynamic container for chars which are stored contiguously (i.e. they can be accessed through pointer offset).
+A [string](https://en.cppreference.com/w/cpp/string/basic_string) is a dynamic container for chars which are stored contiguously (i.e. they can be accessed through pointer offset).
 
 * Constructor examples:
 
