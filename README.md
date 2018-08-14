@@ -284,7 +284,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * [Composite](https://en.wikipedia.org/wiki/Composite_pattern): treating multiple objects as a single object.
 
-* [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern): dynamically add behavior to an individual object, without affecting the behavior of other objects (i.e. alter behavior at runtime).
+* [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern): dynamically add behavior to an individual object without affecting the behavior of other objects (i.e. alter the behavior at runtime).
 
 * [Extension](https://kotlinlang.org/docs/reference/extensions.html): allows for adding new functionality to a class without inheritance (e.g., extension functions in Kotlin).
 
@@ -296,39 +296,39 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * [Proxy](https://en.wikipedia.org/wiki/Proxy_pattern): used in order to control access to an object or provide additional functionality. 
 
-* [Twin](https://en.wikipedia.org/wiki/Twin_pattern): multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
+* [Twin](https://en.wikipedia.org/wiki/Twin_pattern): models multiple inheritance in languages that do not support it (two closely coupled subclasses, each derived from one superclass).
 
 #### Behavioral
 
-* **Blackboard**: knowledge sources publish potential solutions on the blackboard, the control component is in between.
+* [Blackboard](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)): knowledge sources publish potential solutions on the blackboard, the control component is in between.
 
-* **Chain of responsibility**: a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
+* [Chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern): a chain of processing objects receives the commands which are handled or passed along. Essentially if..elif..else which can be dynamically reconfigured.
 
-* **Command**: object encapsulates all information needed to perform an action at a later time, including the receiver.
+* [Command](https://en.wikipedia.org/wiki/Command_pattern): object encapsulates all information needed to perform an action at a later time, including the receiver.
 
-* **Interpreter**: use of DSL, e.g., SQL, user interface descriptions.
+* [Interpreter](https://en.wikipedia.org/wiki/Interpreter_pattern): the use of a [domain-specific](https://en.wikipedia.org/wiki/Domain-specific_language) language (DSL), e.g., SQL, user interface descriptions.
 
-* **Iterator**: decouples algorithms from containers.
+* [Iterator](https://en.wikipedia.org/wiki/Iterator_pattern): decouples algorithms from containers, since container elements can be accessed with the use of an iterator (without exposing data representation).
 
-* **Mediator**: encapsulates communication between objects, reduces coupling.
+* [Mediator](https://en.wikipedia.org/wiki/Mediator_pattern): encapsulates communication between objects, reduces coupling.
 
-* **Memento**: checkpointing, allows for undo via rollback.
+* [Memento](https://en.wikipedia.org/wiki/Memento_pattern): checkpointing, allows for restoring a previous state via rollback.
 
-* **Null object**/**nullable type**: avoid problems with null dereference.
+* [Null object](https://en.wikipedia.org/wiki/Null_object_pattern): also called a nullable type, allows for avoiding problems with null dereference.
 
-* **Observer**: publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
+* [Observer](https://en.wikipedia.org/wiki/Observer_pattern): publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
 
-* **Servant**: provides behavior (methods) to a group of classes, objects for which the servant provides the service are taken as parameters.
+* [Servant](https://en.wikipedia.org/wiki/Servant_(design_pattern)): provides functionality (methods) to a group of classes (which do not need to implement this functionality), objects for which the servant provides the service are taken as parameters.
 
-* **Specification**: combining rules using Boolean operators, mostly for data filtering.
+* [Specification](https://en.wikipedia.org/wiki/Specification_pattern): combining rules using Boolean operators, used mostly for data filtering.
 
-* **State**: implement state machine where each state is a derived class calling parent interface methods.
+* [State](https://en.wikipedia.org/wiki/State_pattern): implement state machine where each state is a derived class calling parent interface methods.
 
-* **Strategy**: enables selecting algorithm at runtime (e.g., validation algorithm based on incoming data).
+* [Strategy](https://en.wikipedia.org/wiki/Strategy_pattern): enables selecting algorithm type or parameters at runtime (e.g., validation algorithm based on incoming data).
 
-* **Template method**: base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes.
+* [Template method](https://en.wikipedia.org/wiki/Template_method_pattern): base class implements basic steps of an algorithm, specifics (variants) are implemented in derived classes.
 
-* **Visitor**: separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
+* [Visitor](https://en.wikipedia.org/wiki/Visitor_pattern): separate algorithm from object structure on which it operates, allows for defining new operations without changing elements on which it operates. Visitor takes concrete elements as arguments.
 
 
 ### Architectural patterns
