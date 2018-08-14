@@ -254,30 +254,27 @@ Techniques:
 
 ### Design patterns
 
-The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) page. 
-Obvious patterns are only listed and not described.
+The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern) pages.
 
 #### Creational
 
-* **Abstract factory**: encapsulate individual factories under a generic interface.
+* [Abstract factory](https://en.wikipedia.org/wiki/Abstract_factory_pattern): encapsulate individual factories under a generic interface.
 
-* **Builder**: separate construction from interpretation.
+* [Builder](https://en.wikipedia.org/wiki/Builder_pattern): separate construction from representation, construct an object in stages.
 
-* **Dependency injection**
+* [Dependency injection](https://en.wikipedia.org/wiki/Dependency_injection): supply a dependency of an object from outside (for instance by setting a private variable via a setter).
 
-* **Factory**
+* [Factory](https://en.wikipedia.org/wiki/Factory_method_pattern): use functions of a factory in order to create objects instead of using their constructors.
 
-* **Lazy initialization**
+* [Lazy initialization](https://en.wikipedia.org/wiki/Lazy_initialization): delay the operation (which is usually expensive) until its result is needed.
 
-* **Multiton**: a registry (map) of singletons
+* [Multiton](https://en.wikipedia.org/wiki/Multiton_pattern): a registry (map) of singletons/
 
-* **Object pool**
+* [Object pool](https://en.wikipedia.org/wiki/Object_pool_pattern): store a pool of objects which are ready to be used so that no time is spent on initializing them when needed (e.g., thread pool).
 
-* **Prototype**: create new objects from a skeleton.
+* [Prototype](https://en.wikipedia.org/wiki/Prototype_pattern): create new objects from a skeleton. Prototypes may be used by an abstract factory.
 
-* **RAII**
-
-* **Singleton**
+* [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern): only a single instance can exist.
 
 #### Structural
 
@@ -471,7 +468,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 1. Select the technologies and the development process.
 1. Define features, perhaps in connection with the technologies.
 1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree how progress/success will be measured/defined.
-1. Before the start: check if we have everything we need (resources, etc.)
+1. Before the start: check if we have everything we need (resources, etc.).
 
 #### Scrum
 
@@ -498,6 +495,8 @@ Common terms include:
 * [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describe how much of source code is executed by unit tests. Could be measured in terms of functions, statements, branches, etc.
 
 * [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related is [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
+
+* [Hallway testing](https://en.wikipedia.org/wiki/Usability_testing#Hallway_testing): asking a random person (one passing in a hallway) to try a given feature.
 
 * [Mock](https://en.wikipedia.org/wiki/Mock_object): used instead of a real object, also called [stub](https://en.wikipedia.org/wiki/Test_stub) (definitions might vary).
 
