@@ -400,6 +400,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [API](https://en.wikipedia.org/wiki/Application_programming_interface): application programming interface, determines how components "talk" to each other at the level of source code.
 
+* [Boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code): a part of source code which is reused in multiple places. It is generally desirable to reduce the amount of boilerplate code.
+
 * [Broken windows theory](https://en.wikipedia.org/wiki/Broken_windows_theory): bad code encourages more bad code.
 
 * [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): only 2/3 guarantees are simultaneously possible: consistency (every read receives the most recent write or error), availability (every request has a response), partition tolerance (system works even if messages are dropped).
@@ -449,13 +451,19 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 ### Project planning
 
+* [Brook's law](https://en.wikipedia.org/wiki/Brooks%27s_law): an observation that "adding human resources to a late software project makes it later".
+
 * [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): merging all working copies several times a day in order to mitigate integration problems.
 
 * [Continuous delivery](https://en.wikipedia.org/wiki/Continuous_delivery): short cycles, software can be released at short notice.
 
+* [Crunch time](https://en.wikipedia.org/wiki/Video_game_developer#%22Crunch_time%22): a period of intense work, usually before reaching a milestone.
+
+* [Death march](https://en.wikipedia.org/wiki/Death_march_(project_management)): a project which is set to fail or which requires unsustainable overwork.
+
 * [Neutral build](https://en.wikipedia.org/wiki/Neutral_build): done in a neutral environment (outside deployment), catches errors such as different environmental variables, unchecked files, etc.
 
-* [Nightly build](https://en.wikipedia.org/wiki/Daily_build): auto neutral build, mostly done when no one is working. Sometimes also called a daily build. It is often coupled with automated testing.
+* [Nightly build](https://en.wikipedia.org/wiki/Daily_build): automated neutral build, mostly done when no one is working. Sometimes also called a daily build. It is often performed on multiple platforms, various emulated hardware, etc. and coupled with automated testing.
 
 #### Things to consider
 
