@@ -318,7 +318,7 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 * [Observer](https://en.wikipedia.org/wiki/Observer_pattern): publish-subscribe, signals-slots, event-driven, observers are notified of any changes.
 
-* [Servant](https://en.wikipedia.org/wiki/Servant_(design_pattern)): provides functionality (methods) to a group of classes (which do not need to implement this functionality), objects for which the servant provides the service are taken as parameters.
+* [Servant](https://en.wikipedia.org/wiki/Servant_(design_pattern)): provides functionality (methods) to a group of classes (which hence do not need to implement this functionality), objects for which the servant provides the service are taken as parameters.
 
 * [Specification](https://en.wikipedia.org/wiki/Specification_pattern): combining rules using Boolean operators, used mostly for data filtering.
 
@@ -333,12 +333,12 @@ The following summary is based on [Wikipedia](https://en.wikipedia.org/wiki/Soft
 
 ### Architectural patterns
 
-* **Broker**: coordination among components, for instance in between the client and servers.
-* **Client-server**
-* **Layered**: levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
-* **Master-slave**
-* **P2P**
-* **Pipe-filter**: `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler.
+* [Broker](https://en.wikipedia.org/wiki/Broker_pattern): provides coordination among components, for instance in between the client and servers.
+* [Client-server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model): servers provide a service and clients request a service.
+* [Layered](https://en.wikipedia.org/wiki/Layer_(object-oriented_design)): levels of abstraction, for instance UI layer, service, domain (business logic), persistence layer, e.g., general desktop app.
+* [Master-slave](https://en.wikipedia.org/wiki/Master/slave_(technology)): master has a control over the slaves, sometimes can be configured dynamically.
+* [P2P](https://en.wikipedia.org/wiki/Peer-to-peer): peer-to-peer, equally privileged participants.
+* [Pipe-filter](https://en.wikipedia.org/wiki/Pipeline_(software)): `src | pipe1 | filter1 | pipe2 | filter2 | sink`, e.g., compiler. Pipes pass the data along and filters filter the data.
 
 #### MVC
 
