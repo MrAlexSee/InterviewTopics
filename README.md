@@ -1680,6 +1680,15 @@ vec.emplace_back(move(str)); // Move leaves str in a "valid but unspecified stat
 cout << vec[0] << endl; // prints ala
 ```
 
+* Searching for an element (checking if present):
+
+```cpp
+vector<int> vec { 2, 4, 6, 8 };
+
+cout << (find(vec.begin(), vec.end(), 1) != vec.end()) << endl; // prints 0
+cout << (find(vec.begin(), vec.end(), 2) != vec.end()) << endl; // prints 1
+```
+
 * `erase` removes a single value or multiple values:
 
 ```cpp
