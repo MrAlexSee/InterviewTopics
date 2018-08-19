@@ -424,6 +424,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): components of the system should behave in an expected way, might apply to both the UI and the source code.
 
+* [Programming style](https://en.wikipedia.org/wiki/Programming_style): a set of rules for writing the source code. A specific set is called a [coding convention](https://en.wikipedia.org/wiki/Coding_conventions). It is often language-specific.
+
 * [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization): resource acquisition is initialization, meaning that holding a resource is tied to the lifetime of an object. In C++ realized through constructor/destructor.
 
 * [Reinventing the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel): duplicating a common, known method.
@@ -493,7 +495,7 @@ Common terms include:
 
 * [Black-box testing](https://en.wikipedia.org/wiki/Black-box_testing): testing without knowing the internals.
 
-* [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describe how much of source code is executed by unit tests. Could be measured in terms of functions, statements, branches, etc.
+* [Code coverage](https://en.wikipedia.org/wiki/Code_coverage): describes how much of source code is executed by unit tests. Could be measured in terms of functions, statements, branches, etc.
 
 * [Fuzz test](https://en.wikipedia.org/wiki/Fuzzing): testing with invalid, unexpected, or random data. Related is [monkey testing](https://en.wikipedia.org/wiki/Monkey_testing) where random input is supplied to the program.
 
