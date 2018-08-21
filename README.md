@@ -575,9 +575,9 @@ TEST_CASE("is addition correct", "[math]")
 
 * `cat [file]` – print file contents
 
-* `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
+* `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`. 4 = read, 2 = write, 1 = execute (can be combined). Example: `chmod 664 run.sh` sets read and write (`4 | 2 = 6`) permissions for owner and group and read permission for anybody.
 
-* `chown alex *.txt` – set user `alex` to be an owner of all `.txt` files in the current directly
+* `chown alex *.txt` – set user `alex` to be the owner of all `.txt` files in the current directory
 
 * `df -h` – disk usage in human-readable
 
