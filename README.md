@@ -577,6 +577,8 @@ TEST_CASE("is addition correct", "[math]")
 
 * `chmod [XXX] [file]` – change permissions to `[XXX]` (owner, group, anybody) for `[file]`, 4 = read, 2 = write, 1 = execute (can be combined)
 
+* `chown alex *.txt` – set user `alex` to be an owner of all `.txt` files in the current directly
+
 * `df -h` – disk usage in human-readable
 
 * `find / -name "*.txt" -size +256c 2> /dev/null` – find all files with .txt extension which are larger than 256 bytes (type `-256c` for smaller than) while ignoring error messages
