@@ -2656,6 +2656,7 @@ Git
 
 #### Related terminology
 
+* [Origin](https://stackoverflow.com/questions/9529497/what-is-origin-in-git): local alias for a remote repository (`git remote show origin` to query).
 * [Pull request](https://yangsu.github.io/pull-request-tutorial/): request that a maintainer (somebody in the authority) pull the changes and merge them after approval (i.e. add them into the codebase).
 
 #### GitFlow
