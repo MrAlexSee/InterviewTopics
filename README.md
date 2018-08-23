@@ -2630,7 +2630,7 @@ Git
 
 * `git diff [file]` – show unstaged changes for `file`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `file`
 
-* `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside
+* `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside, `git log origin/master..master` to show all commits which are not pushed (all in between `origin/master` and `master`)
 
 * `git merge [branch-name]` – merge current branch with branch `[branch-name]`
 
