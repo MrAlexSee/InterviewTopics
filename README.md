@@ -654,7 +654,7 @@ C++
 [C++](https://en.wikipedia.org/wiki/C%2B%2B): compiled, static typing, object-oriented.
 [Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) proceeds as follows:
 
-1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc.
+1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc. Produces a [translation unit](https://en.wikipedia.org/wiki/Translation_unit_(programming)) for each source file.
 1. Compilation: produces object files (.o). These can be grouped into a static library (.a). Object files can refer to symbols that are declared but not defined.
 1. Linking: combines object files into a dynamic library or an executable.
 
