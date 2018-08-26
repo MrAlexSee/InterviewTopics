@@ -412,6 +412,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [KISS](https://en.wikipedia.org/wiki/KISS_principle): keep it simple, stupid.
 
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter): principle of least knowledge, each unit should have knowledge only about closely related units (advocates loose coupling).
+
 * [Lint](https://en.wikipedia.org/wiki/Lint_(software)): tools which analyze source code in order to find bugs, errors, and suspicious constructs. There exits many linters for various languages and platforms. Examples: `Cppcheck` for C++, `pylint` for Python.
 
 * [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method): project planning: must have, should have, could have, won't have.
