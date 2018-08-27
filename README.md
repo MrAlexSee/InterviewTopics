@@ -668,7 +668,7 @@ C++
 
 * Class has private fields/funs by default, struct has public fields/funs by default.
 
-* Constructors: default (created when no other constructor is specified), parametric, copy, move.
+* Constructor types: default (has no parameters or all parameters have default values), parametric, copy, move. When no constructor is defined by the user, the default constructor is supplied by the compiler.
 
 * Placement new: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
 
