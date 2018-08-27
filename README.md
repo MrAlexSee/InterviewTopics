@@ -1879,6 +1879,8 @@ Point p1 { 3, 8 };
 Point p2 { };
 ```
 
+This allows for solving the [most vexing parse](https://en.wikipedia.org/wiki/Most_vexing_parse) problem (syntax ambiguity).
+
 #### Lambdas
 
 ```cpp
