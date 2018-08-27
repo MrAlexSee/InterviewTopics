@@ -59,6 +59,7 @@ Table of Contents
     * [C++11](#c11)
         * [Array](#array)
         * [Functors](#functors)
+        * [Initialization](#initialization)
         * [Lambdas](#lambdas)
         * [Move semantics](#move-semantics)
         * [Multithreading](#multithreading)
@@ -1751,15 +1752,11 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 
 * Use `-std=c++11` switch for compilation.
 
-* Aggregate initialization (brace init): `vector<int> vec { 1, 2, 3 };`, `vector<vector<int>> vec { {1}, {2, 2}, {3} };`, `tuple<int, int, string> t1 { 2, 1, "ala" };`.
-
 * `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
 
 * `constexpr`: a constant value which must be initialized at compile time.
 
 * Enum class values require scoping: `enum class Letters { A, B, C }; cout << static_cast<int>(Letters::A);`, note the use of a static cast (also required to use as switch cases).
-
-* Initializer list is iterable: `for (int i : { 1, 2, 3}) { cout << i << endl; }`.
 
 * Mark overridden (virtual) functions with `override` keyword.
 
@@ -1832,6 +1829,54 @@ Test t;
 function<void(int, int)> fun = bind(&Test::dumpXYZ, &t, placeholders::_1, placeholders::_2);
 
 fun(1, 2); // prints 8
+```
+
+#### Initialization
+
+Using an initializer list for objects:
+
+```cpp
+vector<int> vec { 1, 2, 3 };
+vector<vector<int>> vec { {1}, {2, 2}, {3} };
+
+map<string, int> m { { "ala", 0 }, { "jarek", 5 } };
+tuple<int, int, string> t1 { 2, 1, "ala" };
+
+tuple<int, int> getPair()
+{
+    return { 0, 5 };
+}
+```
+
+Initializer list is iterable: 
+
+```cpp
+for (const int i : { 1, 2, 3 })
+{ 
+    cout << i << endl; 
+}
+```
+
+Uniform initialization:
+
+```cpp
+struct Point
+{
+    Point()
+        :x(0),
+         y(0)
+         { }
+
+    Point(int argX, int argY)
+        :x(argX),
+         y(argY)
+         { }
+
+    int x, y;
+};
+
+Point p1 { 3, 8 };
+Point p2 { };
 ```
 
 #### Lambdas
