@@ -676,6 +676,8 @@ C++
 
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)): destructor, copy constructor, copy assignment operator.
 
+* Supports checked exceptions (i.e. exception type is declared explicitly for a function), but this is usually [discouraged](https://blog.philipphauer.de/checked-exceptions-are-evil/).
+
 #### Bitwise operators
 
 
