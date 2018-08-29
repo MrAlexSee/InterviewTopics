@@ -53,6 +53,7 @@ Table of Contents
             * [Template metaprogramming](#template-metaprogramming)
         * [Variadic functions](#variadic-functions)
     * [Standard Library](#standard-library)
+        * [Map](#map)
         * [Set](#set)
         * [String](#string)
         * [Vector](#vector)
@@ -1463,9 +1464,40 @@ print(1, 2, 3, "ala"); // prints 1 2 3 ala
 
 [C++ Standard Library](https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library): a collection of classes and functions. Collections do not have thread-safety guarantees for multiple writers.
 
+#### Map
+
+A [map](https://en.cppreference.com/w/cpp/container/map) is a dynamic container of key-value pairs (sorted).
+Usually implemented as a red-black tree.
+An [unordered_map](https://en.cppreference.com/w/cpp/container/unordered_map) is implemented as a hash table.
+
+* Elements are printed in (key) order:
+
+```cpp
+map<string, int> m1 { {"bla", 1}, {"ada", 2}, {"ala", 3} };
+
+for (const pair<string, int> &tup : m1)
+{
+    cout << tup.first << " " << tup.second << endl; // prints ada 2, ala 3, bla 1
+}
+```
+
+* Values can be set and accessed with the bracket operator:
+
+```cpp
+map<string, int> m1;
+
+m1["bla"] = 1;
+m1["ada"] = 2;
+m1["ada"] = 3;
+
+cout << m1["bla"] << " " << m1["ada"] << endl; // prints 1 3
+```
+
 #### Set
 
-A [set](https://en.cppreference.com/w/cpp/container/set) is a dynamic container of unique elements. Usually implemented as a self-balancing BST. An [unordered_set](https://en.cppreference.com/w/cpp/container/unordered_set) is implemented as a hash table.
+A [set](https://en.cppreference.com/w/cpp/container/set) is a dynamic container of unique elements.
+Usually implemented as a self-balancing BST.
+An [unordered_set](https://en.cppreference.com/w/cpp/container/unordered_set) is implemented as a hash table.
 
 * Elements are printed in order:
 
