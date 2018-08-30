@@ -86,7 +86,7 @@ Table of Contents
         * [Inheritance](#inheritance)
     * [File system](#file-system)
     * [Plotting](#plotting)
-    * [Time measurement](#time-measurement)
+    * [Time measurement](#time-measurement-1)
 1. [Git](#git)
     * [Basic commands](#basic-commands)
     * [Related terminology](#related-terminology)
@@ -2819,10 +2819,6 @@ stop = time.time()
 
 elapsed = stop - start
 print "Elapsed = {0} s".format(elapsed)
-```
-
-```python
-
 ```
 
 
