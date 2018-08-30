@@ -86,11 +86,13 @@ Table of Contents
         * [Inheritance](#inheritance)
     * [File system](#file-system)
     * [Plotting](#plotting)
+    * [Time measurement](#time-measurement)
 1. [Git](#git)
     * [Basic commands](#basic-commands)
     * [Related terminology](#related-terminology)
     * [GitFlow](#gitflow)
 1. [Acknowledgements](#acknowledgements)
+
 
 General
 --------------------
@@ -1398,7 +1400,7 @@ int main()
 #### Time measurement
 
 Time can be measured using system-specific tools.
-Example on Windows using the [query performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904%28v=vs.85%29.aspx), required `Windows.h` header:
+Example on Windows using the [query performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904%28v=vs.85%29.aspx), requires `Windows.h` header:
 
 ```cpp
 LARGE_INTEGER start, stop, elapsed;
@@ -1443,7 +1445,7 @@ cout << "Elapsed = " << elapsedSec << " s" << endl;
 ```cpp
 using namespace chrono;
 
-// a clock "with the smallest tick period provided by the implementation", probably wall time
+// This is a clock "with the smallest tick period provided by the implementation", probably wall time.
 auto start = high_resolution_clock::now();
 
 // Do some work.
@@ -2799,6 +2801,30 @@ plt.ylim(3.9, 6.1)
 plt.plot([1,2,3], [4,5,6], "ko-")
 plt.show()
 ```
+
+
+### Time measurement
+
+```python
+import time
+
+# Time since epoch in seconds, precision is platform-dependent.
+# Alternative: time.clock() which measures CPU time on Unix and QueryPerformanceCounter on Windows.
+start = time.time()
+
+for i in xrange(100000000):
+    pass
+
+stop = time.time()
+
+elapsed = stop - start
+print "Elapsed = {0} s".format(elapsed)
+```
+
+```python
+
+```
+
 
 Git
 --------------------
