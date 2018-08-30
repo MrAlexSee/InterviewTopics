@@ -51,6 +51,7 @@ Table of Contents
         * [Templates](#templates)
             * [Template specialization](#template-specialization)
             * [Template metaprogramming](#template-metaprogramming)
+        * [Time measurement](#time-measurement)
         * [Variadic functions](#variadic-functions)
     * [Standard Library](#standard-library)
         * [Map](#map)
@@ -1392,6 +1393,68 @@ int main()
     cout << Factorial<5>::value << endl; // prints 120
     // cout << Factorial<-2>::value << endl; // Wouldn't compile, template instantation max depth exceeded.
 }
+```
+
+#### Time measurement
+
+Time can be measured using system-specific tools.
+Example on Windows using the [query performance counter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904%28v=vs.85%29.aspx), required `Windows.h` header:
+
+```cpp
+LARGE_INTEGER start, stop, elapsed;
+LARGE_INTEGER frequency;
+
+QueryPerformanceFrequency(&frequency); // ticks per second
+QueryPerformanceCounter(&start); // a "high-resolution time stamp"
+
+// Do some work.
+for (int i = 0; i < 1000000000; ++i)
+    ;
+
+QueryPerformanceCounter(&stop);
+
+// Using QuadPart for 64-bit integers.
+elapsed.QuadPart = stop.QuadPart - start.QuadPart;
+
+// Converting to microseconds in order to prevent loss of precision.
+elapsed.QuadPart *= 1000000;
+elapsed.QuadPart /= frequency.QuadPart;
+
+cout << "Elapsed = " << elapsed.QuadPart << " us" << endl;
+```
+
+From C++11, standard header `chrono` can be used.
+
+```cpp
+// This measures the CPU time.
+// It may advance slower or faster (when more than one core is used) than the wall time.
+clock_t start = std::clock();
+
+// Do some work.
+for (int i = 0; i < 1000000000; ++i)
+    ;
+
+clock_t stop = std::clock();
+
+double elapsedSec = (stop - start) / static_cast<double>(CLOCKS_PER_SEC);
+cout << "Elapsed = " << elapsedSec << " s" << endl;
+```
+
+```cpp
+using namespace chrono;
+
+// a clock "with the smallest tick period provided by the implementation", probably wall time
+auto start = high_resolution_clock::now();
+
+// Do some work.
+for (int i = 0; i < 1000000000; ++i)
+    ;
+
+auto stop = high_resolution_clock::now();
+auto elapsed = stop - start;
+
+auto elapsedUs = duration_cast<microseconds>(elapsed).count();
+cout << "Elapsed = " << elapsedUs << " us" << endl;
 ```
 
 #### Variadic functions
