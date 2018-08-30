@@ -1493,6 +1493,54 @@ m1["ada"] = 3;
 cout << m1["bla"] << " " << m1["ada"] << endl; // prints 1 3
 ```
 
+A custom hash for an unordered map can be provided via a struct with overloaded `operator()` or a lambda.
+
+```cpp
+struct Point
+{
+    Point(int argX, int argY)
+        :x(argX), y(argY)
+    { }
+
+    // Also needs a defined equality operator in order to be stored in a hash table!
+    bool operator==(const Point &other) const
+    {
+        return this->x == other.x && this->y == other.y;
+    }
+
+    int x, y;
+};
+
+struct PointHash
+{
+    size_t operator()(const Point &point) const
+    {
+        return point.x ^ point.y;
+    }
+};
+
+int main() 
+{
+    unordered_map<Point, int, PointHash> map1;
+    Point p(2, 2);
+
+    map1[p] = 2;
+    cout << map1[p] << endl; // prints 2
+}
+```
+
+```cpp
+auto hashFun = [](const Point &point) { return point.x ^ point.y; };
+
+// Constructor which takes the hash also needs the initial bucket count to be passed.
+// Function type can be also defined explicitly as std::function<size_t(const Point &point)>.
+unordered_map<Point, int, decltype(hashFun)> map1(1, hashFun);
+Point p(2, 2);
+
+map1[p] = 2;
+cout << map1[p] << endl; // prints 2
+```
+
 #### Set
 
 A [set](https://en.cppreference.com/w/cpp/container/set) is a dynamic container of unique elements.
@@ -2592,7 +2640,7 @@ class Point(object):
     self.x = x
     self.y = y
 
-  def mysum(self): # Not passing self would mean a static function
+  def mysum(self): # Not passing self would mean a static function.
     return self.x + self.y
 ```
 
