@@ -684,6 +684,25 @@ C++
 
 #### Bitwise operators
 
+There are 6 bitwise operators available:
+
+```cpp
+& // and
+| // or
+^ // xor
+~ // not
+<< // shift left (same as multiplying by 2)
+>> // shift right (same as dividing by 2)
+```
+
+```cpp
+cout << (7 & 5) << endl; // prints 5 since 0111 & 0101 = 0101
+cout << (3 | 4) << endl; // prints 7 since 0011 | 0100 = 0111
+cout << (7 ^ 5) << endl; // prints 2 since 0111 ^ 0101 = 0010
+cout << (~5) << endl;    // prints -6 since ~0...00101 = 1...11010
+cout << (3 << 1) << endl; // prints 6 since 0011 << 1 = 0110
+cout << (6 >> 1) << endl; // prints 3 since 0110 >> 1 = 0011
+```
 
 #### Casting
 
