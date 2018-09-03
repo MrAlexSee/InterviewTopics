@@ -45,6 +45,7 @@ Table of Contents
     * [Basic](#basic-1)
         * [Bitwise operators](#bitwise-operators)
         * [Casting](#casting)
+        * [Data parsing](#data-parsing)
         * [Memory management](#memory-management)
         * [Operator overloading](#operator-overloading)
         * [Preprocessor directives](#preprocessor-directives)
@@ -674,8 +675,6 @@ C++
 
 * Constructor types: default (has no parameters or all parameters have default values), parametric, copy, move. When no constructor is defined by the user, the default constructor is supplied by the compiler.
 
-* Placement new: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
-
 * References cannot be null, reset or uninitialized.
 
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)): destructor, copy constructor, copy assignment operator.
@@ -817,10 +816,44 @@ A *aPtr = const_cast<A *>(acPtr);
 const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant here.
 ```
 
+#### Data parsing
+
+Data parsing in C++ can be achieved for example using [Boost](https://www.boost.org/).
+Below is an example of parsing a csv string in C++ and in Python.
+
+```cpp
+#include <boost/algorithm/string.hpp>
+
+string str = "1,2,3\n4,5,6";
+vector<string> lines;
+
+boost::split(lines, str, boost::is_any_of("\n"));
+cout << lines.size() << endl; // prints 2
+
+vector<vector<float>> numbers(lines.size());
+for (size_t i = 0; i < numbers.size(); ++i)
+{
+    vector<string> numberStrings;
+    boost::split(numberStrings, lines[i], boost::is_any_of(","));
+
+    for (const string &num : numberStrings)
+    {
+        numbers[i].push_back(stof(num)); // using stof from C++11
+    }
+}
+```
+
+```python
+lines = text.split("\n")
+data = [[float(num) for num in l.split(",") if num] for l in lines if l]
+```
+
 #### Memory management
 
 `malloc`/`calloc` return NULL on error and they must be matched with `free`/`realloc`.
 `new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
+
+Placement new uses already allocated memory for constructing an object: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
 
 #### Operator overloading
 
