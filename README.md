@@ -818,7 +818,7 @@ const A *aPtr2 = const_cast<const A *>(aPtr); // The cast is actually redundant 
 
 #### Data parsing
 
-Data parsing in C++ can be achieved for example using [Boost](https://www.boost.org/).
+Data parsing in C++ can be achieved, e.g., using the [Boost](https://www.boost.org/) library.
 Below is an example of parsing a csv string in C++ and in Python.
 
 ```cpp
@@ -853,7 +853,12 @@ data = [[float(num) for num in l.split(",") if num] for l in lines if l]
 `malloc`/`calloc` return NULL on error and they must be matched with `free`/`realloc`.
 `new` must be matched with `delete` or `delete[]`, it throws `bad_alloc` on error or use `(std::nothrow)` to return NULL instead.
 
-Placement new uses already allocated memory for constructing an object: `char *buf = new char[sizeof(string)];`, `string *p = new (buf) string("hi")`
+Placement new uses already allocated memory for constructing an object: 
+
+```cpp
+char *buf = new char[sizeof(string)];
+string *p = new (buf) string("hi")
+```
 
 #### Operator overloading
 
