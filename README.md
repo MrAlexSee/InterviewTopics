@@ -81,11 +81,12 @@ Table of Contents
         * [Running main](#running-main)
         * [Calling with args](#calling-with-args)
         * [Keyword args](#keyword-args)
-    * [Filter, map, reduce](#filter-map-reduce)
-    * [List functions](#list-functions)
     * [Classes](#classes)
         * [Inheritance](#inheritance)
     * [File system](#file-system)
+    * [Filter, map, reduce](#filter-map-reduce)
+    * [List functions](#list-functions)
+    * [Multithreading](#multithreading-1)
     * [Plotting](#plotting)
     * [Time measurement](#time-measurement-1)
 1. [Git](#git)
@@ -2735,23 +2736,6 @@ def addKwargs(**kwargs): # All keyword params as a dict
 * `print addKwargs(**{"x": 2, "y" = 3})`
 
 
-### Filter, map, reduce
-
-* List comprehension combines map with filter: `[2 * x for x in xrange(10) if x % 2 == 0]`.
-* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`: this is the same as list comprehension above.
-* `map(len, ["ala","ma","kota"]) == [3,2,4]`
-* `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
-
-
-### List functions
-
-* `del l[1]` removes an element at index 1.
-* `del l[:]` clears the entire list.
-* `l.pop(1)` removes an element at index 1 and returns this element.
-* `l.pop(l.index(max(l)))` removes the max element.
-* `l.remove(x)` removes the first value matching `x`.
-
-
 ### Classes
 
 ```python
@@ -2838,6 +2822,51 @@ for dirPath, _, fileNames in os.walk(dirPath):
             fSizes += [os.path.getsize(os.path.join(dirPath, fName))]
 
 print sum(fSizes) / 1024.0
+```
+
+
+### Filter, map, reduce
+
+* List comprehension combines map with filter: `[2 * x for x in xrange(10) if x % 2 == 0]`.
+* `map(lambda x: 2 * x, filter(lambda x: x % 2 == 0, xrange(10)))`: this is the same as list comprehension above.
+* `map(len, ["ala","ma","kota"]) == [3,2,4]`
+* `sum([1,2,3]) == reduce(lambda x,y: x + y, [1,2,3], 0)`
+
+
+### List functions
+
+* `del l[1]` removes an element at index 1.
+* `del l[:]` clears the entire list.
+* `l.pop(1)` removes an element at index 1 and returns this element.
+* `l.pop(l.index(max(l)))` removes the max element.
+* `l.remove(x)` removes the first value matching `x`.
+
+
+### Multithreading
+
+Note that in CPython there can only be a [single thread](https://docs.python.org/2/library/threading.html) running, due to [global interpreter lock](https://en.wikipedia.org/wiki/Global_interpreter_lock).
+
+Simple threads with locks:
+
+```python
+
+```
+
+Thread pool example using the `joblib` library:
+
+```python
+from joblib import Parallel, delayed
+
+def fun(i):
+    n = 0
+
+    for _ in xrange(1000000):
+        n += 1
+
+    return n + i
+
+res = Parallel(n_jobs = 4)(delayed(fun)(i) for i in xrange(4))
+print res # prints [1000000, 1000001, 1000002, 1000003]
 ```
 
 
