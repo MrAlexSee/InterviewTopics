@@ -470,7 +470,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Death march](https://en.wikipedia.org/wiki/Death_march_(project_management)): a project which is set to fail or which requires unsustainable overwork.
 
-* Development stages: pre-alpha, alpha (internal testing), beta (external testing, mostly bugfixes), release candidate (gamma, [feature freeze](https://en.wikipedia.org/wiki/Freeze_(software_engineering)), only the most important bugfixes)
+* Development stages: pre-alpha, alpha (internal testing), beta (external testing, mostly bugfixes), release candidate (gamma, [feature freeze](https://en.wikipedia.org/wiki/Freeze_(software_engineering)), only the most important bugfixes).
 
 * [Neutral build](https://en.wikipedia.org/wiki/Neutral_build): done in a neutral environment (outside deployment), catches errors such as different environmental variables, unchecked files, etc.
 
@@ -876,6 +876,108 @@ Placement new uses already allocated memory for constructing an object:
 ```cpp
 char *buf = new char[sizeof(string)];
 string *p = new (buf) string("hi")
+```
+
+### Namespaces
+
+[Namespaces](https://en.wikipedia.org/wiki/Namespace) are used in order to group identifiers and thus avoid [name collisions](https://en.wikipedia.org/wiki/Name_collision).
+Note that stuff from the standard library is located under the `std` namespace.
+It is generally discouraged to put `using` in a header in order to avoid pollution when the header is included.
+
+Various ways of accessing the `std` namespace:
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello" << std::endl;
+}
+```
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello" << endl;
+}
+```
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    // Using at function level, must be located before accessing the identifier.
+    using namespace std;
+    cout << "Hello" << endl;
+}
+```
+
+```cpp
+#include <iostream>
+
+struct A
+{
+    // This is not allowed.
+    // using namespace std;
+
+    static void print()
+    {
+        // Function scope in a member function.
+        using namespace std;
+        cout << "Hello" << endl;
+    }
+};
+
+int main()
+{
+    A::print();
+}
+```
+
+Namespace declaration and access example:
+
+```cpp
+#include <fstream>
+#include <iostream>
+#include <string>
+
+namespace A
+{
+    namespace B
+    {
+        int n = 5;
+    }
+}
+
+namespace C
+{
+    class string
+    {
+    public:
+        string(const char *argBuf)
+            :buf(argBuf)
+        { }
+
+        friend std::ostream &operator<< (std::ostream &out, const string &str)
+        {
+            out << str.buf;
+            return out;
+        }
+    private:
+        const char *buf;
+    };
+}
+
+int main()
+{
+    std::cout << A::B::n << std::endl; // prints 5
+    std::cout << std::string("ala") << " " << C::string("ala") << std::endl; // prints "ala ala"
+}
 ```
 
 #### Operator overloading
