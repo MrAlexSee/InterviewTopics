@@ -484,12 +484,27 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 #### Scrum
 
-[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): 3-9 people, sprints ~2 weeks, daily 15-minute stand-ups. [Agile](https://en.wikipedia.org/wiki/Agile_software_development), iterative, incremental, flexible.
+[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): usually 3-9 people in a team.
+Work is divided into sprints each roughly 2 weeks with daily 15-minute stand-ups (people stand in order to keep the meeting short).
+Scrum is an example of [agile](https://en.wikipedia.org/wiki/Agile_software_development) development: iterative, incremental, flexible.
+
+Parties in Scrum:
 
 * Development team
 * Product owner = stakeholders
-* Scrum master = servant-leader, helps the team
+* Scrum master = servant-leader who helps the team
 
+Meetings in Scrum:
+
+* daily stand-up (daily Scrum): each member summarizes what was achieved and what will be done in the future
+* sprint planning: describing and assigning tasks for the next sprint
+* sprint review: showing what was achieved during the sprint
+* sprint retrospective: only Scrum team members reflecting on how the sprint went
+* product backlog refinement
+
+A related agile method is [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)).
+It is continuous, the scope is more fluid, and there is no set cadence.
+Issues move between development stages such as "testing", "done", etc.
 
 ### Testing
 
