@@ -921,6 +921,22 @@ int main()
 ```cpp
 #include <iostream>
 
+int main()
+{
+    // Using at scope level
+    {
+        using namespace std;
+        cout << "Hello" << endl;
+    }
+
+    // This wouldn't compile.
+    // cout << "Hello" << endl;
+}
+```
+
+```cpp
+#include <iostream>
+
 struct A
 {
     // This is not allowed.
@@ -966,7 +982,7 @@ namespace C
 
         friend std::ostream &operator<< (std::ostream &out, const string &str)
         {
-            out << str.buf;
+            out << "C::" << str.buf;
             return out;
         }
     private:
@@ -977,7 +993,7 @@ namespace C
 int main()
 {
     std::cout << A::B::n << std::endl; // prints 5
-    std::cout << std::string("ala") << " " << C::string("ala") << std::endl; // prints "ala ala"
+    std::cout << std::string("ala") << " " << C::string("ala") << std::endl; // prints "ala C::ala"
 }
 ```
 
