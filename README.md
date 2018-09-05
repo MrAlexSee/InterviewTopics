@@ -2845,14 +2845,39 @@ print sum(fSizes) / 1024.0
 ### Multithreading
 
 Note that in CPython there can only be a [single thread](https://docs.python.org/2/library/threading.html) running, due to [global interpreter lock](https://en.wikipedia.org/wiki/Global_interpreter_lock).
+For this reason, multithreading in Python is useful for I/O-bound tasks, but not for CPU-bound tasks (use libraries or multiprocessing module for the latter).
 
 Simple threads with locks:
 
 ```python
+n = 0
+lock = threading.Lock()
 
+def fun():
+    print "Started: " + threading.current_thread().name
+    global n
+
+    for _ in xrange(100000):
+        with lock:
+            n += 1
+
+threads = []
+
+for i in xrange(4):
+    threads += [threading.Thread(target = fun)]
+
+for t in threads:
+    t.start()
+for t in threads:
+    t.join()
+
+# Prints 400000.
+# Without join, prints 0 or some small value.
+# Without a lock, prints some value <= 400000.
+print "n = {0}".format(n)
 ```
 
-Thread pool example using the `joblib` library:
+Example using the `joblib` library. Each function instance is executed in parallel and separately.
 
 ```python
 from joblib import Parallel, delayed
