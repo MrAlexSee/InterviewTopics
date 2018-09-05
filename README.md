@@ -47,6 +47,7 @@ Table of Contents
         * [Casting](#casting)
         * [Data parsing](#data-parsing)
         * [Memory management](#memory-management)
+        * [Namespaces](#namespaces)
         * [Operator overloading](#operator-overloading)
         * [Preprocessor directives](#preprocessor-directives)
         * [Templates](#templates)
@@ -878,7 +879,7 @@ char *buf = new char[sizeof(string)];
 string *p = new (buf) string("hi")
 ```
 
-### Namespaces
+#### Namespaces
 
 [Namespaces](https://en.wikipedia.org/wiki/Namespace) are used in order to group identifiers and thus avoid [name collisions](https://en.wikipedia.org/wiki/Name_collision).
 Note that stuff from the standard library is located under the `std` namespace.
