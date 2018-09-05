@@ -470,6 +470,8 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [Death march](https://en.wikipedia.org/wiki/Death_march_(project_management)): a project which is set to fail or which requires unsustainable overwork.
 
+* Development stages: pre-alpha, alpha (internal testing), beta (external testing, mostly bugfixes), release candidate (gamma, [feature freeze](https://en.wikipedia.org/wiki/Freeze_(software_engineering)), only the most important bugfixes)
+
 * [Neutral build](https://en.wikipedia.org/wiki/Neutral_build): done in a neutral environment (outside deployment), catches errors such as different environmental variables, unchecked files, etc.
 
 * [Nightly build](https://en.wikipedia.org/wiki/Daily_build): automated neutral build, mostly done when no one is working. Sometimes also called a daily build. It is often performed on multiple platforms, various emulated hardware, etc. and coupled with automated testing.
@@ -485,7 +487,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 #### Scrum
 
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): usually 3-9 people in a team.
-Work is divided into sprints each roughly 2 weeks with daily 15-minute stand-ups (people stand in order to keep the meeting short).
+Work is divided into sprints, each roughly 2 weeks, with daily 15-minute stand-ups (people stand in order to keep the meeting short).
 Scrum is an example of [agile](https://en.wikipedia.org/wiki/Agile_software_development) development: iterative, incremental, flexible.
 
 Parties in Scrum:
