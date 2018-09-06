@@ -50,6 +50,7 @@ Table of Contents
         * [Namespaces](#namespaces)
         * [Operator overloading](#operator-overloading)
         * [Preprocessor directives](#preprocessor-directives)
+        * [Program segments](#program-segments)
         * [Templates](#templates)
             * [Template specialization](#template-specialization)
             * [Template metaprogramming](#template-metaprogramming)
@@ -1230,6 +1231,16 @@ do                                \
 
 * [Include guards](https://en.wikipedia.org/wiki/Include_guard) prevent double declaration and circular inclusion.
 
+#### Program segments
+
+A program loaded into memory is divided into the following segments.
+
+* [bss](https://en.wikipedia.org/wiki/.bss): uninitialized static variables. Often only the size of this section and no actual data is stored (the memory is allocated when the program is loaded).
+* [Data segment](https://en.wikipedia.org/wiki/Data_segment): initialized static variables. The size depends on the size of variables in source code and does not change at runtime.
+* [Heap](https://en.wikipedia.org/wiki/Memory_management#HEAP): dynamic memory allocation.
+* [Rodata segment](https://en.wikipedia.org/wiki/Data_segment): initialized constant static variables.
+* [Stack](https://en.wikipedia.org/wiki/Call_stack): local variables. When subroutines are called, they push the [return address](https://en.wikipedia.org/wiki/Return_statement) onto the stack.
+* [Text segment](https://en.wikipedia.org/wiki/Code_segment): executable instructions. This is typically read-only.
 
 #### Templates
 
