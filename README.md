@@ -78,6 +78,7 @@ Table of Contents
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
     * [C++17](#c17)
+        * [Nested namespaces](#nested-namespaces)
     * [Makefile](#makefile)
 1. [Python](#python)
     * [Selected features](#selected-features)
@@ -2670,7 +2671,8 @@ cout << millisInTwoMinutes.count() << endl; // prints 120000
 #### Deduced return type
 
 ```cpp
-[[deprecated("legacy system")]] // This can be added in order to cause a compiler warning.
+// This can be added in order to cause a compiler warning when the function is called.
+[[deprecated("legacy system")]]
 auto add(int x, int y) { return x + y; }
 
 int main()
@@ -2754,6 +2756,33 @@ int main()
 
 * Use `-std=c++17` switch for compilation.
 
+#### Nested namespaces
+
+`namespace A::B::C { }` is equivalent to `namespace A { namespace B { namespace C { } } }`.
+Example usage:
+
+```cpp
+namespace A::B::C
+{
+    int a = 1;
+}
+
+namespace A
+{
+    namespace B
+    {
+        namespace C
+        {
+            int b = 2;
+        }
+    }
+}
+
+int main()
+{
+    cout << A::B::C::a << " " << A::B::C::b << endl; // prints 1 2
+}
+```
 
 ### Makefile
 
