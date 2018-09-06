@@ -73,6 +73,8 @@ Table of Contents
         * [Tuple](#tuple)
         * [Using](#using)
     * [C++14](#c14)
+        * [Chrono literals](#chroni-literals)
+        * [Deduced return type](#deduced-return-type)
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
     * [C++17](#c17)
@@ -2663,6 +2665,17 @@ cout << diff.count() << endl; // prints 1438 (1440 minutes in a day minus 2)
 
 auto millisInTwoMinutes = chrono::milliseconds(min);
 cout << millisInTwoMinutes.count() << endl; // prints 120000
+```
+
+#### Deduced return type
+
+```cpp
+auto add(int x, int y) { return x + y; }
+
+int main()
+{
+    cout << add(5, 4) << endl; // prints 9
+}
 ```
 
 #### Improved lambdas 
