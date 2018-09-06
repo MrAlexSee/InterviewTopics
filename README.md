@@ -73,7 +73,7 @@ Table of Contents
         * [Tuple](#tuple)
         * [Using](#using)
     * [C++14](#c14)
-        * [Chrono literals](#chroni-literals)
+        * [Chrono literals](#chrono-literals)
         * [Deduced return type](#deduced-return-type)
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
@@ -2670,6 +2670,7 @@ cout << millisInTwoMinutes.count() << endl; // prints 120000
 #### Deduced return type
 
 ```cpp
+[[deprecated("legacy system")]] // This can be added in order to cause a compiler warning.
 auto add(int x, int y) { return x + y; }
 
 int main()
