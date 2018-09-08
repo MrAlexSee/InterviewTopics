@@ -3135,7 +3135,9 @@ Git
 
 * `git add -u` – add all already-tracked files
 
-* `git add .` – add all files from the current directory, also untracked
+* `git add .` – add all files from the current directory including untracked files
+
+* `git blame [file]` – show who and when changed each line of `[file]`
 
 * `git checkout [branch-name]` – switch to branch `[branch-name]`
 
@@ -3145,7 +3147,7 @@ Git
 
 * `git commit -m "[msg]"` – commit with message `[msg]`
 
-* `git diff [file]` – show unstaged changes for `file`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `file`
+* `git diff [file]` – show unstaged changes for `[file]`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `[file]`
 
 * `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside, `git log origin/master..master` to show all commits which are not pushed (all in between `origin/master` and `master`)
 
