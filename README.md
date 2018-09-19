@@ -3143,9 +3143,13 @@ Git
 
 * `git checkout -b [branch-name] [base-branch-name]` – create a branch `[branch-name]` out of `[base-branch-name]`
 
+* `git checkout -- [file]` – discard local changes in `[file]` (`--` means that what follows are not command line flags, which makes it work even if the file is named like some git flag)
+
 * `git commit -a` – commits changes to all tracked files (not only in the current directory)
 
 * `git commit -m "[msg]"` – commit with message `[msg]`
+
+* `git commit --amend -m "[msg]"` – change the last commit message to `[msg]` (changing the remote branch requires force pushing)
 
 * `git diff [file]` – show unstaged changes for `[file]`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `[file]`
 
