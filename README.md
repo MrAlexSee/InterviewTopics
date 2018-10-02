@@ -2198,7 +2198,7 @@ for (const int i : { 1, 2, 3 })
 }
 ```
 
-Uniform initialization:
+Uniform initialization (also called brace initialization list, etc.):
 
 ```cpp
 struct Point
@@ -2606,6 +2606,25 @@ cout << ptr->a << endl;
 
 * **Weak pointer**: `weak_ptr`. Doesn't increase the count, useful for preventing circular dependencies.
 
+#### Static assert
+
+Static assert can be used for checks at compile time.
+
+```cpp
+struct B
+{
+    int x = 2;
+};
+
+const int k = 2;
+// Works only with constant expressions.
+static_assert(k > 1, "k must be greater than 1");
+
+// Objects need to be constexpr.
+constexpr B b;
+static_assert(b.x > 1, "x must be greater than 1");
+```
+
 #### Tuple
 
 Creating a heterogeneous tuple:
@@ -2767,13 +2786,15 @@ int main()
 
 * Use `-std=c++17` switch for compilation.
 
+#### Filesystem
+
 #### Nested namespaces
 
 `namespace A::B::C { }` is equivalent to `namespace A { namespace B { namespace C { } } }`.
 Example usage:
 
 ```cpp
-namespace A::B::C
+namespace A::B::C // nested namespace
 {
     int a = 1;
 }
@@ -2793,6 +2814,19 @@ int main()
 {
     cout << A::B::C::a << " " << A::B::C::b << endl; // prints 1 2
 }
+```
+
+#### Auto deduction for uniform initialization
+
+```cpp
+auto n { 2 }; // n is an int
+cout << n << endl; // prints 2
+
+auto d { 2.5 }; // d is a double
+cout << d << endl; // prints 2.5
+
+auto f { 2.5f }; // f is a float
+cout << f << endl; // prints 2.5
 ```
 
 ### Makefile
