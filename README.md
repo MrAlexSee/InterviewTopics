@@ -892,8 +892,6 @@ It is generally discouraged to put `using` in a header in order to avoid polluti
 Various ways of accessing the `std` namespace:
 
 ```cpp
-#include <iostream>
-
 int main()
 {
     std::cout << "Hello" << std::endl;
@@ -901,8 +899,6 @@ int main()
 ```
 
 ```cpp
-#include <iostream>
-
 using namespace std;
 
 int main()
@@ -912,8 +908,6 @@ int main()
 ```
 
 ```cpp
-#include <iostream>
-
 int main()
 {
     // Using at function level, must be located before accessing the identifier.
@@ -923,8 +917,6 @@ int main()
 ```
 
 ```cpp
-#include <iostream>
-
 int main()
 {
     // Using at scope level
@@ -939,8 +931,6 @@ int main()
 ```
 
 ```cpp
-#include <iostream>
-
 struct A
 {
     // This is not allowed.
@@ -963,10 +953,6 @@ int main()
 Namespace declaration and access example:
 
 ```cpp
-#include <fstream>
-#include <iostream>
-#include <string>
-
 namespace A
 {
     namespace B
@@ -2236,6 +2222,29 @@ Point p2 { };
 
 This allows for solving the [most vexing parse](https://en.wikipedia.org/wiki/Most_vexing_parse) problem (syntax ambiguity).
 
+Initialization for non-static member variables:
+
+```cpp
+struct B
+{
+    B(int xArg): x(xArg) { }
+    int x;
+};
+
+struct A
+{
+    B b { 3 };
+    int a = 5;
+    const static int c = 2; // available before C++11
+};
+
+int main()
+{
+    A a;
+    cout << a.b.x << endl; // prints 3
+}
+```
+
 #### Lambdas
 
 ```cpp
@@ -2649,6 +2658,8 @@ cout << n << endl; // prints 100
 * Binary literals: `cout << 0b10001 << endl` prints 17.
 
 * Decimal separator: `cout << 10'000.0 << endl` prints 10000.
+
+* Added a `make_unique` function for unique pointer construction.
 
 #### Chrono literals
 
