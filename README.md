@@ -703,6 +703,9 @@ C++
 
 * Constructor types: default (has no parameters or all parameters have default values), parametric, copy, move. When no constructor is defined by the user, the default constructor is supplied by the compiler.
 
+* [Copy elision](https://en.wikipedia.org/wiki/Copy_elision): compiler optimization consisting in eliminating copying of objects.
+This might actually alter program behavior, especially in the case of return value optimization.
+
 * References cannot be null, reset or uninitialized.
 
 * [Rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)): destructor, copy constructor, copy assignment operator.
@@ -2815,6 +2818,8 @@ Below there are descriptions of most of the C++17 features (this is not exhausti
 
 Compile with `-lstdc++fs` option.
 
+Checking file existence and size:
+
 ```cpp
 filesystem::path f1 = "test.txt";
 
@@ -2825,6 +2830,18 @@ ofstream(f1.filename()) << "koty";
 
 // Prints 4. Throws an exception if the file is not present.
 cout << filesystem::file_size(f1) << endl;
+```
+
+Creating a directory:
+
+```cpp
+filesystem::path d1 = "test";
+
+if (filesystem::create_directory(d1))
+{
+    // Prints "Dir created: "test"".
+    cout << "Dir created: " << d1.relative_path() << endl;
+}
 ```
 
 #### Folding for parameter packs
@@ -2881,7 +2898,17 @@ int main()
 #### Optional
 
 ```cpp
+std::optional<float> divide(float f1, float f2)
+{
+    return f2 != 0 ? f1 / f2 : std::optional<float>();
+}
 
+int main()
+{
+    cout << divide(2, 5).value() << endl; // prints 0.4
+    cout << divide(2, 0).value_or(-1.0) << endl; // prints -1.0
+    cout << divide(2, 0).value() << endl; // throws
+}
 ```
 
 #### Unpacking tuples
