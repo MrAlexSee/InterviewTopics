@@ -78,6 +78,7 @@ Table of Contents
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
     * [C++17](#c17)
+        * [Class template argument deduction](#class-template-argument-deduction)
         * [Filesystem](#filesystem)
         * [Folding for parameter packs](#folding-for-parameter-packs)
         * [Nested namespaces](#nested-namespaces)
@@ -2815,6 +2816,19 @@ Below there are descriptions of most of the C++17 features (this is not exhausti
 
 * Use `-std=c++17` switch for compilation.
 
+#### Class template argument deduction
+
+There is no need for explicit passing of class template argument types.
+Before, it required an explicit statement: `auto p = pair<int, float>(1, 1.5f);` or using `make_pair`.
+
+```cpp
+pair p(1, 1.5f); // or pair p{ 1, 1.5f };
+tuple tup('c', 1.25);
+
+cout << typeid(p.first).name() << " " << typeid(p.second).name() << endl; // prints i f
+cout << typeid(get<0>(tup)).name() << " " << typeid(get<1>(tup)).name() << endl; // prints c d
+```
+
 #### Filesystem
 
 Compile with `-lstdc++fs` option.
@@ -2945,7 +2959,7 @@ Also allows for a more convenient iteration of compound elements:
 ```cpp
 map<string, int> m { { "ala", 2 }, { "jarek", 3 } };
 
-for (const auto& [k, v] : m)
+for (const auto &[k, v] : m)
 {
     cout << k << " -> " << v << endl;
 }
@@ -3370,3 +3384,4 @@ Acknowledgements
 
 All references are provided as clickable links next to the descriptions.
 These are mostly based on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and the [C++ reference](http://en.cppreference.com/w/) website.
+I have also consulted a [working draft](http://www.open-std.org/JTC1/SC22/WG21/) of a standard, sources can be found on the [repo](https://github.com/cplusplus/draft).
