@@ -82,7 +82,8 @@ Table of Contents
         * [Folding for parameter packs](#folding-for-parameter-packs)
         * [Nested namespaces](#nested-namespaces)
         * [Optional](#optional)
-        * [Unpacking tuples](#unpacking-tuples)
+        * [Scoped initializer](#scoped-initializer)
+        * [Structured binding](#structured-binding)
     * [Makefile](#makefile)
 1. [Python](#python)
     * [Selected features](#selected-features)
@@ -2911,16 +2912,45 @@ int main()
 }
 ```
 
-#### Unpacking tuples
+#### Scoped initializer
+
+A variable can be initialized as part of `if`, `for`, `switch`, etc. and it is scoped within the block.
+
+```cpp
+vector<int> vec { 1, 4, 5 };
+
+// Modify an item inside a vector if it exists.
+if (auto it = std::find(vec.begin(), vec.end(), 4); it != vec.end())
+{
+    *it = 10;
+}
+
+// Variable "it" is no longer accessible here.
+cout << vec[1] << endl; // prints 10
+```
+
+#### Structured binding
 
 ```cpp
 pair<string, int> p1 { "ala", 2 };
     
-// This is similar to tie(name, count) = p1, which requires previous variable declaration.
+// This is similar to tie(name, count) = p1, which however requires previous variable declaration.
 auto [name, count] = p1;
 cout << name << endl; // prints "ala"
 cout << count << " " << typeid(count).name() << endl; // prints 2 i
 ```
+
+Also allows for a more convenient iteration of compound elements:
+
+```cpp
+map<string, int> m { { "ala", 2 }, { "jarek", 3 } };
+
+for (const auto& [k, v] : m)
+{
+    cout << k << " -> " << v << endl;
+}
+```
+
 
 ### Makefile
 
