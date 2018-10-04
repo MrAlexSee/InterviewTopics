@@ -2813,8 +2813,18 @@ Below there are descriptions of most of the C++17 features (this is not exhausti
 
 #### Filesystem
 
-```cpp
+Compile with `-lstdc++fs` option.
 
+```cpp
+filesystem::path f1 = "test.txt";
+
+cout << filesystem::exists(f1) << endl; // prints 0
+cout << f1.filename() << " " << f1.extension() << endl; // prints "test.txt" ".txt" (both in quotes)
+
+ofstream(f1.filename()) << "koty";
+
+// Prints 4. Throws an exception if the file is not present.
+cout << filesystem::file_size(f1) << endl;
 ```
 
 #### Folding for parameter packs
