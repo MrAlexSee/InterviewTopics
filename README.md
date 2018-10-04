@@ -3384,4 +3384,4 @@ Acknowledgements
 
 All references are provided as clickable links next to the descriptions.
 These are mostly based on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and the [C++ reference](http://en.cppreference.com/w/) website.
-I have also consulted a [working draft](http://www.open-std.org/JTC1/SC22/WG21/) of a standard, sources can be found on the [repo](https://github.com/cplusplus/draft).
+I have also consulted a [working draft](http://www.open-std.org/JTC1/SC22/WG21/) of the standard, relevant text sources can be found on the [repo](https://github.com/cplusplus/draft).
