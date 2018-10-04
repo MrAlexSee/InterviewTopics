@@ -78,7 +78,11 @@ Table of Contents
         * [Improved lambdas](#improved-lambdas)
         * [Variable templates](#variable-templates)
     * [C++17](#c17)
+        * [Filesystem](#filesystem)
+        * [Folding for parameter packs](#folding-for-parameter-packs)
         * [Nested namespaces](#nested-namespaces)
+        * [Optional](#optional)
+        * [Unpacking tuples](#unpacking-tuples)
     * [Makefile](#makefile)
 1. [Python](#python)
     * [Selected features](#selected-features)
@@ -685,9 +689,9 @@ C++
 [C++](https://en.wikipedia.org/wiki/C%2B%2B): compiled, static typing, object-oriented.
 [Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) proceeds as follows:
 
-1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc. Produces a [translation unit](https://en.wikipedia.org/wiki/Translation_unit_(programming)) for each source file.
+1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, macros, etc. Produces a [translation unit](https://en.wikipedia.org/wiki/Translation_unit_(programming)) (input to a compiler) for each source file.
 1. Compilation: produces object files (.o). These can be grouped into a static library (.a or .lib Linux/Windows). Object files can refer to symbols that are declared but not defined.
-1. Linking: combines object files into a dynamic library (.so or .dll Linux/Windows, sometimes .lib is also used) or an executable.
+1. Linking: combines object files into an executable or a dynamic library (.so or .dll Linux/Windows, sometimes .lib is also used).
 
 ### Basic
 
@@ -2866,7 +2870,9 @@ int main()
 
 #### Optional
 
+```cpp
 
+```
 
 #### Unpacking tuples
 
@@ -2876,7 +2882,7 @@ pair<string, int> p1 { "ala", 2 };
 // This is similar to tie(name, count) = p1, which requires previous variable declaration.
 auto [name, count] = p1;
 cout << name << endl; // prints "ala"
-cout << count << " " << typeid(count).name() << endl; // prints 2 i"
+cout << count << " " << typeid(count).name() << endl; // prints 2 i
 ```
 
 ### Makefile
