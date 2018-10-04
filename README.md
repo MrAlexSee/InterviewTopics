@@ -454,7 +454,7 @@ Problem is with the controller which is tightly coupled with a view and may get 
 
 * [SOLID](https://en.wikipedia.org/wiki/SOLID): single responsibility (per class), open/closed (open for extension, closed for modification, e.g., inheritance), Liskov substitution (subclass can be used as if it were its parent), interface segregation (expose only the required methods to clients), dependency inversion (program to an interface, not to an implementation).
 
-* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): single source of truth, meaning  that each data element is stored exactly once.
+* [SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth): single source of truth, meaning that each data element is stored exactly once.
 
 * [WORA](https://en.wikipedia.org/wiki/Write_once,_run_anywhere): write once, run anywhere, a Java slogan indicating that a Java program can be run on any device with a [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine).
 
@@ -486,13 +486,15 @@ Problem is with the controller which is tightly coupled with a view and may get 
 1. Specification, possibly start with abstract description and work towards the details.
 1. Select the technologies and the development process.
 1. Define features, perhaps in connection with the technologies.
-1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree how progress/success will be measured/defined.
+1. Define the timeline: task planning, delegation, select a team, divide responsibilities, agree on how progress/success will be measured/defined (formulate the definition of "done").
+1. Compile code guidelines.
 1. Before the start: check if we have everything we need (resources, etc.).
 
 #### Scrum
 
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)): usually 3-9 people in a team.
 Work is divided into sprints, each roughly 2 weeks, with daily 15-minute stand-ups (people stand in order to keep the meeting short).
+Tasks for each sprint are usually estimated in terms of story points, sometimes using the [planning poker](https://en.wikipedia.org/wiki/Planning_poker) technique.
 Scrum is an example of [agile](https://en.wikipedia.org/wiki/Agile_software_development) development: iterative, incremental, flexible.
 
 Parties in Scrum:
@@ -503,14 +505,14 @@ Parties in Scrum:
 
 Meetings in Scrum:
 
-* daily stand-up (daily Scrum): each member summarizes what was achieved and what will be done in the future
+* daily stand-up (daily Scrum): each member summarizes what they achieved and what they will do in the future
 * sprint planning: describing and assigning tasks for the next sprint
 * sprint review: showing what was achieved during the sprint
 * sprint retrospective: only Scrum team members reflecting on how the sprint went
 * product backlog refinement
 
 A related agile method is [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)).
-It is continuous, the scope is more fluid, and there is no set cadence.
+It is continuous, the scope is more fluid, and there is no set cadence (speed).
 Issues move between development stages such as "testing", "done", etc.
 
 ### Testing
@@ -684,9 +686,8 @@ C++
 [Compilation](https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work) proceeds as follows:
 
 1. Preprocessing: handling preprocessor directives, i.e. parsing defines, includes, etc. Produces a [translation unit](https://en.wikipedia.org/wiki/Translation_unit_(programming)) for each source file.
-1. Compilation: produces object files (.o). These can be grouped into a static library (.a). Object files can refer to symbols that are declared but not defined.
-1. Linking: combines object files into a dynamic library or an executable.
-
+1. Compilation: produces object files (.o). These can be grouped into a static library (.a or .lib Linux/Windows). Object files can refer to symbols that are declared but not defined.
+1. Linking: combines object files into a dynamic library (.so or .dll Linux/Windows, sometimes .lib is also used) or an executable.
 
 ### Basic
 
@@ -2091,6 +2092,9 @@ for (const int n : vec) { cout << n << " "; } // prints 1 2 0 0 10 10
 
 ### C++11
 
+Below there are descriptions of most of the C++11 features (this is not exhaustive).
+Shorter descriptions are itemized here, longer descriptions are later divided into subsections.
+
 * Use `-std=c++11` switch for compilation.
 
 * `auto n = 5; cout << typeid(n).name() << endl;` prints `i`.
@@ -2198,7 +2202,8 @@ for (const int i : { 1, 2, 3 })
 }
 ```
 
-Uniform initialization (also called brace initialization list, etc.):
+Uniform initialization (also called brace initialization list, etc.).
+This allows for solving the [most vexing parse](https://en.wikipedia.org/wiki/Most_vexing_parse) problem (syntax ambiguity).
 
 ```cpp
 struct Point
@@ -2220,7 +2225,18 @@ Point p1 { 3, 8 };
 Point p2 { };
 ```
 
-This allows for solving the [most vexing parse](https://en.wikipedia.org/wiki/Most_vexing_parse) problem (syntax ambiguity).
+Auto deduction:
+
+```cpp
+auto n { 2 }; // n is an int
+cout << n << " " << typeid(n).name() << endl; // prints 2 i
+
+auto d { 2.5 }; // d is a double
+cout << d << " " << typeid(d).name() << endl; // prints 2.5 d
+
+auto f { 2.5f }; // f is a float
+cout << f << " " << typeid(f).name() << endl; // prints 2.5 f
+```
 
 Initialization for non-static member variables:
 
@@ -2672,6 +2688,9 @@ cout << n << endl; // prints 100
 
 ### C++14
 
+Below there are descriptions of most of the C++14 features (this is not exhaustive).
+Shorter descriptions are itemized here, longer descriptions are later divided into subsections.
+
 * Use `-std=c++14` switch for compilation.
 
 * Binary literals: `cout << 0b10001 << endl` prints 17.
@@ -2784,9 +2803,38 @@ int main()
 
 ### C++17 
 
+Below there are descriptions of most of the C++17 features (this is not exhaustive).
+
 * Use `-std=c++17` switch for compilation.
 
 #### Filesystem
+
+```cpp
+
+```
+
+#### Folding for parameter packs
+
+This offers a simplified syntax when compared to C++11.
+
+```cpp
+template<typename... T>
+auto sum(T... args)
+{
+    return (... + args);
+}
+
+template<typename... T>
+auto sumSeeded(T... args)
+{
+    return (10 + ... + args);
+}
+
+// Types can be mixed. Prints 60.75.
+cout << sum(10, 20.5f, 30.25) << endl;
+// Types can be mixed. Prints 70.75 (60.75 + 10).
+cout << sumSeeded(10, 20.5f, 30.25) << endl;
+```
 
 #### Nested namespaces
 
@@ -2816,17 +2864,19 @@ int main()
 }
 ```
 
-#### Auto deduction for uniform initialization
+#### Optional
+
+
+
+#### Unpacking tuples
 
 ```cpp
-auto n { 2 }; // n is an int
-cout << n << endl; // prints 2
-
-auto d { 2.5 }; // d is a double
-cout << d << endl; // prints 2.5
-
-auto f { 2.5f }; // f is a float
-cout << f << endl; // prints 2.5
+pair<string, int> p1 { "ala", 2 };
+    
+// This is similar to tie(name, count) = p1, which requires previous variable declaration.
+auto [name, count] = p1;
+cout << name << endl; // prints "ala"
+cout << count << " " << typeid(count).name() << endl; // prints 2 i"
 ```
 
 ### Makefile
@@ -3047,7 +3097,7 @@ ignoring Linux hidden folders:
 
 ```python
 # Expands the home directory.
-dirPath = os.path.expanduser("~/Desktop/Fingerprints")
+dirPath = os.path.expanduser("~/Desktop/test")
 fSizes = []
 
 for dirPath, _, fileNames in os.walk(dirPath):
