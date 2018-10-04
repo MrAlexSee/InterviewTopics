@@ -2548,18 +2548,63 @@ for (int i = 0; i < 5; ++i)
     }));
 }
 
-for (auto &f : res) { cout << f.get() << endl; }
+for (auto &f : res) { cout << f.get() << endl; } // Prints the results after 3 seconds.
 ```
 
 * Threads with a **condition variable**:
 
-```cpp
+Multiple threads can block on the condition variable and be released after a notification.
 
+```cpp
+vector<int> vec;
+mutex mut;
+
+condition_variable productionFinished;
+
+auto producerFunction = [&vec, &mut, &productionFinished]()
+{
+    unique_lock<mutex> guard(mut);
+
+    for (int i = 0; i < 5; ++i)
+    {
+        vec.push_back(i);
+    }
+
+    // The second (last) producer thread notifies the consumer.
+    if (vec.size() == 10)
+    {
+        cout << "Notyfing the condition variable" << endl;
+        productionFinished.notify_one(); // or notify_all()
+    }
+};
+auto consumerFunction = [&vec, &mut, &productionFinished]()
+{
+    unique_lock<mutex> guard(mut);
+    // If the condition is not met, the lock is released and the thread is blocked.
+    // The thread will be awoken if the condition variable is notified or due to a spurious wake-up.
+    productionFinished.wait(guard, [&vec] { return vec.size() == 10; });
+
+    cout << "size = " << vec.size() << endl;
+    vec.clear();
+};
+
+// Without synchronizing on the condition variable (i.e. using only a mutex),
+// the consumer might print 0, 5, or 10, depending on which thread is called first.
+condition_variable isReady;
+
+thread producer1(producerFunction);
+thread producer2(producerFunction);
+thread consumer(consumerFunction);
+
+producer1.join();
+producer2.join();
+consumer.join();
+}
 ```
 
 * `future<void> res(async(fun));`: async can take fun with args or a lambda, `res.get();` blocks until the result is available.
 * `std::promise` is the producer and `std::future` is the consumer.
-
+* Use `std::recursive_mutex` in order to avoid a deadlock if a mutex is obtained more than once from the same thread.
 
 #### Range-based for loop
 
