@@ -3378,7 +3378,7 @@ Git
 
 * `git commit --amend -m "[msg]"` – change the last commit message to `[msg]` (changing the remote branch requires force pushing)
 
-* `git diff [file]` – show unstaged changes for `[file]`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `[file]`
+* `git diff [file]` – show unstaged changes for `[file]`, `git diff --staged` to show all staged changes, `git diff --staged [file]` to show all staged changes for `[file]`; use option `--color-words` to show changes for words rather than for lines
 
 * `git log` – show all commits starting from the latest one, `git log -p` to show changes alongside, `git log origin/master..master` to show all commits which are not pushed (all in between `origin/master` and `master`)
 
