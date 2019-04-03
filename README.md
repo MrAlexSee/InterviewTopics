@@ -682,7 +682,11 @@ TEST_CASE("is addition correct", "[math]")
 
 * `apt-get dist-upgrade` – install update and satisfy dependencies
 
+* `apropos -r '^std'` – search manual page names and descriptions for ones starting with `std`
+
 * `dpkg --listfiles [pkg]` – list all files from package `[pkg]`
+
+* `type [cmd]` – show where the command `[cmd]` points or aliases to
 
 * `update-alternatives --config [pkg]` – select a different version for `[pkg]`
 
