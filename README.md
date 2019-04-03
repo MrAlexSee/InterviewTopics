@@ -660,6 +660,8 @@ TEST_CASE("is addition correct", "[math]")
 
 * `pdfcrop --margins '0 0 0 0' [in].pdf [out].pdf` – crop pdf file `[in].pdf`, write to `[out].pdf`
 
+* `pandoc -V geometry:margin=2.5cm --latex-engine=xelatex --from markdown -o [out].pdf [in].md` – convert a Markdown file `[in]` to `[out].pdf` using set margins
+
 * `rsvg-convert -f pdf -o [out].pdf [in]` – convert SVG file `[in]` to `[out].pdf`
 
 #### Net
